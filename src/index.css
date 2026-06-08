@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Cascadia Code', monospace;
+}
+
+body {
+  font-family: 'Cascadia Code', monospace;
+  background-color: #212121;
+  color: #e6edf3;
+}

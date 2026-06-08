@@ -1,7 +1,25 @@
+import Navbar from './components/Navbar'
+import Landing from './components/Landing'
+
 function App() {
   return (
-    <div className="bg-red-200">
-      <h1>App</h1>
+    <div>
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 9999,
+          pointerEvents: 'none',
+          backgroundImage: 'url(/grain-bg.png)',
+          backgroundRepeat: 'repeat',
+          backgroundSize: '200px 200px',
+          opacity: 0.40,
+          mixBlendMode: 'soft-light',
+        }}
+      />
+      <Navbar />
+      <Landing />
     </div>
   )
 }
