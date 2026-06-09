@@ -1,6 +1,11 @@
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { SOCIAL_LINKS } from '../constants/social'
 import { EmailIcon, GitHubIcon, LinkedInIcon, ResumeIcon, ArrowRightIcon } from '../components/ui/icons'
+
+const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 const SOCIAL_ICONS = {
   linkedin: <LinkedInIcon size={15} />,
@@ -52,15 +57,28 @@ function Contact() {
   const [name, setName] = useState('')
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
+  const [status, setStatus] = useState('idle')
 
   function handleSubmit(e) {
     e.preventDefault()
-    const body = `Hi Bryan,\n\n${message}\n\n— ${name}`
-    const mailto = `mailto:dev.bryanfernandez@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href = mailto
+    setStatus('sending')
+
+    emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      { name, subject, message, time: new Date().toLocaleString() },
+      EMAILJS_PUBLIC_KEY,
+    ).then(() => {
+      setStatus('sent')
+      setName('')
+      setSubject('')
+      setMessage('')
+    }).catch(() => {
+      setStatus('error')
+    })
   }
 
-  const isReady = name.trim() && subject.trim() && message.trim()
+  const isReady = name.trim() && subject.trim() && message.trim() && status !== 'sending'
 
   return (
     <section
@@ -199,7 +217,11 @@ function Contact() {
 
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 pt-2">
                 <p className="hidden md:block font-mono text-xs text-[#8b949e]">
-                  {isReady ? '// ready to send_' : '// fill in all fields_'}
+                  {status === 'sent'    ? '// message sent ✓'      :
+                   status === 'error'   ? '// something went wrong' :
+                   status === 'sending' ? '// sending...'           :
+                   isReady             ? '// ready to send_'        :
+                                         '// fill in all fields_'}
                 </p>
                 <button
                   type="submit"
@@ -217,7 +239,7 @@ function Contact() {
                   onMouseEnter={e => { if (isReady) { e.currentTarget.style.boxShadow = '2px 2px 0 #39d353'; e.currentTarget.style.transform = 'translate(2px,2px)' } }}
                   onMouseLeave={e => { if (isReady) { e.currentTarget.style.boxShadow = '4px 4px 0 #39d353'; e.currentTarget.style.transform = 'translate(0,0)' } }}
                 >
-                  Send message
+                  {status === 'sending' ? 'Sending...' : status === 'sent' ? 'Sent ✓' : 'Send message'}
                   <ArrowRightIcon />
                 </button>
               </div>
