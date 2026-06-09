@@ -39,12 +39,12 @@ function Footer() {
         }}
       />
 
-      <div className="relative flex flex-col items-center md:flex-row md:items-center md:justify-between py-5">
+      <div className="relative flex flex-col items-center md:flex-row md:items-center md:justify-between pt-4 pb-6 px-6 md:px-10">
         <h2
           className="font-bold leading-none tracking-tight select-none"
           style={{
             fontFamily: "'Syne', sans-serif",
-            fontSize: 'clamp(1rem, 10vw, 10rem)',
+            fontSize: 'clamp(1rem, 9vw, 10rem)',
             color: 'transparent',
             WebkitTextStroke: '1.5px #e8eaed',
           }}
@@ -52,7 +52,7 @@ function Footer() {
           Bryan Fernandez
         </h2>
 
-        <div className="flex md:flex-col flex-row gap-4 mt-4 md:mt-0">
+        <div className="flex md:flex-col flex-row items-center gap-4 mt-4 md:mt-0 md:pr-2">
           <a
             href="mailto:bfern152@fiu.edu"
             aria-label="Email"
@@ -74,6 +74,8 @@ function Footer() {
           ))}
         </div>
       </div>
+
+
     </footer>
   )
 }
