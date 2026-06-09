@@ -38,8 +38,10 @@ function Experience() {
     <section
       ref={sectionRef}
       id="experience"
-      className="crt-scanlines relative bg-[#212121] z-20 overflow-hidden min-h-screen"
+      className="crt-scanlines relative bg-[#212121] z-20 overflow-hidden min-h-screen border-t-purple-800 border-t-3"
     >
+
+
       <img
         src="/gradient-bg.png"
         alt=""
@@ -50,7 +52,10 @@ function Experience() {
 
       <AlignmentGuides sectionRef={sectionRef} editorRef={editorRef} />
 
-      <div className="relative z-10 px-4 md:px-16 lg:px-24 py-16 md:py-24 max-w-6xl mx-auto">
+      {/* Fade gradient-bg colors at the bottom */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: '160px', background: 'linear-gradient(to bottom, transparent, #212121)', zIndex: 4 }} />
+
+      <div className="relative z-10 px-4 md:px-16 lg:px-24 pt-28 md:pt-32 pb-16 md:pb-24 max-w-6xl mx-auto">
         <div
           ref={editorRef}
           className="overflow-hidden flex flex-col"

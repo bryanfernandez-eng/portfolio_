@@ -10,7 +10,7 @@ function GrainOverlay() {
         backgroundImage: 'url(/grain-bg.png)',
         backgroundRepeat: 'repeat',
         backgroundSize: '200px 200px',
-        opacity: 0.80,
+        opacity: 0.90,
         mixBlendMode: 'soft-light',
       }}
     />

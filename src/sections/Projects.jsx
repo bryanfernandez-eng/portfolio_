@@ -91,6 +91,13 @@ function Projects() {
     >
       <BlueprintAxis />
 
+      {/* Diagonal transition from Landing (dark) into Projects (light) */}
+      <div className="absolute top-0 left-0 right-0 pointer-events-none" style={{ height: '80px', zIndex: 3 }}>
+        <svg viewBox="0 0 1440 80" width="100%" height="70" preserveAspectRatio="none" aria-hidden="true">
+          <polygon points="0,0 1440,0 1440,80 0,44" fill="#212121" />
+        </svg>
+      </div>
+
       {/* Grid fade mask */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -100,23 +107,23 @@ function Projects() {
         }}
       />
 
-      <div className="relative z-10 flex flex-col flex-1 min-h-0 pb-8 pt-16 px-8 md:px-16 lg:px-24 max-w-6xl mx-auto w-full">
-        <div className="flex items-end justify-between mb-16">
+      <div className="relative z-10 flex flex-col flex-1 min-h-0 pb-8 pt-20 md:pt-28 max-w-6xl mx-auto w-full">
+        <div className="flex items-end justify-between gap-4 mb-10 md:mb-16 px-4 md:px-16 lg:px-24">
           <div>
             <p className="font-mono text-xs text-[#9098a3] mb-2">// work</p>
             <h2
               className="font-bold leading-none tracking-tight text-[#212121]"
-              style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(3rem, 8vw, 6rem)' }}
+              style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2rem, 10vw, 6rem)' }}
             >
               Projects
             </h2>
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 shrink-0">
             <button
               onClick={handleScrollLeft}
               aria-label="Scroll left"
-              className="w-10 h-10 flex items-center justify-center bg-black text-white hover:bg-white hover:text-black border border-black transition-colors duration-150"
+              className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-black text-white hover:bg-white hover:text-black border border-black transition-colors duration-150"
               style={{ borderRadius: '0' }}
             >
               <ChevronLeftIcon />
@@ -124,7 +131,7 @@ function Projects() {
             <button
               onClick={handleScrollRight}
               aria-label="Scroll right"
-              className="w-10 h-10 flex items-center justify-center bg-black text-white hover:bg-white hover:text-black border border-black transition-colors duration-150"
+              className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-black text-white hover:bg-white hover:text-black border border-black transition-colors duration-150"
               style={{ borderRadius: '0' }}
             >
               <ChevronRightIcon />
@@ -136,13 +143,13 @@ function Projects() {
           ref={scrollRef}
           onScroll={handleScroll}
           className="flex overflow-x-auto"
-          style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
         >
           {Array.from({ length: totalPages }).map((_, pageIdx) => (
             <div
               key={pageIdx}
-              className="grid gap-6 shrink-0 w-full"
-              style={{ scrollSnapAlign: 'start', gridTemplateColumns: `repeat(${cardsPerPage}, 1fr)`, paddingBottom: '8px', paddingRight: '8px' }}
+              className="grid gap-4 md:gap-6 shrink-0 w-full px-4 md:px-16 lg:px-24"
+              style={{ scrollSnapAlign: 'start', gridTemplateColumns: `repeat(${cardsPerPage}, 1fr)`, paddingBottom: '8px' }}
             >
               {PROJECTS.slice(pageIdx * cardsPerPage, pageIdx * cardsPerPage + cardsPerPage).map(project => (
                 <ProjectCard key={project.id} project={project} onSelect={setSelectedProject} />
@@ -151,7 +158,7 @@ function Projects() {
           ))}
         </div>
 
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="flex justify-center gap-2 mt-8 px-4 md:px-16 lg:px-24">
           {Array.from({ length: totalPages }).map((_, i) => (
             <button
               key={i}

@@ -44,8 +44,8 @@ function Footer() {
           className="font-bold leading-none tracking-tight select-none"
           style={{
             fontFamily: "'Syne', sans-serif",
-            fontSize: 'clamp(1rem, 9vw, 10rem)',
-            color: 'transparent',
+            fontSize: 'clamp(1rem, 9vw, 20rem)',
+          color: 'transparent',
             WebkitTextStroke: '1.5px #e8eaed',
           }}
         >

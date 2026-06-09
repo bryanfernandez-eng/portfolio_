@@ -1,5 +1,6 @@
 import DotGrid from '../components/backgrounds/DotGrid'
 import GeometricBackground from '../components/backgrounds/GeometricBackground'
+import Clouds from '../components/backgrounds/Clouds'
 import { BADGES } from '../constants/landing'
 
 function Landing() {
@@ -7,6 +8,7 @@ function Landing() {
     <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-8 overflow-hidden">
       <DotGrid />
       <GeometricBackground />
+      <Clouds />
 
       <div className="relative z-10 flex flex-col items-center gap-4">
         <h1 className="text-5xl md:text-7xl font-normal tracking-tight">
