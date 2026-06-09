@@ -68,7 +68,7 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="relative bg-[#e8eaed] rounded-t-2xl rounded-b-2xl z-30 overflow-hidden h-screen flex flex-col"
+      className="relative bg-[#e8eaed] overflow-hidden min-h-screen flex flex-col"
       style={{
         backgroundImage: `
           linear-gradient(to right, rgba(0,0,0,0.065) 1px, transparent 1px),

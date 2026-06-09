@@ -19,14 +19,13 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="relative z-30 bg-[#e8eaed] rounded-t-3xl min-h-screen flex flex-col bottom-10"
+      className="relative z-30 bg-[#e8eaed]  min-h-screen flex flex-col"
       style={{
         backgroundImage: `
           linear-gradient(to right, rgba(0,0,0,0.065) 1px, transparent 1px),
           linear-gradient(to bottom, rgba(0,0,0,0.065) 1px, transparent 1px)
         `,
         backgroundSize: '48px 48px',
-        boxShadow: '0 -16px 64px rgba(0,0,0,0.28)',
       }}
     >
       {/* Grid fade mask */}
