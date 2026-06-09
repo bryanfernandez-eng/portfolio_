@@ -14,6 +14,7 @@ export const SOCIAL_LINKS = [
   {
     id: 'resume',
     label: 'Resume',
+    value: 'resume.pdf',
     href: '/resume.pdf',
   },
 ]
