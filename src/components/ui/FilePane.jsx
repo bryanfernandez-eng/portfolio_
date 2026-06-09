@@ -1,20 +1,46 @@
 import FileDot from './FileDot'
 
-function FilePane({ file }) {
-  const dotColor = file.color.replace('0.35', '1')
+function FilePane({ file, openTabs, activeId, onTabSelect, onTabClose }) {
+  if (!file) return (
+    <div className="flex items-center justify-center h-full">
+      <span className="font-mono text-xs text-[#30363d]">// no file open</span>
+    </div>
+  )
 
   return (
     <div className="flex flex-col h-full">
-      {/* Tab bar — desktop only */}
-      <div className="hidden md:flex items-center gap-0 border-b border-[#2d2d2d] shrink-0">
-        <div
-          className="flex items-center gap-2 px-4 py-2.5 border-r border-[#2d2d2d] border-t-2"
-          style={{ borderTopColor: dotColor, background: '#1a1a1a' }}
-        >
-          <FileDot color={dotColor} />
-          <span className="font-mono text-xs text-[#e6edf3]">{file.filename}</span>
-          <span className="font-mono text-xs text-[#8b949e] ml-1">×</span>
-        </div>
+      {/* Tab bar */}
+      <div className="tab-bar hidden md:flex items-center border-b border-[#2d2d2d] shrink-0 overflow-x-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        {openTabs.map(tab => {
+          const isActive = tab.id === activeId
+          const tabDotColor = tab.color.replace('0.35', '1')
+          return (
+            <div
+              key={tab.id}
+              className="flex items-center gap-2 px-3 py-2.5 border-r border-[#2d2d2d] shrink-0 cursor-pointer group/tab"
+              style={{
+                borderTop: isActive ? `2px solid ${tabDotColor}` : '2px solid transparent',
+                background: isActive ? '#1a1a1a' : 'transparent',
+              }}
+              onClick={() => onTabSelect(tab.id)}
+            >
+              <FileDot color={tabDotColor} />
+              <span
+                className="font-mono text-xs"
+                style={{ color: isActive ? '#e6edf3' : '#8b949e' }}
+              >
+                {tab.filename}
+              </span>
+              <button
+                onClick={e => { e.stopPropagation(); onTabClose(tab.id) }}
+                aria-label={`Close ${tab.filename}`}
+                className="font-mono text-xs text-[#30363d] hover:text-[#e6edf3] transition-colors duration-150 ml-1 leading-none"
+              >
+                ×
+              </button>
+            </div>
+          )
+        })}
       </div>
 
       {/* Content */}

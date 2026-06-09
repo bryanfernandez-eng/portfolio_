@@ -30,7 +30,7 @@ function Contact() {
     >
       {/* Grid fade mask */}
       <div
-        className="absolute inset-0 pointer-events-none rounded-t-3xl"
+        className="absolute inset-0 pointer-events-none "
         style={{
           background: `linear-gradient(to bottom, #e8eaed 0%, transparent 20%, transparent 80%, #e8eaed 100%)`,
           zIndex: 1,

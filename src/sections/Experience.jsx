@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { EXPERIENCE, EDUCATION } from '../constants/experience'
 import FileTree from '../components/ui/FileTree'
 import FilePane from '../components/ui/FilePane'
 import MobileFilePicker from '../components/ui/MobileFilePicker'
+import AlignmentGuides from '../components/ui/AlignmentGuides'
 
 const FILES = [
   ...EXPERIENCE.map(e => ({ ...e, folder: 'experience', filename: `${e.company.toLowerCase().replace(/\s/g, '-')}.md` })),
@@ -10,13 +11,34 @@ const FILES = [
 ]
 
 function Experience() {
+  const [openTabIds, setOpenTabIds] = useState([FILES[0].id])
   const [activeId, setActiveId] = useState(FILES[0].id)
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
+  const sectionRef = useRef(null)
+  const editorRef = useRef(null)
+
+  const openTabs = openTabIds.map(id => FILES.find(f => f.id === id)).filter(Boolean)
   const activeFile = FILES.find(f => f.id === activeId)
+
+  function handleOpenFile(id) {
+    if (!openTabIds.includes(id)) setOpenTabIds(prev => [...prev, id])
+    setActiveId(id)
+  }
+
+  function handleCloseTab(id) {
+    const idx = openTabIds.indexOf(id)
+    const next = openTabIds.filter(t => t !== id)
+    setOpenTabIds(next)
+    if (activeId === id) {
+      setActiveId(next[Math.min(idx, next.length - 1)] ?? null)
+    }
+  }
 
   return (
     <section
+      ref={sectionRef}
       id="experience"
-      className="relative bg-[#212121] z-20 overflow-hidden min-h-screen"
+      className="crt-scanlines relative bg-[#212121] z-20 overflow-hidden min-h-screen"
     >
       <img
         src="/gradient-bg.png"
@@ -26,9 +48,12 @@ function Experience() {
         style={{ zIndex: 0, opacity: 0.5 }}
       />
 
+      <AlignmentGuides sectionRef={sectionRef} editorRef={editorRef} />
+
       <div className="relative z-10 px-4 md:px-16 lg:px-24 py-16 md:py-24 max-w-6xl mx-auto">
         <div
-          className="rounded-2xl border border-[#2d2d2d] overflow-hidden flex flex-col"
+          ref={editorRef}
+          className="overflow-hidden flex flex-col"
           style={{ background: '#161616', minHeight: '720px' }}
         >
           {/* Window chrome */}
@@ -42,21 +67,39 @@ function Experience() {
 
           {/* Mobile file picker */}
           <div className="md:hidden bg-[#1a1a1a]">
-            <MobileFilePicker files={FILES} activeId={activeId} onSelect={setActiveId} />
+            <MobileFilePicker files={FILES} activeId={activeId} onSelect={handleOpenFile} />
           </div>
 
           <div className="flex flex-1">
             {/* Sidebar — desktop only */}
-            <div className="hidden md:block w-44 md:w-52 shrink-0 border-r border-[#2d2d2d] bg-[#1a1a1a] self-stretch">
-              <div className="px-3 py-2 border-b border-[#2d2d2d]">
-                <span className="font-mono text-xs text-[#30363d] uppercase tracking-widest">Explorer</span>
-              </div>
-              <FileTree files={FILES} activeId={activeId} onSelect={setActiveId} />
+            <div
+              className="hidden md:flex flex-col shrink-0 border-r border-[#2d2d2d] bg-[#1a1a1a] self-stretch transition-all duration-200"
+              style={{ width: isSidebarCollapsed ? '32px' : '208px' }}
+            >
+              {!isSidebarCollapsed && (
+                <div className="px-3 py-2 border-b border-[#2d2d2d]">
+                  <span className="font-mono text-xs text-[#30363d] uppercase tracking-widest">Explorer</span>
+                </div>
+              )}
+              <FileTree
+                files={FILES}
+                activeId={activeId}
+                openTabIds={openTabIds}
+                onOpen={handleOpenFile}
+                isCollapsed={isSidebarCollapsed}
+                onToggleCollapse={() => setIsSidebarCollapsed(p => !p)}
+              />
             </div>
 
             {/* File content pane */}
             <div className="flex-1 min-w-0">
-              <FilePane file={activeFile} />
+              <FilePane
+                file={activeFile}
+                openTabs={openTabs}
+                activeId={activeId}
+                onTabSelect={setActiveId}
+                onTabClose={handleCloseTab}
+              />
             </div>
           </div>
         </div>
