@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useWindowWidth } from '../hooks/useWindowWidth'
+import { useWindowWidth } from '../../hooks/useWindowWidth'
 
 const COLS = 30
 const ROWS = 20

@@ -1,7 +1,6 @@
-import DotGrid from './DotGrid'
-import GeometricBackground from './GeometricBackground'
-
-const BADGES = ['FIU Computer Science', 'Director of Tech @ init', 'SWE Intern @ Assurant']
+import DotGrid from '../components/backgrounds/DotGrid'
+import GeometricBackground from '../components/backgrounds/GeometricBackground'
+import { BADGES } from '../constants/landing'
 
 function Landing() {
   return (
@@ -17,13 +16,18 @@ function Landing() {
           {BADGES.map(tag => (
             <span
               key={tag}
-              className="text-xs font-mono px-3 py-1 rounded-full border border-[#30363d] text-[#8b949e]"
+              className="text-xs font-mono px-3 py-1 rounded-full border-[#30363d] text-[#8b949e]"
             >
               {tag}
             </span>
           ))}
         </div>
       </div>
+
+      <div
+        className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+        style={{ background: 'linear-gradient(to bottom, transparent, #212121)', zIndex: 5 }}
+      />
 
       <p className="absolute bottom-6 left-8 font-mono text-sm text-[#8b949e] z-10">
         // building things that matter

@@ -1,25 +1,21 @@
 import Navbar from './components/Navbar'
-import Landing from './components/Landing'
+import Landing from './sections/Landing'
+import Projects from './sections/Projects'
+import Experience from './sections/Experience'
+import Contact from './sections/Contact'
+import Footer from './components/Footer'
+import GrainOverlay from './components/ui/GrainOverlay'
 
 function App() {
   return (
-    <div>
-      <div
-        aria-hidden="true"
-        style={{
-          position: 'fixed',
-          inset: 0,
-          zIndex: 9999,
-          pointerEvents: 'none',
-          backgroundImage: 'url(/grain-bg.png)',
-          backgroundRepeat: 'repeat',
-          backgroundSize: '200px 200px',
-          opacity: 0.40,
-          mixBlendMode: 'soft-light',
-        }}
-      />
+    <div style={{ background: '#212121' }}>
+      <GrainOverlay />
       <Navbar />
       <Landing />
+      <Projects />
+      <Experience />
+      <Contact />
+      <Footer />
     </div>
   )
 }

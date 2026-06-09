@@ -9,3 +9,26 @@ body {
   background-color: #212121;
   color: #e6edf3;
 }
+
+/* Responsive project card columns */
+:root { --cols: 1; }
+@media (min-width: 640px)  { :root { --cols: 2; } }
+@media (min-width: 1024px) { :root { --cols: 3; } }
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+@keyframes modal-out {
+  from { opacity: 1; transform: translateY(0)    scale(1);    }
+  to   { opacity: 0; transform: translateY(24px) scale(0.97); }
+}
+
+.animate-modal-in {
+  animation: modal-in 0.25s ease-out forwards;
+}
+
+.animate-modal-out {
+  animation: modal-out 0.2s ease-in forwards;
+}
