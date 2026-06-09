@@ -1,20 +1,78 @@
-import DotGrid from './backgrounds/DotGrid'
+import { SOCIAL_LINKS } from '../constants/social'
+import { GitHubIcon, LinkedInIcon, ResumeIcon, EmailIcon } from './ui/icons'
+import useLocalMouse from '../hooks/useLocalMouse'
+
+const FOOTER_ICONS = {
+  linkedin: <LinkedInIcon size={20} />,
+  github: <GitHubIcon size={20} />,
+  resume: <ResumeIcon size={20} />,
+}
+
+const CURSOR_SIZE = 120
 
 function Footer() {
-  return (
-    <footer className="relative bg-[#212121] overflow-hidden">
-      <DotGrid />
+  const { pos, isInside, handleMouseMove, handleMouseEnter, handleMouseLeave } = useLocalMouse()
 
-      <div className="relative px-8 md:px-16 lg:px-24 py-10 flex items-end justify-between">
+  return (
+    <footer
+      className="relative overflow-hidden cursor-none"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Invert circle */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          left: pos.x - CURSOR_SIZE / 2,
+          top: pos.y - CURSOR_SIZE / 2,
+          width: CURSOR_SIZE,
+          height: CURSOR_SIZE,
+          borderRadius: '50%',
+          background: '#fff',
+          mixBlendMode: 'difference',
+          pointerEvents: 'none',
+          opacity: isInside ? 1 : 0,
+          transition: 'opacity 0.2s ease',
+          zIndex: 10,
+        }}
+      />
+
+      <div className="relative flex flex-col items-center md:flex-row md:items-center md:justify-between py-5">
         <h2
-          className="font-bold leading-none tracking-tight text-[#2a2a2a] select-none"
+          className="font-bold leading-none tracking-tight select-none"
           style={{
-            fontFamily: "'Fraunces', serif",
-            fontSize: 'clamp(3rem, 10vw, 5rem)',
+            fontFamily: "'Syne', sans-serif",
+            fontSize: 'clamp(1rem, 10vw, 10rem)',
+            color: 'transparent',
+            WebkitTextStroke: '1.5px #e8eaed',
           }}
         >
           Bryan Fernandez
         </h2>
+
+        <div className="flex md:flex-col flex-row gap-4 mt-4 md:mt-0">
+          <a
+            href="mailto:bfern152@fiu.edu"
+            aria-label="Email"
+            className="text-[#8b949e] hover:text-[#39d353] transition-colors duration-200"
+          >
+            <EmailIcon size={20} />
+          </a>
+          {SOCIAL_LINKS.map(({ id, label, href }) => (
+            <a
+              key={id}
+              href={href}
+              aria-label={label}
+              target={href.startsWith('http') ? '_blank' : undefined}
+              rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className="text-[#8b949e] hover:text-[#39d353] transition-colors duration-200"
+            >
+              {FOOTER_ICONS[id]}
+            </a>
+          ))}
+        </div>
       </div>
     </footer>
   )
