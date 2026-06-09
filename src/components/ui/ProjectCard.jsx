@@ -2,39 +2,69 @@ function ProjectCard({ project, onSelect }) {
   return (
     <button
       onClick={() => onSelect(project)}
-      className="group text-left bg-[#e2e5e9] border-2 border-[#212121] rounded-2xl overflow-hidden cursor-pointer flex flex-col"
-      style={{ height: '420px' }}
+      className="group text-left overflow-hidden cursor-pointer flex flex-col w-full"
+      style={{
+        height: '420px',
+        background: '#fff',
+        border: '1px solid #000',
+        borderRadius: '0',
+      }}
     >
-      <div className="w-full h-44 shrink-0 overflow-hidden bg-[#1a1a2e]">
+      {/* Image — full B&W */}
+      <div className="w-full shrink-0 overflow-hidden relative bg-[#111]" style={{ height: '200px' }}>
         <img
           src={project.image}
-          alt={`${project.name} screenshot`}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          alt={`${project.name} preview`}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          style={{ filter: 'grayscale(1) contrast(1.15)' }}
         />
+        {/* Number — top right */}
+        <span
+          className="absolute top-0 right-0 font-mono text-xs text-white bg-black px-2 py-1"
+          style={{ letterSpacing: '0.05em' }}
+        >
+          {project.number}
+        </span>
       </div>
 
-      <div className="p-5 flex flex-col gap-2 flex-1">
-        <div className="flex items-start justify-between gap-2">
-          <h3 className="text-lg font-normal text-[#1a1a1a] tracking-tight group-hover:text-[#39d353] transition-colors duration-200">
-            {project.name}
-          </h3>
-          <span className="font-mono text-xs text-[#9098a3] shrink-0 pt-0.5">{project.number}</span>
-        </div>
+      {/* Hard divider */}
+      <div style={{ height: '3px', background: '#000', flexShrink: 0 }} />
 
-        <p className="text-[#4a5260] text-xs leading-relaxed line-clamp-2">
+      {/* Body */}
+      <div className="p-4 flex flex-col gap-3 flex-1">
+        <h3
+          className="font-bold leading-tight text-[#000]"
+          style={{ fontFamily: "'Fraunces', serif", fontSize: '1.15rem' }}
+        >
+          {project.name}
+        </h3>
+
+        <p className="font-mono text-[11px] leading-relaxed text-[#444] line-clamp-2">
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-1.5 pt-1">
+        <div className="mt-auto flex flex-wrap gap-1.5">
           {project.stack.map(tech => (
             <span
               key={tech}
-              className="font-mono text-xs px-2 py-0.5 rounded bg-[#d0d4d9] text-[#4a5260]"
+              className="font-mono text-[10px] px-2 py-0.5"
+              style={{ border: '1px solid #000', background: 'transparent', color: '#000' }}
             >
               {tech}
             </span>
           ))}
         </div>
+      </div>
+
+      {/* Bottom bar — inverts on hover */}
+      <div
+        className="px-4 py-2 shrink-0 flex items-center justify-between transition-colors duration-150 group-hover:bg-black"
+        style={{ borderTop: '1px solid #000' }}
+      >
+        <span className="font-mono text-[10px] uppercase tracking-widest text-[#000] group-hover:text-white transition-colors duration-150">
+          View project
+        </span>
+        <span className="font-mono text-xs text-[#000] group-hover:text-white transition-colors duration-150">→</span>
       </div>
     </button>
   )

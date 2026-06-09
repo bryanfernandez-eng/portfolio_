@@ -29,38 +29,50 @@ function ProjectModal({ project, onClose }) {
       aria-modal="true"
       aria-label={project.name}
     >
+      <div className="absolute inset-0 bg-black/80" onClick={handleClose} />
+
       <div
-        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-        onClick={handleClose}
-      />
-
-      <div className={`relative z-10 bg-[#e8eaed] rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col shadow-2xl ${isClosing ? 'animate-modal-out' : 'animate-modal-in'}`}>
-
+        className={`relative z-10 w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col ${isClosing ? 'animate-modal-out' : 'animate-modal-in'}`}
+        style={{
+          background: '#f5f5f5',
+          backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.07) 1px, transparent 1px)`,
+          backgroundSize: '48px 48px',
+          border: '1px solid #000',
+          borderRadius: 0,
+        }}
+      >
         <button
           onClick={handleClose}
           aria-label="Close modal"
-          className="absolute top-4 right-4 z-20 text-[#9098a3] hover:text-[#1a1a1a] transition-colors duration-200 bg-[#e2e5e9] rounded-full p-1.5"
+          className="absolute top-0 right-0 z-20 bg-black text-white hover:bg-[#333] transition-colors duration-150 p-2"
         >
           <CloseIcon />
         </button>
 
-        <div className="w-full h-56 md:h-72 shrink-0 overflow-hidden bg-[#1a1a2e]">
-          <img
-            src={project.image}
-            alt={`${project.name} screenshot`}
-            className="w-full h-full object-cover"
-          />
+        {/* Image — B&W, inset with grid showing around it */}
+        <div className="p-4 pb-0 shrink-0">
+          <div className="overflow-hidden bg-black" style={{ height: '260px', border: '1px solid #000' }}>
+            <img
+              src={project.image}
+              alt={`${project.name} screenshot`}
+              className="w-full h-full object-cover"
+              style={{ filter: 'grayscale(1) contrast(1.15)' }}
+            />
+          </div>
         </div>
 
-        <div className="p-8 flex flex-col gap-6 overflow-y-auto">
+        <div className="p-8 flex flex-col gap-6 overflow-y-auto" style={{ background: '#fff', margin: '16px', border: '1px solid #000' }}>
           <div>
-            <p className="font-mono text-xs text-[#9098a3] mb-1">{project.number}</p>
-            <h2 className="text-3xl md:text-4xl font-normal text-[#1a1a1a] tracking-tight">
+            <p className="font-mono text-xs text-[#999] mb-1">{project.number}</p>
+            <h2
+              className="font-bold leading-none tracking-tight text-black"
+              style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}
+            >
               {project.name}
             </h2>
           </div>
 
-          <p className="text-[#4a5260] leading-relaxed max-w-2xl">
+          <p className="font-mono text-sm text-[#444] leading-relaxed max-w-2xl">
             {project.description}
           </p>
 
@@ -68,19 +80,21 @@ function ProjectModal({ project, onClose }) {
             {project.stack.map(tech => (
               <span
                 key={tech}
-                className="font-mono text-xs px-2 py-1 rounded bg-[#e2e5e9] text-[#4a5260]"
+                className="font-mono text-xs px-2 py-1 text-black"
+                style={{ border: '1px solid #000', borderRadius: 0 }}
               >
                 {tech}
               </span>
             ))}
           </div>
 
-          <div className="flex gap-4 pt-2">
+          <div className="flex gap-3 pt-2">
             {project.github && (
               <a
                 href={project.github}
                 aria-label="GitHub repository"
-                className="flex items-center gap-2 text-sm font-mono text-[#1a1a1a] border border-[#d0d4d9] px-4 py-2 rounded-lg hover:bg-[#e2e5e9] transition-colors duration-200"
+                className="flex items-center gap-2 text-xs font-mono text-black px-4 py-2 hover:bg-black hover:text-white transition-colors duration-150"
+                style={{ border: '1px solid #000', borderRadius: 0 }}
               >
                 <GitHubIcon /> GitHub
               </a>
@@ -89,7 +103,8 @@ function ProjectModal({ project, onClose }) {
               <a
                 href={project.live}
                 aria-label="Live site"
-                className="flex items-center gap-2 text-sm font-mono text-[#e8eaed] bg-[#1a1a1a] px-4 py-2 rounded-lg hover:bg-[#39d353] hover:text-[#1a1a1a] transition-colors duration-200"
+                className="flex items-center gap-2 text-xs font-mono text-white bg-black px-4 py-2 hover:bg-[#333] transition-colors duration-150"
+                style={{ border: '1px solid #000', borderRadius: 0 }}
               >
                 <ExternalLinkIcon /> Live Site
               </a>

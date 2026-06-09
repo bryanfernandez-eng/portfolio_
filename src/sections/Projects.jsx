@@ -4,6 +4,17 @@ import ProjectCard from '../components/ui/ProjectCard'
 import ProjectModal from '../components/ui/ProjectModal'
 import { ChevronLeftIcon, ChevronRightIcon } from '../components/ui/icons'
 
+function BlueprintAxis() {
+  return (
+    <>
+      {/* Corner coordinate labels */}
+      <span className="absolute font-mono pointer-events-none select-none" style={{ top: 12, left: 14, fontSize: 9, color: 'rgba(0,0,0,0.2)', zIndex: 2 }}>[0,0]</span>
+      <span className="absolute font-mono pointer-events-none select-none" style={{ top: 12, right: 14, fontSize: 9, color: 'rgba(0,0,0,0.2)', zIndex: 2 }}>x →</span>
+      <span className="absolute font-mono pointer-events-none select-none" style={{ bottom: 12, left: 14, fontSize: 9, color: 'rgba(0,0,0,0.2)', zIndex: 2 }}>y ↓</span>
+    </>
+  )
+}
+
 function Projects() {
   const [selectedProject, setSelectedProject] = useState(null)
   const [activeIndex, setActiveIndex] = useState(0)
@@ -68,46 +79,23 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="relative bg-[#e8eaed] overflow-hidden min-h-screen flex flex-col"
+      className="relative overflow-hidden min-h-screen flex flex-col"
       style={{
+        background: '#f5f5f5',
         backgroundImage: `
-          linear-gradient(to right, rgba(0,0,0,0.065) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(0,0,0,0.065) 1px, transparent 1px)
+          linear-gradient(to right, rgba(0,0,0,0.07) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(0,0,0,0.07) 1px, transparent 1px)
         `,
         backgroundSize: '48px 48px',
       }}
     >
-      {/* Purple wiggly lines */}
-      <svg
-        className="absolute inset-x-0 pointer-events-none"
-        style={{ top: '32%', zIndex: 2 }}
-        viewBox="0 0 1200 80"
-        preserveAspectRatio="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path d="M0,40 C150,15 280,62 420,38 C560,14 680,58 820,36 C960,14 1080,52 1200,34" stroke="#8b5cf6" strokeWidth="2" fill="none" opacity="0.45" />
-        <path d="M0,55 C130,32 260,70 400,50 C540,30 660,68 800,48 C940,28 1080,62 1200,48" stroke="#a78bfa" strokeWidth="1.5" fill="none" opacity="0.25" />
-      </svg>
-
-      {/* Pink wiggly lines */}
-      <svg
-        className="absolute inset-x-0 pointer-events-none"
-        style={{ top: '55%', zIndex: 2 }}
-        viewBox="0 0 1200 80"
-        preserveAspectRatio="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path d="M0,30 C100,10 200,50 300,30 C400,10 500,50 600,28 C700,6 800,46 900,28 C1000,10 1100,44 1200,30" stroke="#ff2d78" strokeWidth="2" fill="none" opacity="0.5" />
-        <path d="M0,50 C120,28 220,66 340,46 C460,26 560,62 680,44 C800,26 900,60 1020,42 C1100,30 1160,52 1200,46" stroke="#ff6eb4" strokeWidth="1.5" fill="none" opacity="0.3" />
-      </svg>
+      <BlueprintAxis />
 
       {/* Grid fade mask */}
       <div
-        className="absolute inset-0 pointer-events-none rounded-t-3xl"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          background: `linear-gradient(to bottom, #e8eaed 0%, transparent 20%, transparent 85%, #e8eaed 100%)`,
+          background: `linear-gradient(to bottom, #f5f5f5 0%, transparent 18%, transparent 85%, #f5f5f5 100%)`,
           zIndex: 1,
         }}
       />
@@ -123,18 +111,21 @@ function Projects() {
               Projects
             </h2>
           </div>
+
           <div className="flex gap-2">
             <button
               onClick={handleScrollLeft}
               aria-label="Scroll left"
-              className="w-10 h-10 rounded-full bg-[#212121] text-[#e8eaed] flex items-center justify-center hover:bg-[#39d353] hover:text-[#212121] transition-colors duration-200"
+              className="w-10 h-10 flex items-center justify-center bg-black text-white hover:bg-white hover:text-black border border-black transition-colors duration-150"
+              style={{ borderRadius: '0' }}
             >
               <ChevronLeftIcon />
             </button>
             <button
               onClick={handleScrollRight}
               aria-label="Scroll right"
-              className="w-10 h-10 rounded-full bg-[#212121] text-[#e8eaed] flex items-center justify-center hover:bg-[#39d353] hover:text-[#212121] transition-colors duration-200"
+              className="w-10 h-10 flex items-center justify-center bg-black text-white hover:bg-white hover:text-black border border-black transition-colors duration-150"
+              style={{ borderRadius: '0' }}
             >
               <ChevronRightIcon />
             </button>
@@ -150,8 +141,8 @@ function Projects() {
           {Array.from({ length: totalPages }).map((_, pageIdx) => (
             <div
               key={pageIdx}
-              className="grid gap-4 shrink-0 w-full"
-              style={{ scrollSnapAlign: 'start', gridTemplateColumns: `repeat(${cardsPerPage}, 1fr)` }}
+              className="grid gap-6 shrink-0 w-full"
+              style={{ scrollSnapAlign: 'start', gridTemplateColumns: `repeat(${cardsPerPage}, 1fr)`, paddingBottom: '8px', paddingRight: '8px' }}
             >
               {PROJECTS.slice(pageIdx * cardsPerPage, pageIdx * cardsPerPage + cardsPerPage).map(project => (
                 <ProjectCard key={project.id} project={project} onSelect={setSelectedProject} />
@@ -160,7 +151,7 @@ function Projects() {
           ))}
         </div>
 
-        <div className="flex justify-center gap-2 mt-6">
+        <div className="flex justify-center gap-2 mt-8">
           {Array.from({ length: totalPages }).map((_, i) => (
             <button
               key={i}
@@ -170,8 +161,8 @@ function Projects() {
               style={{
                 width: activeIndex === i ? '24px' : '8px',
                 height: '8px',
-                borderRadius: '9999px',
-                background: activeIndex === i ? '#212121' : '#9098a3',
+                borderRadius: '2px',
+                background: activeIndex === i ? '#000' : '#ccc',
               }}
             />
           ))}
