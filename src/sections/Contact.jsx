@@ -56,7 +56,7 @@ function Contact() {
   function handleSubmit(e) {
     e.preventDefault()
     const body = `Hi Bryan,\n\n${message}\n\n— ${name}`
-    const mailto = `mailto:bfern152@fiu.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    const mailto = `mailto:dev.bryanfernandez@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     window.location.href = mailto
   }
 
@@ -110,7 +110,7 @@ function Contact() {
           {/* Contact link pills — mobile: icons only row, md: 2x2 grid, lg: stacked */}
           <div className="flex justify-between sm:grid sm:grid-cols-2 sm:justify-normal lg:flex lg:flex-col w-full gap-3 lg:gap-4">
             <a
-              href="mailto:bfern152@fiu.edu"
+              href="mailto:dev.bryanfernandez@gmail.com"
               aria-label="Email"
               className="inline-flex items-center justify-center sm:justify-start gap-3 px-3 sm:px-4 py-3 bg-white font-mono text-sm text-[#212121] font-medium transition-transform duration-100"
               style={PILL_STYLE}
@@ -118,7 +118,7 @@ function Contact() {
               onMouseLeave={handlePillLeave}
             >
               <EmailIcon size={15} />
-              <span className="hidden sm:inline">bfern152@fiu.edu</span>
+              <span className="hidden sm:inline">dev.bryanfernandez@gmail.com</span>
             </a>
 
             {SOCIAL_LINKS.map(link => (

@@ -54,7 +54,7 @@ function Footer() {
 
         <div className="flex md:flex-col flex-row items-center gap-4 mt-4 md:mt-0 md:pr-2">
           <a
-            href="mailto:bfern152@fiu.edu"
+            href="mailto:dev.bryanfernandez@gmail.com"
             aria-label="Email"
             className="text-[#8b949e] hover:text-[#39d353] transition-colors duration-200"
           >

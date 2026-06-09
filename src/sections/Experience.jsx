@@ -6,7 +6,7 @@ import MobileFilePicker from '../components/ui/MobileFilePicker'
 import AlignmentGuides from '../components/ui/AlignmentGuides'
 
 const FILES = [
-  ...EXPERIENCE.map(e => ({ ...e, folder: 'experience', filename: `${e.company.toLowerCase().replace(/\s/g, '-')}.md` })),
+  ...EXPERIENCE.map(e => ({ ...e, folder: 'experience', filename: `${e.company.toLowerCase().replace(/\s/g, '-')}-${e.id}.md` })),
   ...EDUCATION.map(e => ({ ...e, folder: 'education', filename: `${e.company.toLowerCase()}.md` })),
 ]
 
