@@ -44,8 +44,8 @@ function FilePane({ file, openTabs, activeId, onTabSelect, onTabClose }) {
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto px-5 md:px-8 py-6 md:py-8">
-        <div className="font-mono text-xs text-[#8b949e] mb-6 border border-[#2d2d2d] rounded-lg p-4 bg-white/[0.02]">
+      <div className="flex-1 overflow-y-auto px-4 md:px-8 py-5 md:py-8">
+        <div className="font-mono text-xs text-[#8b949e] mb-5 border border-[#2d2d2d] rounded-lg p-3 md:p-4 bg-white/[0.02]">
           <p className="text-[#30363d] mb-2">---</p>
           <p><span className="text-[#8b5cf6]">role</span><span className="text-[#8b949e]">: </span><span className="text-[#e6edf3]">{file.role}</span></p>
           <p><span className="text-[#8b5cf6]">company</span><span className="text-[#8b949e]">: </span><span className="text-[#e6edf3]">{file.company}</span></p>
@@ -54,17 +54,17 @@ function FilePane({ file, openTabs, activeId, onTabSelect, onTabClose }) {
         </div>
 
         <h2
-          className="font-bold text-[#e6edf3] leading-none mb-6"
-          style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2rem, 5vw, 4rem)' }}
+          className="font-bold text-[#e6edf3] leading-none mb-5"
+          style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(1.75rem, 8vw, 4rem)' }}
         >
           {file.company}
         </h2>
 
         <ul className="flex flex-col gap-3">
           {file.bullets.map((bullet, i) => (
-            <li key={i} className="flex gap-3 items-start">
+            <li key={i} className="flex gap-2 md:gap-3 items-start">
               <span className="font-mono text-xs text-[#8b949e] shrink-0 mt-0.5">-</span>
-              <span className="text-sm text-[#c9d1d9] leading-relaxed">{bullet}</span>
+              <span className="text-xs md:text-sm text-[#c9d1d9] leading-relaxed">{bullet}</span>
             </li>
           ))}
         </ul>

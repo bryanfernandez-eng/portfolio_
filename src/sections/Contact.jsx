@@ -177,7 +177,7 @@ function Contact() {
                 borderRadius: '2px',
               }}
             >
-              <p className="font-mono text-xs font-bold text-[#212121]">SEND A MESSAGE</p>
+              <p className="font-mono text-xs font-bold text-[#212121]">GET IN TOUCH</p>
             </div>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-9 flex-1 justify-between">
