@@ -43,7 +43,7 @@ function Experience() {
 
 
       <img
-        src="/gradient-bg.png"
+        src={`${import.meta.env.BASE_URL}gradient-bg.png`}
         alt=""
         aria-hidden="true"
         className="animated-gradient-bg absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
