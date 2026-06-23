@@ -123,16 +123,16 @@ function Projects() {
             <button
               onClick={handleScrollLeft}
               aria-label="Scroll left"
-              className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center bg-black text-white hover:bg-white hover:text-black border border-black transition-colors duration-150"
-              style={{ borderRadius: '0' }}
+              className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center text-white hover:text-[#212121] border transition-colors duration-150"
+              style={{ background: '#212121', borderColor: '#212121', borderRadius: 0 }}
             >
               <ChevronLeftIcon />
             </button>
             <button
               onClick={handleScrollRight}
               aria-label="Scroll right"
-              className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center bg-black text-white hover:bg-white hover:text-black border border-black transition-colors duration-150"
-              style={{ borderRadius: '0' }}
+              className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center text-white hover:text-[#212121] border transition-colors duration-150"
+              style={{ background: '#212121', borderColor: '#212121', borderRadius: 0 }}
             >
               <ChevronRightIcon />
             </button>
@@ -169,7 +169,7 @@ function Projects() {
                 width: activeIndex === i ? '24px' : '8px',
                 height: '8px',
                 borderRadius: '2px',
-                background: activeIndex === i ? '#000' : '#ccc',
+                background: activeIndex === i ? '#212121' : '#ccc',
               }}
             />
           ))}

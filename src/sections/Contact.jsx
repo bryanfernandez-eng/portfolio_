@@ -205,7 +205,7 @@ function Contact() {
                     value={name}
                     onChange={e => setName(e.target.value)}
                     placeholder="Your name"
-                    className="border-b border-[#30363d] pb-3 bg-transparent text-[#e6edf3] placeholder-[#8b949e] font-mono text-sm outline-none focus:border-[#39d353] transition-colors duration-200"
+                    className="border-b border-[#30363d] pb-3 bg-transparent text-[#e6edf3] placeholder-[#8b949e] font-mono text-xs md:text-sm outline-none focus:border-[#39d353] transition-colors duration-200"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
@@ -215,7 +215,7 @@ function Contact() {
                     value={subject}
                     onChange={e => setSubject(e.target.value)}
                     placeholder="What's this about?"
-                    className="border-b border-[#30363d] pb-3 bg-transparent text-[#e6edf3] placeholder-[#8b949e] font-mono text-sm outline-none focus:border-[#39d353] transition-colors duration-200"
+                    className="border-b border-[#30363d] pb-3 bg-transparent text-[#e6edf3] placeholder-[#8b949e] font-mono text-xs md:text-sm outline-none focus:border-[#39d353] transition-colors duration-200"
                   />
                 </div>
               </div>
@@ -242,7 +242,7 @@ function Contact() {
                 <button
                   type="submit"
                   disabled={!isReady}
-                  className="w-full md:w-auto flex items-center justify-center gap-3 px-6 py-3 font-mono text-sm font-bold transition-all duration-100"
+                  className="w-full md:w-auto flex items-center justify-center gap-2 px-4 py-2 md:px-6 md:py-3 font-mono text-xs md:text-sm font-bold transition-all duration-100"
                   style={{
                     background: isReady ? '#FFE033' : 'transparent',
                     color: isReady ? '#212121' : '#8b949e',

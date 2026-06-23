@@ -6,7 +6,7 @@ function ProjectCard({ project, onSelect }) {
       style={{
         minHeight: '380px',
         background: '#fff',
-        border: '1px solid #000',
+        border: '1px solid #212121',
         borderRadius: '0',
       }}
     >
@@ -20,21 +20,21 @@ function ProjectCard({ project, onSelect }) {
         />
         {/* Number — top right */}
         <span
-          className="absolute top-0 right-0 font-mono text-xs text-white bg-black px-2 py-1"
-          style={{ letterSpacing: '0.05em' }}
+          className="absolute top-0 right-0 font-mono text-xs text-white px-2 py-1"
+          style={{ letterSpacing: '0.05em', background: '#212121' }}
         >
           {project.number}
         </span>
       </div>
 
       {/* Hard divider */}
-      <div style={{ height: '3px', background: '#000', flexShrink: 0 }} />
+      <div style={{ height: '3px', background: '#212121', flexShrink: 0 }} />
 
       {/* Body */}
       <div className="p-4 flex flex-col gap-3 flex-1">
         <h3
-          className="font-bold leading-tight text-[#000]"
-          style={{ fontFamily: "'Fraunces', serif", fontSize: '1.15rem' }}
+          className="font-bold leading-tight"
+          style={{ fontFamily: "'Fraunces', serif", fontSize: '1.15rem', color: '#212121' }}
         >
           {project.name}
         </h3>
@@ -48,7 +48,7 @@ function ProjectCard({ project, onSelect }) {
             <span
               key={tech}
               className="font-mono text-[10px] px-2 py-0.5"
-              style={{ border: '1px solid #000', background: 'transparent', color: '#000' }}
+              style={{ border: '1px solid #212121', background: 'transparent', color: '#212121' }}
             >
               {tech}
             </span>
@@ -58,13 +58,15 @@ function ProjectCard({ project, onSelect }) {
 
       {/* Bottom bar — inverts on hover */}
       <div
-        className="px-4 py-2 shrink-0 flex items-center justify-between transition-colors duration-150 hover:bg-black group/bar"
-        style={{ borderTop: '1px solid #000' }}
+        className="px-4 py-2 shrink-0 flex items-center justify-between transition-colors duration-150 group/bar"
+        style={{ borderTop: '1px solid #212121' }}
+        onMouseEnter={e => { e.currentTarget.style.background = '#212121' }}
+        onMouseLeave={e => { e.currentTarget.style.background = 'transparent' }}
       >
-        <span className="font-mono text-[10px] uppercase tracking-widest text-[#000] group-hover/bar:text-white transition-colors duration-150">
+        <span className="font-mono text-[10px] uppercase tracking-widest transition-colors duration-150 group-hover/bar:text-white" style={{ color: '#212121' }}>
           View project
         </span>
-        <span className="font-mono text-xs text-[#000] group-hover/bar:text-white transition-colors duration-150">→</span>
+        <span className="font-mono text-xs transition-colors duration-150 group-hover/bar:text-white" style={{ color: '#212121' }}>→</span>
       </div>
     </button>
   )
