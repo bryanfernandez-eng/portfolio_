@@ -32,8 +32,8 @@ function AlignmentGuides({ sectionRef, editorRef }) {
   if (!lines) return null
 
   const { w, h, left, right, top, bottom } = lines
-  const color = 'rgba(57,211,83,0.2)'
-  const crossColor = 'rgba(57,211,83,0.45)'
+  const color = 'rgba(57,211,83,0.25)'
+  const crossColor = 'rgba(57,211,83,0.9)'
   const dash = '5,6'
 
   return (
@@ -43,6 +43,12 @@ function AlignmentGuides({ sectionRef, editorRef }) {
       style={{ zIndex: 5, width: w, height: h }}
       viewBox={`0 0 ${w} ${h}`}
     >
+      <defs>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="2.5" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+      </defs>
       <line x1={0}     y1={top}    x2={left}  y2={top}    stroke={color} strokeWidth="1" strokeDasharray={dash} />
       <line x1={0}     y1={bottom} x2={left}  y2={bottom} stroke={color} strokeWidth="1" strokeDasharray={dash} />
       <line x1={right} y1={top}    x2={w}     y2={top}    stroke={color} strokeWidth="1" strokeDasharray={dash} />
@@ -53,9 +59,9 @@ function AlignmentGuides({ sectionRef, editorRef }) {
       <line x1={right} y1={bottom} x2={right} y2={h}      stroke={color} strokeWidth="1" strokeDasharray={dash} />
 
       {[[left, top], [right, top], [left, bottom], [right, bottom]].map(([cx, cy], i) => (
-        <g key={i}>
-          <line x1={cx - 6} y1={cy}     x2={cx + 6} y2={cy}     stroke={crossColor} strokeWidth="1" />
-          <line x1={cx}     y1={cy - 6} x2={cx}     y2={cy + 6} stroke={crossColor} strokeWidth="1" />
+        <g key={i} filter="url(#glow)">
+          <line x1={cx - 8} y1={cy}     x2={cx + 8} y2={cy}     stroke={crossColor} strokeWidth="1.5" />
+          <line x1={cx}     y1={cy - 8} x2={cx}     y2={cy + 8} stroke={crossColor} strokeWidth="1.5" />
         </g>
       ))}
     </svg>
