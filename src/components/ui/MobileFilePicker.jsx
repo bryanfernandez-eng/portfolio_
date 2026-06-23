@@ -1,8 +1,9 @@
 import FileDot from './FileDot'
+import { opaquifyColor } from '../../utils/colors'
 
 function MobileFilePicker({ files, activeId, onSelect }) {
   const active = files.find(f => f.id === activeId)
-  const dotColor = active?.color.replace('0.35', '1') ?? '#8b949e'
+  const dotColor = active ? opaquifyColor(active.color) : '#8b949e'
 
   return (
     <div className="px-3 py-2 border-b border-[#2d2d2d] flex items-center gap-2">

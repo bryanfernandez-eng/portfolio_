@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import FileDot from './FileDot'
+import { opaquifyColor } from '../../utils/colors'
 
 function FileTree({ files, activeId, openTabIds, onOpen, isCollapsed, onToggleCollapse }) {
   const [openFolders, setOpenFolders] = useState({ experience: true, education: true })
@@ -52,7 +53,7 @@ function FileTree({ files, activeId, openTabIds, onOpen, isCollapsed, onToggleCo
                   className="w-full flex items-center gap-2 pl-7 pr-3 py-1.5 text-left transition-colors duration-150"
                   style={{ background: activeId === file.id ? 'rgba(255,255,255,0.07)' : 'transparent' }}
                 >
-                  <FileDot color={file.color.replace('0.35', '1')} />
+                  <FileDot color={opaquifyColor(file.color)} />
                   <span
                     className="font-mono text-xs truncate transition-colors duration-150"
                     style={{ color: activeId === file.id ? '#e6edf3' : openTabIds.includes(file.id) ? '#c9d1d9' : '#8b949e' }}

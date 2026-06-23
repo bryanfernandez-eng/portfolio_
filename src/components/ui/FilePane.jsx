@@ -1,4 +1,5 @@
 import FileDot from './FileDot'
+import { opaquifyColor } from '../../utils/colors'
 
 function FilePane({ file, openTabs, activeId, onTabSelect, onTabClose }) {
   if (!file) return (
@@ -13,7 +14,7 @@ function FilePane({ file, openTabs, activeId, onTabSelect, onTabClose }) {
       <div className="tab-bar hidden md:flex items-center border-b border-[#2d2d2d] shrink-0 overflow-x-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
         {openTabs.map(tab => {
           const isActive = tab.id === activeId
-          const tabDotColor = tab.color.replace('0.35', '1')
+          const tabDotColor = opaquifyColor(tab.color)
           return (
             <div
               key={tab.id}
