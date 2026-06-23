@@ -34,7 +34,7 @@ function Experience() {
 
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: '160px', background: 'linear-gradient(to bottom, transparent, #212121)', zIndex: 4 }} />
 
-      <div className="relative z-10 px-4 md:px-16 lg:px-24 pt-28 md:pt-32 pb-16 md:pb-24 max-w-6xl mx-auto">
+      <div className="relative z-10 px-6 md:px-16 lg:px-24 py-28 md:py-32 max-w-6xl mx-auto">
         <div ref={editorRef} className="overflow-hidden flex flex-col" style={{ background: '#161616', minHeight: 'clamp(400px, 80vh, 600px)' }}>
 
           {/* Window chrome */}

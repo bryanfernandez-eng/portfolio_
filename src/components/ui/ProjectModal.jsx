@@ -53,10 +53,9 @@ function ProjectModal({ project, onClose }) {
         <div className="p-4 pb-0 shrink-0">
           <div className="overflow-hidden bg-black" style={{ height: '260px', border: '1px solid #000' }}>
             <img
-              src={`${import.meta.env.BASE_URL}${project.image.replace(/^\//, '')}`}
+              src={project.image.startsWith('data:') ? project.image : `${import.meta.env.BASE_URL}${project.image.replace(/^\//, '')}`}
               alt={`${project.name} screenshot`}
               className="w-full h-full object-cover object-top"
-              style={{ filter: 'grayscale(1) contrast(1.15)' }}
             />
           </div>
         </div>

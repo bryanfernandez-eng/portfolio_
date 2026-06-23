@@ -33,8 +33,8 @@ function ContactForm() {
   const statusLabel = STATUS_LABEL[status] ?? (isReady ? '// ready to send_' : '// fill in all fields_')
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-9 flex-1 justify-between">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 flex-1 justify-between">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div className="flex flex-col gap-2">
           <label className="font-mono text-xs text-[#e6edf3] uppercase tracking-widest">Name</label>
           <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Your name" className={INPUT_CLASS} />

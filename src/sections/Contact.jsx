@@ -70,9 +70,9 @@ function Contact() {
         </div>
 
         {/* Right — form */}
-        <div className="lg:w-3/5 w-full self-stretch flex flex-col" style={{ marginRight: '8px', marginBottom: '8px' }}>
-          <div className="bg-[#212121] p-6 md:p-10 flex-1 flex flex-col justify-between" style={{ border: '3px solid #212121', boxShadow: '6px 6px 0 #39d353', borderRadius: '4px' }}>
-            <div className="flex items-center justify-between mb-8">
+        <div className="lg:w-[52%] w-full self-stretch flex flex-col mx-auto lg:mx-0 max-w-sm sm:max-w-none" style={{ marginRight: '8px', marginBottom: '8px' }}>
+          <div className="bg-[#212121] p-5 md:p-7 flex-1 flex flex-col justify-between" style={{ border: '3px solid #212121', boxShadow: '6px 6px 0 #39d353', borderRadius: '4px' }}>
+            <div className="flex items-center justify-between mb-6">
               <div className="inline-flex items-center px-3 py-1" style={{ background: '#FFE033', border: '2px solid #212121', borderRadius: '2px' }}>
                 <p className="font-mono text-xs font-bold text-[#212121]">GET IN TOUCH</p>
               </div>

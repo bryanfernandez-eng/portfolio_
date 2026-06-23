@@ -11,12 +11,11 @@ function ProjectCard({ project, onSelect }) {
       }}
     >
       {/* Image — full B&W */}
-      <div className="w-full shrink-0 overflow-hidden relative bg-[#111]" style={{ height: '200px' }}>
+      <div className="w-full shrink-0 overflow-hidden relative" style={{ height: '200px' }}>
         <img
-          src={`${import.meta.env.BASE_URL}${project.image.replace(/^\//, '')}`}
+          src={project.image.startsWith('data:') ? project.image : `${import.meta.env.BASE_URL}${project.image.replace(/^\//, '')}`}
           alt={`${project.name} preview`}
           className="w-full h-full object-cover transition-transform duration-700"
-          style={{ filter: 'grayscale(1) contrast(1.15)' }}
         />
         {/* Number — top right */}
         <span
@@ -28,7 +27,7 @@ function ProjectCard({ project, onSelect }) {
       </div>
 
       {/* Hard divider */}
-      <div style={{ height: '3px', background: '#212121', flexShrink: 0 }} />
+      <div style={{ height: '1px', background: '#212121', flexShrink: 0 }} />
 
       {/* Body */}
       <div className="p-4 flex flex-col gap-3 flex-1">

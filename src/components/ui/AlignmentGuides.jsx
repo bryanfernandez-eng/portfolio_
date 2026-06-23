@@ -22,7 +22,11 @@ function AlignmentGuides({ sectionRef, editorRef }) {
 
     measure()
     window.addEventListener('resize', measure)
-    return () => window.removeEventListener('resize', measure)
+    window.addEventListener('scroll', measure, { passive: true })
+    return () => {
+      window.removeEventListener('resize', measure)
+      window.removeEventListener('scroll', measure)
+    }
   }, [sectionRef, editorRef])
 
   if (!lines) return null
