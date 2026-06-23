@@ -123,7 +123,7 @@ function Projects() {
             <button
               onClick={handleScrollLeft}
               aria-label="Scroll left"
-              className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-black text-white hover:bg-white hover:text-black border border-black transition-colors duration-150"
+              className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center bg-black text-white hover:bg-white hover:text-black border border-black transition-colors duration-150"
               style={{ borderRadius: '0' }}
             >
               <ChevronLeftIcon />
@@ -131,7 +131,7 @@ function Projects() {
             <button
               onClick={handleScrollRight}
               aria-label="Scroll right"
-              className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-black text-white hover:bg-white hover:text-black border border-black transition-colors duration-150"
+              className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center bg-black text-white hover:bg-white hover:text-black border border-black transition-colors duration-150"
               style={{ borderRadius: '0' }}
             >
               <ChevronRightIcon />

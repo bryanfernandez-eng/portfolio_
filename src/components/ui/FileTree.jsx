@@ -19,15 +19,23 @@ function FileTree({ files, activeId, openTabIds, onOpen, isCollapsed, onToggleCo
       <button
         onClick={onToggleCollapse}
         title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-        className="flex items-center justify-center w-full py-2 border-b border-[#2d2d2d] hover:bg-white/[0.04] transition-colors duration-150"
+        className="flex items-center justify-center w-full border-b border-[#2d2d2d] hover:bg-white/[0.04] transition-colors duration-150"
+        style={{ height: 39 }}
       >
         <span className="font-mono text-xs text-[#30363d] hover:text-[#8b949e] transition-colors">
           {isCollapsed ? '»' : '«'}
         </span>
       </button>
 
-      {!isCollapsed && (
-        <div className="flex flex-col py-3">
+      <div
+        className="flex flex-col py-3 overflow-hidden transition-all duration-200"
+        style={{
+          opacity: isCollapsed ? 0 : 1,
+          transform: isCollapsed ? 'translateX(-8px)' : 'translateX(0)',
+          pointerEvents: isCollapsed ? 'none' : 'auto',
+          maxHeight: isCollapsed ? 0 : '1000px',
+        }}
+      >
           {folders.map(({ key, items }) => (
             <div key={key}>
               <button
@@ -56,7 +64,6 @@ function FileTree({ files, activeId, openTabIds, onOpen, isCollapsed, onToggleCo
             </div>
           ))}
         </div>
-      )}
     </div>
   )
 }

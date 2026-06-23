@@ -55,7 +55,7 @@ function FilePane({ file, openTabs, activeId, onTabSelect, onTabClose }) {
 
         <h2
           className="font-bold text-[#e6edf3] leading-none mb-5"
-          style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(1.75rem, 8vw, 4rem)' }}
+          style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(1.25rem, 6vw, 4rem)' }}
         >
           {file.company}
         </h2>

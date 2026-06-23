@@ -115,22 +115,22 @@ function Contact() {
               </span>
               <h2
                 className="font-bold leading-none tracking-tight text-[#212121] mb-6"
-                style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2.8rem, 6vw, 5.5rem)' }}
+                style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2rem, 6vw, 5.5rem)' }}
               >
                 Let's build<br />something.
               </h2>
-              <p className="text-[#4a5260] text-base leading-relaxed">
+              <p className="text-[#4a5260] text-sm md:text-base leading-relaxed">
                 Open to internships, new grad roles, and interesting projects. Let's make something great together.
               </p>
             </div>
           </div>
 
-          {/* Contact link pills — mobile: icons only row, md: 2x2 grid, lg: stacked */}
-          <div className="flex justify-between sm:grid sm:grid-cols-2 sm:justify-normal lg:flex lg:flex-col w-full gap-3 lg:gap-4">
+          {/* Contact link pills — hidden on mobile (shown in form card instead) */}
+          <div className="hidden sm:grid sm:grid-cols-2 lg:flex lg:flex-col sm:gap-3 lg:gap-3 w-full">
             <a
               href="mailto:dev.bryanfernandez@gmail.com"
               aria-label="Email"
-              className="inline-flex items-center justify-center sm:justify-start gap-3 px-3 sm:px-4 py-3 bg-white font-mono text-sm text-[#212121] font-medium transition-transform duration-100"
+              className="inline-flex items-center justify-center sm:justify-start gap-2 px-3 py-2 bg-white font-mono text-xs text-[#212121] font-medium transition-transform duration-100"
               style={PILL_STYLE}
               onMouseEnter={handlePillEnter}
               onMouseLeave={handlePillLeave}
@@ -146,7 +146,7 @@ function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}
-                className="inline-flex items-center justify-center sm:justify-start gap-3 px-3 sm:px-4 py-3 bg-white font-mono text-sm text-[#212121] font-medium transition-transform duration-100"
+                className="inline-flex items-center justify-center sm:justify-start gap-2 px-3 py-2 bg-white font-mono text-xs text-[#212121] font-medium transition-transform duration-100"
                 style={PILL_STYLE}
                 onMouseEnter={handlePillEnter}
                 onMouseLeave={handlePillLeave}
@@ -168,16 +168,32 @@ function Contact() {
               borderRadius: '4px',
             }}
           >
-            {/* Caption box */}
-            <div
-              className="inline-flex items-center px-3 py-1 mb-8 self-start"
-              style={{
-                background: '#FFE033',
-                border: '2px solid #212121',
-                borderRadius: '2px',
-              }}
-            >
-              <p className="font-mono text-xs font-bold text-[#212121]">GET IN TOUCH</p>
+            {/* Caption box + mobile icon pills */}
+            <div className="flex items-center justify-between mb-8">
+              <div
+                className="inline-flex items-center px-3 py-1"
+                style={{
+                  background: '#FFE033',
+                  border: '2px solid #212121',
+                  borderRadius: '2px',
+                }}
+              >
+                <p className="font-mono text-xs font-bold text-[#212121]">GET IN TOUCH</p>
+              </div>
+              <div className="flex sm:hidden gap-3">
+                <a href="mailto:dev.bryanfernandez@gmail.com" aria-label="Email"
+                  className="inline-flex items-center justify-center text-[#e6edf3] hover:text-white transition-colors duration-150"
+                >
+                  <EmailIcon size={16} />
+                </a>
+                {SOCIAL_LINKS.map(link => (
+                  <a key={link.id} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}
+                    className="inline-flex items-center justify-center text-[#e6edf3] hover:text-white transition-colors duration-150"
+                  >
+                    {SOCIAL_ICONS[link.id]}
+                  </a>
+                ))}
+              </div>
             </div>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-9 flex-1 justify-between">
