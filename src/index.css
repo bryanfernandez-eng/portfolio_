@@ -58,6 +58,28 @@ body {
 /* Hide scrollbar on tab bar while keeping scroll */
 .tab-bar::-webkit-scrollbar { display: none; }
 
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    #1a0a2e,
+    #2d1b4e,
+    #0d1f3c,
+    #1e0e30,
+    #3b1a0a,
+    #2a0e1e,
+    #0a2230,
+    #1a2a0a
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 18s ease infinite;
+}
+
 /* CRT scanline overlay */
 .crt-scanlines::after {
   content: '';

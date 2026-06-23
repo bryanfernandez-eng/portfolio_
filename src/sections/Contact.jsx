@@ -28,7 +28,7 @@ function Starburst() {
       viewBox="0 0 240 240"
       aria-hidden="true"
       className="absolute pointer-events-none select-none"
-      style={{ width: 280, height: 280, top: -50, left: -50, zIndex: 0, opacity: 1 }}
+      style={{ width: 280, height: 280, top: -50, left: -50, zIndex: 0, opacity: 1, animation: 'spin 200s linear infinite', transformOrigin: 'center' }}
     >
       <polygon points={pts} fill="#a8f0b8" />
     </svg>

@@ -46,8 +46,8 @@ function Experience() {
         src="/gradient-bg.png"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-        style={{ zIndex: 0, opacity: 0.5 }}
+        className="animated-gradient-bg absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        style={{ zIndex: 0, opacity: 0.7 }}
       />
 
       <AlignmentGuides sectionRef={sectionRef} editorRef={editorRef} />
