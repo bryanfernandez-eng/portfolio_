@@ -31,7 +31,7 @@ function Landing() {
         style={{ background: 'linear-gradient(to bottom, transparent, #212121)', zIndex: 5 }}
       />
 
-      <p className="absolute bottom-6 left-8 font-mono text-sm text-[#8b949e] z-10">
+      <p className="absolute bottom-4 left-4 sm:bottom-6 sm:left-8 font-mono text-xs sm:text-sm text-[#8b949e] z-10">
         // building things that matter
       </p>
     </section>
