@@ -55,7 +55,7 @@ function ProjectModal({ project, onClose }) {
             <img
               src={project.image}
               alt={`${project.name} screenshot`}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
               style={{ filter: 'grayscale(1) contrast(1.15)' }}
             />
           </div>
