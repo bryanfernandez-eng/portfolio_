@@ -59,7 +59,7 @@ function Experience() {
         <div
           ref={editorRef}
           className="overflow-hidden flex flex-col"
-          style={{ background: '#161616', minHeight: '720px' }}
+          style={{ background: '#161616', minHeight: 'clamp(400px, 80vh, 600px)' }}
         >
           {/* Window chrome */}
           <div className="flex items-center gap-2 px-4 py-3 border-b border-[#2d2d2d] bg-[#1a1a1a] shrink-0">
