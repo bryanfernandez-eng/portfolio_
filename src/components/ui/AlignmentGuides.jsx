@@ -40,7 +40,7 @@ function AlignmentGuides({ sectionRef, editorRef }) {
     <svg
       aria-hidden="true"
       className="absolute inset-0 pointer-events-none"
-      style={{ zIndex: 30, width: w, height: h }}
+      style={{ zIndex: 10, width: w, height: h }}
       viewBox={`0 0 ${w} ${h}`}
     >
       <defs>
