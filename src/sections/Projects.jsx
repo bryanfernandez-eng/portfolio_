@@ -14,7 +14,7 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden min-h-screen flex flex-col"
+      className="relative overflow-hidden flex flex-col py-10"
       style={{
         background: '#f5f5f5',
         backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.07) 1px, transparent 1px)`,

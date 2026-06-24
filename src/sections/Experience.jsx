@@ -21,7 +21,7 @@ function Experience() {
   const activeFile = FILES.find(f => f.id === activeId)
 
   return (
-    <section ref={sectionRef} id="experience" className="crt-scanlines relative bg-[#212121] z-20 overflow-hidden min-h-screen border-t-purple-800 border-t-3">
+    <section ref={sectionRef} id="experience" className="crt-scanlines relative bg-[#212121] z-20 overflow-hidden border-t-purple-800 border-t-3">
       <img
         src={`${import.meta.env.BASE_URL}gradient-bg.png`}
         alt=""

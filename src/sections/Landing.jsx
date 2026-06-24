@@ -1,9 +1,13 @@
+import { useState } from 'react'
 import DotGrid from '../components/backgrounds/DotGrid'
 import GeometricBackground from '../components/backgrounds/GeometricBackground'
 import Clouds from '../components/backgrounds/Clouds'
 import { BADGES } from '../constants/landing'
+import AboutModal from '../components/ui/AboutModal'
 
 function Landing() {
+  const [showAbout, setShowAbout] = useState(false)
+
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-8 overflow-hidden">
       <DotGrid />
@@ -34,6 +38,15 @@ function Landing() {
       <p className="absolute bottom-4 left-4 sm:bottom-6 sm:left-8 font-mono text-xs sm:text-sm text-[#8b949e] z-10">
         // building things that matter
       </p>
+
+      <button
+        onClick={() => setShowAbout(true)}
+        className="absolute bottom-4 right-4 sm:bottom-6 sm:right-8 font-mono text-xs sm:text-sm text-[#8b949e] hover:text-[#39d353] transition-colors duration-150 z-10"
+      >
+        about.md<span className="animate-pulse text-[#39d353]">_</span>
+      </button>
+
+      {showAbout && <AboutModal onClose={() => setShowAbout(false)} />}
     </section>
   )
 }
