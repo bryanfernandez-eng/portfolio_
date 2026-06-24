@@ -39,12 +39,12 @@ function Footer() {
         }}
       />
 
-      <div className="relative flex flex-col items-center md:flex-row md:items-center md:justify-between pt-4 pb-6 px-6 md:px-10">
+      <div className="relative flex flex-col items-center md:flex-row md:items-center md:justify-between pt-4 pb-6 px-6 md:px-8">
         <h2
           className="font-bold leading-none tracking-tight select-none"
           style={{
             fontFamily: "'Syne', sans-serif",
-            fontSize: 'clamp(1rem, 9vw, 20rem)',
+            fontSize: 'clamp(0.8rem, 9.4vw, 25rem)',
           color: 'transparent',
             WebkitTextStroke: '1.5px #e8eaed',
           }}
