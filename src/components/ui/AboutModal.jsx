@@ -57,12 +57,12 @@ function AboutModal({ onClose }) {
           </button>
         </div>
 
-        <div className="p-6 md:p-8 flex flex-col gap-6">
+        <div className="p-3 md:p-8 flex flex-col gap-5">
           <div>
             <span className="font-mono text-xs text-[#39d353] mb-2 block">// hello, world</span>
             <h2
               className="font-bold leading-none text-[#e6edf3]"
-              style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2rem, 6vw, 2.8rem)' }}
+              style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(1.5rem, 8vw, 2.8rem)' }}
             >
               Bryan Fernandez
             </h2>
@@ -72,10 +72,10 @@ function AboutModal({ onClose }) {
             Born and raised in Miami, FL to Cuban parents. I genuinely love building software — especially anything touching AI and ML. When I'm not coding I'm watching movies, catching sport games, or learning about something new.
           </p>
 
-          <div className="flex flex-col gap-2 border border-[#2d2d2d] rounded-lg p-4 bg-white/[0.02]">
+          <div className="flex flex-col gap-2 border border-[#2d2d2d] rounded-lg p-2 md:p-4 bg-white/[0.02]">
             {FACTS.map(({ label, value }) => (
-              <div key={label} className="flex gap-3 items-start">
-                <span className="font-mono text-[10px] text-[#8b5cf6] shrink-0 mt-0.5 w-28">{label}</span>
+              <div key={label} className="flex gap-2 items-start">
+                <span className="font-mono text-[10px] text-[#8b5cf6] shrink-0 mt-0.5 w-20 md:w-28">{label}</span>
                 <span className="font-mono text-[10px] md:text-xs text-[#e6edf3]">{value}</span>
               </div>
             ))}
