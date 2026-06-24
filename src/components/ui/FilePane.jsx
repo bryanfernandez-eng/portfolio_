@@ -1,5 +1,6 @@
 import FileDot from './FileDot'
 import { opaquifyColor } from '../../utils/colors'
+import { COLORS } from '../../constants/colors'
 
 function FilePane({ file, openTabs, activeId, onTabSelect, onTabClose }) {
   if (!file) return (
@@ -48,9 +49,9 @@ function FilePane({ file, openTabs, activeId, onTabSelect, onTabClose }) {
       <div key={file.id} className="pane-fade-in flex-1 overflow-y-auto px-4 md:px-8 py-5 md:py-8">
         <div className="font-mono text-[10px] md:text-xs text-[#8b949e] mb-4 border border-[#2d2d2d] rounded-lg p-2 md:p-4 bg-white/[0.02]">
           <p className="text-[#30363d] mb-2">---</p>
-          <p><span className="text-[#8b5cf6]">role</span><span className="text-[#8b949e]">: </span><span className="text-[#e6edf3]">{file.role}</span></p>
-          <p><span className="text-[#8b5cf6]">company</span><span className="text-[#8b949e]">: </span><span className="text-[#e6edf3]">{file.company}</span></p>
-          <p><span className="text-[#8b5cf6]">period</span><span className="text-[#8b949e]">: </span><span className="text-[#39d353]">{file.period}</span></p>
+          <p><span style={{ color: COLORS.accentPurple }}>role</span><span className="text-[#8b949e]">: </span><span className="text-[#e6edf3]">{file.role}</span></p>
+          <p><span style={{ color: COLORS.accentPurple }}>company</span><span className="text-[#8b949e]">: </span><span className="text-[#e6edf3]">{file.company}</span></p>
+          <p><span style={{ color: COLORS.accentPurple }}>period</span><span className="text-[#8b949e]">: </span><span className="text-[#39d353]">{file.period}</span></p>
           <p className="text-[#30363d] mt-2">---</p>
         </div>
 

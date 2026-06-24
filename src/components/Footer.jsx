@@ -1,12 +1,7 @@
 import { SOCIAL_LINKS } from '../constants/social'
-import { GitHubIcon, LinkedInIcon, ResumeIcon, EmailIcon } from './ui/icons'
+import { SOCIAL_ICONS } from '../constants/socialIcons'
+import { EmailIcon } from './ui/icons'
 import useLocalMouse from '../hooks/useLocalMouse'
-
-const FOOTER_ICONS = {
-  linkedin: <LinkedInIcon size={20} />,
-  github: <GitHubIcon size={20} />,
-  resume: <ResumeIcon size={20} />,
-}
 
 const CURSOR_SIZE = 120
 
@@ -69,7 +64,7 @@ function Footer() {
               rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
               className="text-[#8b949e] hover:text-[#39d353] transition-colors duration-200"
             >
-              {FOOTER_ICONS[id]}
+              {SOCIAL_ICONS[id](20)}
             </a>
           ))}
         </div>

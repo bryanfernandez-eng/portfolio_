@@ -1,3 +1,5 @@
+import { COLORS } from '../../constants/colors'
+
 function ProjectCard({ project, onSelect }) {
   return (
     <button
@@ -6,39 +8,35 @@ function ProjectCard({ project, onSelect }) {
       style={{
         minHeight: '380px',
         background: '#fff',
-        border: '1px solid #212121',
+        border: `1px solid ${COLORS.dark}`,
         borderRadius: '0',
       }}
     >
-      {/* Image — full B&W */}
       <div className="w-full shrink-0 overflow-hidden relative" style={{ height: '200px' }}>
         <img
           src={project.image.startsWith('data:') ? project.image : `${import.meta.env.BASE_URL}${project.image.replace(/^\//, '')}`}
           alt={`${project.name} preview`}
           className="w-full h-full object-cover transition-transform duration-700"
         />
-        {/* Number — top right */}
         <span
           className="absolute top-0 right-0 font-mono text-xs text-white px-2 py-1"
-          style={{ letterSpacing: '0.05em', background: '#212121' }}
+          style={{ letterSpacing: '0.05em', background: COLORS.dark }}
         >
           {project.number}
         </span>
       </div>
 
-      {/* Hard divider */}
-      <div style={{ height: '1px', background: '#212121', flexShrink: 0 }} />
+      <div style={{ height: '1px', background: COLORS.dark, flexShrink: 0 }} />
 
-      {/* Body */}
       <div className="p-4 flex flex-col gap-3 flex-1">
         <h3
           className="font-bold leading-tight"
-          style={{ fontFamily: "'Fraunces', serif", fontSize: '1.15rem', color: '#212121' }}
+          style={{ fontFamily: "'Fraunces', serif", fontSize: '1.15rem', color: COLORS.dark }}
         >
           {project.name}
         </h3>
 
-        <p className="font-mono text-[11px] leading-relaxed text-[#444] line-clamp-2">
+        <p className="font-mono text-[11px] leading-relaxed line-clamp-2" style={{ color: COLORS.midText }}>
           {project.description}
         </p>
 
@@ -47,7 +45,7 @@ function ProjectCard({ project, onSelect }) {
             <span
               key={tech}
               className="font-mono text-[10px] px-2 py-0.5"
-              style={{ border: '1px solid #212121', background: 'transparent', color: '#212121' }}
+              style={{ border: `1px solid ${COLORS.dark}`, background: 'transparent', color: COLORS.dark }}
             >
               {tech}
             </span>
@@ -55,17 +53,16 @@ function ProjectCard({ project, onSelect }) {
         </div>
       </div>
 
-      {/* Bottom bar — inverts on hover */}
       <div
         className="px-4 py-2 shrink-0 flex items-center justify-between transition-colors duration-150 group/bar"
-        style={{ borderTop: '1px solid #212121' }}
-        onMouseEnter={e => { e.currentTarget.style.background = '#212121' }}
+        style={{ borderTop: `1px solid ${COLORS.dark}` }}
+        onMouseEnter={e => { e.currentTarget.style.background = COLORS.dark }}
         onMouseLeave={e => { e.currentTarget.style.background = 'transparent' }}
       >
-        <span className="font-mono text-[10px] uppercase tracking-widest transition-colors duration-150 group-hover/bar:text-white" style={{ color: '#212121' }}>
+        <span className="font-mono text-[10px] uppercase tracking-widest transition-colors duration-150 group-hover/bar:text-white" style={{ color: COLORS.dark }}>
           View project
         </span>
-        <span className="font-mono text-xs transition-colors duration-150 group-hover/bar:text-white" style={{ color: '#212121' }}>→</span>
+        <span className="font-mono text-xs transition-colors duration-150 group-hover/bar:text-white" style={{ color: COLORS.dark }}>→</span>
       </div>
     </button>
   )

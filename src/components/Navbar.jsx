@@ -1,15 +1,10 @@
 import { SOCIAL_LINKS } from '../constants/social'
-import { GitHubIcon, LinkedInIcon, ResumeIcon, HomeIcon, EmailIcon } from './ui/icons'
+import { SOCIAL_ICONS } from '../constants/socialIcons'
+import { HomeIcon, EmailIcon } from './ui/icons'
 import { useActiveSection } from '../hooks/useActiveSection'
 
 const LIGHT_SECTIONS = ['projects', 'contact']
 const SECTION_IDS = ['projects', 'experience', 'contact']
-
-const NAV_ICONS = {
-  linkedin: <LinkedInIcon />,
-  github: <GitHubIcon />,
-  resume: <ResumeIcon />,
-}
 
 function Navbar() {
   const active = useActiveSection(SECTION_IDS)
@@ -34,7 +29,7 @@ function Navbar() {
               rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
               className="text-white hover:text-[#39d353] transition-colors"
             >
-              {NAV_ICONS[id]}
+              {SOCIAL_ICONS[id]()}
             </a>
           </li>
         ))}

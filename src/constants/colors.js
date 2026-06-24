@@ -11,4 +11,8 @@ export const COLORS = {
   border:      '#2d2d2d',
   surface:     '#161616',
   surfaceAlt:  '#1a1a1a',
+  accentPurple:'#8b5cf6',
+  bodyText:    '#4a5260',
+  subduedText: '#999999',
+  midText:     '#444444',
 }

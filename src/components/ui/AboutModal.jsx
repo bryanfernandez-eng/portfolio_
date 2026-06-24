@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { CloseIcon } from './icons'
+import { COLORS } from '../../constants/colors'
+import WindowChrome from './WindowChrome'
 
 const CLOSE_DURATION = 200
 
@@ -41,47 +42,35 @@ function AboutModal({ onClose }) {
 
       <div
         className={`relative z-10 w-full max-w-lg ${isClosing ? 'animate-modal-out' : 'animate-modal-in'}`}
-        style={{
-          background: '#0d0d0d',
-          border: '1px solid #2d2d2d',
-        }}
+        style={{ background: '#0d0d0d', border: `1px solid ${COLORS.border}` }}
       >
-        {/* Window chrome */}
-        <div className="flex items-center gap-2 px-4 py-3 border-b border-[#2d2d2d] bg-[#1a1a1a]">
-          <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-          <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
-          <span className="w-3 h-3 rounded-full bg-[#28c840]" />
-          <span className="font-mono text-xs text-[#8b949e] ml-3">~/about.md</span>
-          <button onClick={handleClose} aria-label="Close" className="ml-auto text-[#8b949e] hover:text-[#e6edf3] transition-colors duration-150">
-            <CloseIcon />
-          </button>
-        </div>
+        <WindowChrome title="~/about.md" onClose={handleClose} />
 
         <div className="p-3 md:p-8 flex flex-col gap-5">
           <div>
-            <span className="font-mono text-xs text-[#39d353] mb-2 block">// hello, world</span>
+            <span className="font-mono text-xs mb-2 block" style={{ color: COLORS.accentGreen }}>// hello, world</span>
             <h2
-              className="font-bold leading-none text-[#e6edf3]"
-              style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(1.5rem, 8vw, 2.8rem)' }}
+              className="font-bold leading-none"
+              style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(1.5rem, 8vw, 2.8rem)', color: COLORS.primaryText }}
             >
               Bryan Fernandez
             </h2>
           </div>
 
-          <p className="font-mono text-xs md:text-sm text-[#8b949e] leading-relaxed">
+          <p className="font-mono text-xs md:text-sm leading-relaxed" style={{ color: COLORS.mutedText }}>
             Born and raised in Miami, FL to Cuban parents. I genuinely love building software — especially anything touching AI and ML. When I'm not coding I'm watching movies, catching sport games, or learning about something new.
           </p>
 
-          <div className="flex flex-col gap-2 border border-[#2d2d2d] rounded-lg p-2 md:p-4 bg-white/[0.02]">
+          <div className="flex flex-col gap-2 rounded-lg p-2 md:p-4 bg-white/[0.02]" style={{ border: `1px solid ${COLORS.border}` }}>
             {FACTS.map(({ label, value }) => (
               <div key={label} className="flex gap-2 items-start">
-                <span className="font-mono text-[10px] text-[#8b5cf6] shrink-0 mt-0.5 w-20 md:w-28">{label}</span>
-                <span className="font-mono text-[10px] md:text-xs text-[#e6edf3]">{value}</span>
+                <span className="font-mono text-[10px] shrink-0 mt-0.5 w-20 md:w-28" style={{ color: COLORS.accentPurple }}>{label}</span>
+                <span className="font-mono text-[10px] md:text-xs" style={{ color: COLORS.primaryText }}>{value}</span>
               </div>
             ))}
           </div>
 
-          <p className="font-mono text-[10px] text-[#30363d]">
+          <p className="font-mono text-[10px]" style={{ color: COLORS.dimText }}>
             open to internships, new grad roles, and cool projects_
           </p>
         </div>

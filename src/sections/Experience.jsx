@@ -5,6 +5,7 @@ import FileTree from '../components/ui/FileTree'
 import FilePane from '../components/ui/FilePane'
 import MobileFilePicker from '../components/ui/MobileFilePicker'
 import AlignmentGuides from '../components/ui/AlignmentGuides'
+import WindowChrome from '../components/ui/WindowChrome'
 
 const FILES = [
   ...EXPERIENCE.map(e => ({ ...e, folder: 'experience', filename: `${e.company.toLowerCase().replace(/\s/g, '-')}-${e.id}.md` })),
@@ -37,14 +38,7 @@ function Experience() {
       <div className="relative z-10 px-6 md:px-16 lg:px-24 py-28 md:py-32 max-w-6xl mx-auto">
         <div ref={editorRef} className="overflow-hidden flex flex-col" style={{ background: '#161616', minHeight: 'clamp(400px, 80vh, 600px)' }}>
 
-          {/* Window chrome */}
-          <div className="flex items-center gap-2 px-4 py-3 border-b border-[#2d2d2d] bg-[#1a1a1a] shrink-0">
-            <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-            <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
-            <span className="w-3 h-3 rounded-full bg-[#28c840]" />
-            <span className="font-mono text-xs text-[#8b949e] ml-3">~/portfolio/background</span>
-            <span className="font-mono text-xs text-[#30363d] ml-auto hidden sm:block">// experience & education</span>
-          </div>
+          <WindowChrome title="~/portfolio/background" rightLabel="// experience & education" />
 
           <div className="md:hidden bg-[#1a1a1a]">
             <MobileFilePicker files={FILES} activeId={activeId} onSelect={openTab} />
