@@ -31,7 +31,7 @@ function ProjectCard({ project, onSelect }) {
       <div className="p-4 flex flex-col gap-3 flex-1">
         <h3
           className="font-bold leading-tight"
-          style={{ fontFamily: "'Fraunces', serif", fontSize: '1.15rem', color: COLORS.dark }}
+          style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', color: COLORS.dark }}
         >
           {project.name}
         </h3>

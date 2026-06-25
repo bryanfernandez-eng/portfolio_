@@ -15,7 +15,7 @@ function Landing() {
       <Clouds />
 
       <div className="relative z-10 flex flex-col items-center gap-4">
-        <h1 className="text-5xl md:text-7xl font-normal tracking-tight">
+        <h1 className="font-normal tracking-tight" style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)' }}>
           Bryan Fernandez<span className="animate-pulse">_</span>
         </h1>
         <div className="flex flex-wrap justify-center gap-2">

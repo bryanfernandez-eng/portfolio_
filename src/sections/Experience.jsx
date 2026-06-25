@@ -28,7 +28,7 @@ function Experience() {
         alt=""
         aria-hidden="true"
         className="animated-gradient-bg absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-        style={{ zIndex: 0, animation: 'glow-pulse 3s ease-in-out infinite' }}
+        style={{ zIndex: 0, animation: 'glow-pulse 10s ease-in-out infinite' }}
       />
 
       <AlignmentGuides sectionRef={sectionRef} editorRef={editorRef} />
