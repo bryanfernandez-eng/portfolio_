@@ -42,7 +42,7 @@ function AboutModal({ onClose }) {
 
       <div
         className={`relative z-10 w-full max-w-lg ${isClosing ? 'animate-modal-out' : 'animate-modal-in'}`}
-        style={{ background: '#0d0d0d', border: `1px solid ${COLORS.border}` }}
+        style={{ background: COLORS.surfaceDark, border: `1px solid ${COLORS.border}` }}
       >
         <WindowChrome title="~/about.md" onClose={handleClose} />
 

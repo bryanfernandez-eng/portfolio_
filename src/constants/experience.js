@@ -1,8 +1,10 @@
+import { COLORS } from './colors'
+
 export const EXPERIENCE = [
   {
     id: 'exp-0',
     hash: 'f2a1b34',
-    color: 'rgba(57,211,83,0.35)',
+    color: COLORS.colorGreen,
     company: 'Assurant',
     role: 'Software Engineer Intern',
     period: 'June 2026 – Present',
@@ -13,7 +15,7 @@ export const EXPERIENCE = [
   {
     id: 'exp-1',
     hash: 'a3f9c12',
-    color: 'rgba(57,211,83,0.35)',
+    color: COLORS.colorGreen,
     company: 'FEAM Aero',
     role: 'Software Engineer (Co-op)',
     period: 'August 2025 – Present',
@@ -27,7 +29,7 @@ export const EXPERIENCE = [
   {
     id: 'exp-2',
     hash: 'b7e2d45',
-    color: 'rgba(57,211,83,0.35)',
+    color: COLORS.colorGreen,
     company: 'FEAM Aero',
     role: 'Software Engineer Intern',
     period: 'May 2025 – August 2025',
@@ -40,7 +42,7 @@ export const EXPERIENCE = [
   {
     id: 'exp-3',
     hash: 'c9d1e78',
-    color: 'rgba(139,92,246,0.35)',
+    color: COLORS.colorPurple,
     company: 'INIT FIU',
     role: 'Director of Technology',
     period: 'January 2026 – Present',
@@ -56,7 +58,7 @@ export const EDUCATION = [
   {
     id: 'edu-1',
     hash: 'c4a8f91',
-    color: 'rgba(255,45,120,0.35)',
+    color: COLORS.colorPink,
     company: 'FIU',
     role: 'B.S. Computer Science, Minor in Math',
     period: 'August 2024 – Expected December 2026',
@@ -69,7 +71,7 @@ export const EDUCATION = [
   {
     id: 'edu-2',
     hash: 'd5b3e02',
-    color: 'rgba(88,166,255,0.35)',
+    color: COLORS.colorBlue,
     company: 'MDC',
     role: "A.S. Computer Science",
     period: 'June 2022 – June 2024',

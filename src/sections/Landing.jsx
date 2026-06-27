@@ -4,6 +4,7 @@ import GeometricBackground from '../components/backgrounds/GeometricBackground'
 import Clouds from '../components/backgrounds/Clouds'
 import { BADGES } from '../constants/landing'
 import AboutModal from '../components/ui/AboutModal'
+import { COLORS } from '../constants/colors'
 
 function Landing() {
   const [showAbout, setShowAbout] = useState(false)
@@ -22,7 +23,8 @@ function Landing() {
           {BADGES.map(tag => (
             <span
               key={tag}
-              className="text-xs font-mono px-3 py-1 rounded-full border-[#30363d] text-[#8b949e]"
+              className="text-xs font-mono px-3 py-1 rounded-full"
+              style={{ border: `1px solid ${COLORS.dimText}`, color: COLORS.mutedText }}
             >
               {tag}
             </span>
@@ -32,18 +34,21 @@ function Landing() {
 
       <div
         className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, transparent, #212121)', zIndex: 5 }}
+        style={{ background: `linear-gradient(to bottom, transparent, ${COLORS.dark})`, zIndex: 5 }}
       />
 
-      <p className="absolute bottom-4 left-4 sm:bottom-6 sm:left-8 font-mono text-xs sm:text-sm text-[#8b949e] z-10">
+      <p className="absolute bottom-4 left-4 sm:bottom-6 sm:left-8 font-mono text-xs sm:text-sm z-10" style={{ color: COLORS.mutedText }}>
         // building things that matter
       </p>
 
       <button
         onClick={() => setShowAbout(true)}
-        className="absolute bottom-4 right-4 sm:bottom-6 sm:right-8 font-mono text-xs sm:text-sm text-[#8b949e] hover:text-[#39d353] transition-colors duration-150 z-10"
+        className="absolute bottom-4 right-4 sm:bottom-6 sm:right-8 font-mono text-xs sm:text-sm transition-colors duration-150 z-10"
+        style={{ color: COLORS.mutedText }}
+        onMouseEnter={e => { e.currentTarget.style.color = COLORS.accentGreen }}
+        onMouseLeave={e => { e.currentTarget.style.color = COLORS.mutedText }}
       >
-        about.md<span className="animate-pulse text-[#39d353]">_</span>
+        about.md<span className="animate-pulse" style={{ color: COLORS.accentGreen }}>_</span>
       </button>
 
       {showAbout && <AboutModal onClose={() => setShowAbout(false)} />}

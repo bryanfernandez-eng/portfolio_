@@ -1,3 +1,5 @@
+import { COLORS } from '../../constants/colors'
+
 function PaginationDots({ total, activeIndex, onSelect }) {
   return (
     <div className="flex justify-center gap-2 mt-8 px-4 md:px-16 lg:px-24">
@@ -11,7 +13,7 @@ function PaginationDots({ total, activeIndex, onSelect }) {
             width: activeIndex === i ? '24px' : '8px',
             height: '8px',
             borderRadius: '2px',
-            background: activeIndex === i ? '#212121' : '#ccc',
+            background: activeIndex === i ? COLORS.dark : COLORS.paginationDot,
           }}
         />
       ))}

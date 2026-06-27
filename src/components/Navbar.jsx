@@ -2,6 +2,7 @@ import { SOCIAL_LINKS } from '../constants/social'
 import { SOCIAL_ICONS } from '../constants/socialIcons'
 import { HomeIcon, EmailIcon } from './ui/icons'
 import { useActiveSection } from '../hooks/useActiveSection'
+import { COLORS } from '../constants/colors'
 
 const LIGHT_SECTIONS = ['projects', 'contact']
 const SECTION_IDS = ['projects', 'experience', 'contact']
@@ -13,7 +14,7 @@ function Navbar() {
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-4 font-mono transition-colors duration-300"
-      style={{ background: isDark ? '#212121' : 'transparent' }}
+      style={{ background: isDark ? COLORS.dark : 'transparent' }}
     >
       <a href="#" aria-label="Home" className="text-white hover:text-[#39d353] transition-colors">
         <HomeIcon />

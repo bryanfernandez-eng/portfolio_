@@ -5,10 +5,11 @@ import Experience from './sections/Experience'
 import Contact from './sections/Contact'
 import Footer from './components/Footer'
 import GrainOverlay from './components/ui/GrainOverlay'
+import { COLORS } from './constants/colors'
 
 function App() {
   return (
-    <div style={{ background: '#212121' }}>
+    <div style={{ background: COLORS.dark }}>
       <GrainOverlay />
       <Navbar />
       <Landing />

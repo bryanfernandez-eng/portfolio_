@@ -2,6 +2,7 @@ import { SOCIAL_LINKS } from '../constants/social'
 import { SOCIAL_ICONS } from '../constants/socialIcons'
 import { EmailIcon } from './ui/icons'
 import useLocalMouse from '../hooks/useLocalMouse'
+import { COLORS } from '../constants/colors'
 
 const CURSOR_SIZE = 120
 
@@ -15,7 +16,6 @@ function Footer() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Invert circle */}
       <div
         aria-hidden="true"
         style={{
@@ -25,7 +25,7 @@ function Footer() {
           width: CURSOR_SIZE,
           height: CURSOR_SIZE,
           borderRadius: '50%',
-          background: '#fff',
+          background: COLORS.white,
           mixBlendMode: 'difference',
           pointerEvents: 'none',
           opacity: isInside ? 1 : 0,
@@ -40,8 +40,8 @@ function Footer() {
           style={{
             fontFamily: "'Syne', sans-serif",
             fontSize: 'clamp(0.8rem, 9.4vw, 25rem)',
-          color: 'transparent',
-            WebkitTextStroke: '1.5px #e8eaed',
+            color: 'transparent',
+            WebkitTextStroke: `1.5px ${COLORS.lightGray}`,
           }}
         >
           Bryan Fernandez
@@ -51,7 +51,8 @@ function Footer() {
           <a
             href="mailto:dev.bryanfernandez@gmail.com"
             aria-label="Email"
-            className="text-[#8b949e] hover:text-[#39d353] transition-colors duration-200"
+            className="hover:text-[#39d353] transition-colors duration-200"
+            style={{ color: COLORS.mutedText }}
           >
             <EmailIcon size={20} />
           </a>
@@ -62,15 +63,14 @@ function Footer() {
               aria-label={label}
               target={href.startsWith('http') ? '_blank' : undefined}
               rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="text-[#8b949e] hover:text-[#39d353] transition-colors duration-200"
+              className="hover:text-[#39d353] transition-colors duration-200"
+              style={{ color: COLORS.mutedText }}
             >
               {SOCIAL_ICONS[id](20)}
             </a>
           ))}
         </div>
       </div>
-
-
     </footer>
   )
 }

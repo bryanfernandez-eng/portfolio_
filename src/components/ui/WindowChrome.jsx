@@ -3,9 +3,9 @@ import { COLORS } from '../../constants/colors'
 function WindowChrome({ title, onClose, rightLabel }) {
   return (
     <div className="flex items-center gap-2 px-4 py-3 border-b shrink-0" style={{ borderColor: COLORS.border, background: COLORS.surfaceAlt }}>
-      <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-      <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
-      <span className="w-3 h-3 rounded-full bg-[#28c840]" />
+      <span className="w-3 h-3 rounded-full" style={{ background: COLORS.trafficRed }} />
+      <span className="w-3 h-3 rounded-full" style={{ background: COLORS.trafficYellow }} />
+      <span className="w-3 h-3 rounded-full" style={{ background: COLORS.trafficGreen }} />
       <span className="font-mono text-xs ml-3" style={{ color: COLORS.mutedText }}>{title}</span>
       {rightLabel && (
         <span className="font-mono text-xs ml-auto hidden sm:block" style={{ color: COLORS.dimText }}>{rightLabel}</span>
