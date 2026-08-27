@@ -103,6 +103,22 @@ body {
   animation: pane-fade-in 0.18s ease-out forwards;
 }
 
+/* Traveling light that traces along a line path (expects pathLength="1").
+   Travels during the first third of the cycle, then goes dark so a staggered
+   animation-delay per line relays the glint from one line to the next. */
+@keyframes trace-line {
+  0%   { stroke-dashoffset: 1; opacity: 0; }
+  6%   { opacity: 0.22; }
+  27%  { opacity: 0.22; }
+  33%  { stroke-dashoffset: 0; opacity: 0; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+.trace-line {
+  stroke-dasharray: 0.06 0.94;
+  animation: trace-line 9s linear infinite backwards;
+}
+
 /* CRT scanline overlay */
 .crt-scanlines::after {
   content: '';

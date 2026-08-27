@@ -17,7 +17,7 @@ function Landing() {
 
       <div className="relative z-10 flex flex-col items-center gap-4">
         <h1 className="font-normal tracking-tight" style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)' }}>
-          Bryan Fernandez<span className="animate-pulse">_</span>
+          Bryan Fernandez
         </h1>
         <div className="flex flex-wrap justify-center gap-2">
           {BADGES.map(tag => (

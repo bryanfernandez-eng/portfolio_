@@ -26,12 +26,12 @@ function CloudShape({ style, className }) {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      <ellipse cx="260" cy="150" rx="230" ry="68" fill="white" opacity="0.008" />
-      <ellipse cx="160" cy="120" rx="130" ry="80" fill="white" opacity="0.007" />
-      <ellipse cx="340" cy="115" rx="120" ry="75" fill="white" opacity="0.007" />
-      <ellipse cx="260" cy="95" rx="100" ry="70" fill="white" opacity="0.006" />
-      <ellipse cx="180" cy="80" rx="80" ry="58" fill="white" opacity="0.005" />
-      <ellipse cx="350" cy="85" rx="75" ry="55" fill="white" opacity="0.005" />
+      <ellipse cx="260" cy="150" rx="230" ry="68" fill="white" opacity="0.013" />
+      <ellipse cx="160" cy="120" rx="130" ry="80" fill="white" opacity="0.012" />
+      <ellipse cx="340" cy="115" rx="120" ry="75" fill="white" opacity="0.012" />
+      <ellipse cx="260" cy="95" rx="100" ry="70" fill="white" opacity="0.01" />
+      <ellipse cx="180" cy="80" rx="80" ry="58" fill="white" opacity="0.009" />
+      <ellipse cx="350" cy="85" rx="75" ry="55" fill="white" opacity="0.009" />
     </svg>
   )
 }
