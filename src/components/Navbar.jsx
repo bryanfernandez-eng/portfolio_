@@ -26,8 +26,8 @@ function Navbar() {
             <a
               href={href}
               aria-label={label}
-              target={href.startsWith('http') ? '_blank' : undefined}
-              rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white hover:text-[#39d353] transition-colors"
             >
               {SOCIAL_ICONS[id]()}

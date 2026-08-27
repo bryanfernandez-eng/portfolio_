@@ -61,8 +61,8 @@ function Footer() {
               key={id}
               href={href}
               aria-label={label}
-              target={href.startsWith('http') ? '_blank' : undefined}
-              rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-[#39d353] transition-colors duration-200"
               style={{ color: COLORS.mutedText }}
             >
