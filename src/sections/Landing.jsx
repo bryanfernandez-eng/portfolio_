@@ -10,7 +10,7 @@ function Landing() {
   const [showAbout, setShowAbout] = useState(false)
 
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-8 overflow-hidden">
+    <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-[clamp(1.5rem,5vw,2rem)] overflow-hidden">
       <DotGrid />
       <GeometricBackground />
       <Clouds />
@@ -33,7 +33,7 @@ function Landing() {
       </div>
 
       <div
-        className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+        className="absolute bottom-0 left-0 right-0 h-[clamp(4rem,10vw,6rem)] pointer-events-none"
         style={{ background: `linear-gradient(to bottom, transparent, ${COLORS.dark})`, zIndex: 5 }}
       />
 

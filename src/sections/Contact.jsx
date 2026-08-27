@@ -20,7 +20,7 @@ function Contact() {
     >
       <div className="absolute inset-0 pointer-events-none" style={{ background: `linear-gradient(to bottom, ${COLORS.lightGray} 0%, transparent 12%, transparent 88%, ${COLORS.lightGray} 100%)`, zIndex: 1 }} />
 
-      <div className="relative z-10 flex flex-col lg:flex-row flex-1 px-4 md:px-16 lg:px-24 py-20 md:py-28 gap-10 lg:gap-16 max-w-7xl 2xl:max-w-[1600px] mx-auto w-full items-stretch overflow-visible">
+      <div className="relative z-10 flex flex-col lg:flex-row flex-1 px-4 md:px-16 lg:px-24 py-[clamp(5rem,8vw,7rem)] gap-[clamp(2.5rem,5vw,4rem)] max-w-7xl 2xl:max-w-[1600px] mx-auto w-full items-stretch overflow-visible">
 
         {/* Left — info */}
         <div className="lg:w-2/5 flex flex-col self-stretch gap-10">

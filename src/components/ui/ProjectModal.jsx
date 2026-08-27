@@ -56,7 +56,7 @@ function ProjectModal({ project, onClose }) {
         </button>
 
         <div className="p-4 pb-0 shrink-0">
-          <div className="overflow-hidden" style={{ height: '260px', background: COLORS.black, border: `1px solid ${COLORS.black}` }}>
+          <div className="overflow-hidden" style={{ height: 'clamp(170px, 30vw, 260px)', background: COLORS.black, border: `1px solid ${COLORS.black}` }}>
             <img
               src={project.image.startsWith('data:') ? project.image : `${import.meta.env.BASE_URL}${project.image.replace(/^\//, '')}`}
               alt={`${project.name} screenshot`}

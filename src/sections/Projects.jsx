@@ -26,7 +26,7 @@ function Projects() {
     >
       <BlueprintAxis />
 
-      <div className="absolute top-0 left-0 right-0 pointer-events-none" style={{ height: '80px', zIndex: 3 }}>
+      <div className="absolute top-0 left-0 right-0 pointer-events-none" style={{ height: 'clamp(48px, 6vw, 80px)', zIndex: 3 }}>
         <svg viewBox="0 0 1440 80" width="100%" height="70" preserveAspectRatio="none" aria-hidden="true">
           <polygon points="0,0 1440,0 1440,80 0,44" fill={COLORS.dark} />
         </svg>
@@ -37,8 +37,8 @@ function Projects() {
         style={{ background: `linear-gradient(to bottom, ${COLORS.light} 0%, transparent 18%, transparent 85%, ${COLORS.light} 100%)`, zIndex: 1 }}
       />
 
-      <div className="relative z-10 flex flex-col flex-1 min-h-0 pb-8 pt-20 md:pt-28 max-w-6xl mx-auto w-full">
-        <div className="flex items-end justify-between gap-4 mb-10 md:mb-16 px-4 md:px-16 lg:px-24">
+      <div className="relative z-10 flex flex-col flex-1 min-h-0 pb-8 pt-[clamp(5rem,8vw,7rem)] max-w-6xl mx-auto w-full">
+        <div className="flex items-end justify-between gap-4 mb-[clamp(2.5rem,5vw,4rem)] px-4 md:px-16 lg:px-24">
           <div>
             <p className="font-mono text-xs mb-2" style={{ color: COLORS.mutedText }}>// work</p>
             <h2 className="font-bold leading-none tracking-tight" style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2rem, 10vw, 6rem)', color: COLORS.dark }}>

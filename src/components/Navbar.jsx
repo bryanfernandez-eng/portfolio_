@@ -13,7 +13,7 @@ function Navbar() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-4 font-mono transition-colors duration-300"
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[clamp(1.5rem,5vw,2rem)] py-[clamp(0.75rem,2vw,1rem)] font-mono transition-colors duration-300"
       style={{ background: isDark ? COLORS.dark : 'transparent' }}
     >
       <a href="#" aria-label="Home" className="text-white hover:text-[#39d353] transition-colors">

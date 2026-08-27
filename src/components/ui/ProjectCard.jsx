@@ -6,13 +6,13 @@ function ProjectCard({ project, onSelect }) {
       onClick={() => onSelect(project)}
       className="text-left overflow-hidden cursor-pointer flex flex-col w-full"
       style={{
-        minHeight: '380px',
+        minHeight: 'clamp(320px, 45vw, 380px)',
         background: '#fff',
         border: `1px solid ${COLORS.dark}`,
         borderRadius: '0',
       }}
     >
-      <div className="w-full shrink-0 overflow-hidden relative" style={{ height: '200px' }}>
+      <div className="w-full shrink-0 overflow-hidden relative" style={{ height: 'clamp(150px, 24vw, 200px)' }}>
         <img
           src={project.image.startsWith('data:') ? project.image : `${import.meta.env.BASE_URL}${project.image.replace(/^\//, '')}`}
           alt={`${project.name} preview`}
