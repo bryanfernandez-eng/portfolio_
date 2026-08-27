@@ -9,7 +9,9 @@ export const EXPERIENCE = [
     role: 'Software Engineer Intern',
     period: 'June 2026 – Present',
     bullets: [
-      'Just getting started — more to come.',
+      'Onboarded Kyriba into an enterprise multi-vendor .NET payment gateway across 6 environments with a typed C# settings model resolved from Azure Key Vault via managed identity.',
+      'Reduced OAuth2 token round-trips by 95%+ with a client-credentials auth layer using distributed caching and refresh-before-expiry, backed by 9 unit tests.',
+      'Enabled automated ACH/wire disbursements by architecting idempotent bank-account tokenization with deterministic reference codes and 409-conflict recovery, backed by 20 unit tests.',
     ],
   },
   {
