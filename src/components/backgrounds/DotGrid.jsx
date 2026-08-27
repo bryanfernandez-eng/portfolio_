@@ -75,7 +75,7 @@ function DotGrid() {
         xmlns="http://www.w3.org/2000/svg"
       >
         {dots.map(({ id, cx, cy, r }) => (
-          <circle key={id} cx={cx} cy={cy} r={r + 0.8} fill={COLORS.accentGreen} opacity="0.95" />
+          <circle key={id} cx={cx} cy={cy} r={r + 0.8} fill={COLORS.white} opacity="0.95" />
         ))}
       </svg>
     </div>
