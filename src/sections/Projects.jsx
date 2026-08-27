@@ -6,9 +6,8 @@ import ProjectModal from '../components/ui/ProjectModal'
 import BlueprintAxis from '../components/ui/BlueprintAxis'
 import PaginationDots from '../components/ui/PaginationDots'
 import { ChevronLeftIcon, ChevronRightIcon } from '../components/ui/icons'
+import RuptureGrid from '../components/backgrounds/RuptureGrid'
 import { COLORS } from '../constants/colors'
-
-const GRID_LINE = 'rgba(0,0,0,0.07)'
 
 function Projects() {
   const [selectedProject, setSelectedProject] = useState(null)
@@ -18,12 +17,9 @@ function Projects() {
     <section
       id="projects"
       className="relative overflow-hidden flex flex-col py-10"
-      style={{
-        background: COLORS.light,
-        backgroundImage: `linear-gradient(to right, ${GRID_LINE} 1px, transparent 1px), linear-gradient(to bottom, ${GRID_LINE} 1px, transparent 1px)`,
-        backgroundSize: '48px 48px',
-      }}
+      style={{ background: COLORS.light }}
     >
+      <RuptureGrid />
       <BlueprintAxis />
 
       <div className="absolute top-0 left-0 right-0 pointer-events-none" style={{ height: 'clamp(48px, 6vw, 80px)', zIndex: 3 }}>
