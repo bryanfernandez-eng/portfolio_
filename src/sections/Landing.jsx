@@ -12,8 +12,8 @@ function Landing() {
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-[clamp(1.5rem,5vw,2rem)] overflow-hidden">
       <DotGrid />
-      <GeometricBackground />
       <Clouds />
+      <GeometricBackground />
 
       <div className="relative z-10 flex flex-col items-center gap-4">
         <h1 className="font-normal tracking-tight" style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)' }}>
@@ -37,13 +37,9 @@ function Landing() {
         style={{ background: `linear-gradient(to bottom, transparent, ${COLORS.dark})`, zIndex: 5 }}
       />
 
-      <p className="absolute bottom-4 left-4 sm:bottom-6 sm:left-8 font-mono text-xs sm:text-sm z-10" style={{ color: COLORS.mutedText }}>
-        // building things that matter
-      </p>
-
       <button
         onClick={() => setShowAbout(true)}
-        className="absolute bottom-4 right-4 sm:bottom-6 sm:right-8 font-mono text-xs sm:text-sm transition-colors duration-150 z-10"
+        className="absolute bottom-4 left-4 sm:bottom-6 sm:left-8 font-mono text-xs sm:text-sm transition-colors duration-150 z-10"
         style={{ color: COLORS.mutedText }}
         onMouseEnter={e => { e.currentTarget.style.color = COLORS.accentGreen }}
         onMouseLeave={e => { e.currentTarget.style.color = COLORS.mutedText }}

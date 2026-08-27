@@ -1,10 +1,14 @@
+import { COLORS } from '../../constants/colors'
+
 // All sizes/offsets in vw so they scale with viewport width.
-// delay staggers the traced light so the glint relays from one shape to the next.
+// Each shape runs its own trace light: duration sets its pace, the negative
+// delay starts it already mid-path so they animate independently from load.
 const BLOBS = [
   {
     id: 'blob-green',
-    color: '#39d353',
-    delay: '3s',
+    color: COLORS.accentGreen,
+    duration: '9s',
+    delay: '-5s',
     style: { position: 'absolute', top: '-16vw', left: '-16vw', width: '44vw', height: '44vw' },
     viewBox: '0 0 520 520',
     path: 'M 255 22 C 355 8, 475 95, 478 248 C 481 398, 368 490, 242 485 C 112 480, 20 375, 25 242 C 30 108, 148 36, 255 22 Z',
@@ -13,8 +17,9 @@ const BLOBS = [
   },
   {
     id: 'blob-blue',
-    color: '#58a6ff',
-    delay: '6s',
+    color: COLORS.accentBlue,
+    duration: '8s',
+    delay: '-2s',
     style: { position: 'absolute', bottom: '-22vw', right: '-22vw', width: '46vw', height: '46vw' },
     viewBox: '0 0 480 480',
     path: 'M 240 20 C 395 8, 475 115, 465 255 C 454 400, 340 470, 195 462 C 50 454, -10 330, 8 185 C 25 45, 95 32, 240 20 Z',
@@ -25,7 +30,8 @@ const BLOBS = [
 const LINES = [
   {
     id: 'line-green',
-    color: '#39d353',
+    color: COLORS.accentGreen,
+    duration: '6s',
     delay: '0s',
     style: { position: 'absolute', bottom: '-16vw', right: '-16vw', width: '46vw', height: '46vw' },
     viewBox: '0 0 480 480',
@@ -39,19 +45,19 @@ function GeometricBackground() {
       className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
       aria-hidden="true"
     >
-      {BLOBS.map(({ id, color, style, path, viewBox, innerTransform, delay }) => (
+      {BLOBS.map(({ id, color, style, path, viewBox, innerTransform, duration, delay }) => (
         <svg key={id} style={{ ...style, filter: `drop-shadow(0 0 4px ${color}55) drop-shadow(0 0 10px ${color}25)` }} viewBox={viewBox} fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d={path} stroke={color} strokeWidth="3" opacity="0.45" />
-          <path className="trace-line" d={path} pathLength="1" stroke={color} strokeWidth="3" strokeLinecap="round" style={{ filter: `drop-shadow(0 0 2px ${color})`, animationDelay: delay }} />
+          <path className="trace-line" d={path} pathLength="1" stroke={color} strokeWidth="3" strokeLinecap="round" style={{ filter: `drop-shadow(0 0 2px ${color})`, animationDuration: duration, animationDelay: delay }} />
           <g transform={innerTransform}>
             <path d={path} stroke={color} strokeWidth="4.5" opacity="0.2" />
           </g>
         </svg>
       ))}
-      {LINES.map(({ id, color, style, path, viewBox, delay }) => (
+      {LINES.map(({ id, color, style, path, viewBox, duration, delay }) => (
         <svg key={id} style={{ ...style, filter: `drop-shadow(0 0 3px ${color}55) drop-shadow(0 0 8px ${color}25)` }} viewBox={viewBox} fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d={path} stroke={color} strokeWidth="2" opacity="0.5" strokeLinecap="round" />
-          <path className="trace-line" d={path} pathLength="1" stroke={color} strokeWidth="2" strokeLinecap="round" style={{ filter: `drop-shadow(0 0 2px ${color})`, animationDelay: delay }} />
+          <path className="trace-line" d={path} pathLength="1" stroke={color} strokeWidth="2" strokeLinecap="round" style={{ filter: `drop-shadow(0 0 2px ${color})`, animationDuration: duration, animationDelay: delay }} />
         </svg>
       ))}
     </div>

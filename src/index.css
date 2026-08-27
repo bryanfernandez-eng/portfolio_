@@ -52,9 +52,9 @@ body {
   66%       { transform: translate(-9px, -4px); }
 }
 
-.cloud-1 { animation: cloud-drift-1 22s ease-in-out infinite; }
-.cloud-2 { animation: cloud-drift-2 28s ease-in-out infinite; }
-.cloud-3 { animation: cloud-drift-3 18s ease-in-out infinite; }
+.cloud-1 { animation: cloud-drift-1 22s ease-in-out infinite; will-change: transform; }
+.cloud-2 { animation: cloud-drift-2 28s ease-in-out infinite; will-change: transform; }
+.cloud-3 { animation: cloud-drift-3 18s ease-in-out infinite; will-change: transform; }
 
 .animate-modal-in {
   animation: modal-in 0.25s ease-out forwards;
@@ -103,20 +103,17 @@ body {
   animation: pane-fade-in 0.18s ease-out forwards;
 }
 
-/* Traveling light that traces along a line path (expects pathLength="1").
-   Travels during the first third of the cycle, then goes dark so a staggered
-   animation-delay per line relays the glint from one line to the next. */
+/* A short glint that continuously traces along a path (expects pathLength="1").
+   Each element sets its own animation-duration/-delay so they run independently. */
 @keyframes trace-line {
-  0%   { stroke-dashoffset: 1; opacity: 0; }
-  6%   { opacity: 0.22; }
-  27%  { opacity: 0.22; }
-  33%  { stroke-dashoffset: 0; opacity: 0; }
-  100% { stroke-dashoffset: 0; opacity: 0; }
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
 }
 
 .trace-line {
   stroke-dasharray: 0.06 0.94;
-  animation: trace-line 9s linear infinite backwards;
+  opacity: 0.24;
+  animation: trace-line 7s linear infinite;
 }
 
 /* CRT scanline overlay */
