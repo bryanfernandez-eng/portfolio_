@@ -67,33 +67,6 @@ body {
 /* Hide scrollbar on tab bar while keeping scroll */
 .tab-bar::-webkit-scrollbar { display: none; }
 
-@keyframes gradient-shift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.animated-gradient-bg {
-  background: linear-gradient(
-    135deg,
-    #1a0a2e,
-    #2d1b4e,
-    #0d1f3c,
-    #1e0e30,
-    #3b1a0a,
-    #2a0e1e,
-    #0a2230,
-    #1a2a0a
-  );
-  background-size: 400% 400%;
-  animation: gradient-shift 18s ease infinite;
-}
-
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.6; }
-  50%       { opacity: 1; }
-}
-
 @keyframes pane-fade-in {
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -116,19 +89,14 @@ body {
   animation: trace-line 7s linear infinite;
 }
 
-/* CRT scanline overlay */
-.crt-scanlines::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0px,
-    transparent 1px,
-    rgba(0, 0, 0, 0.08) 1px,
-    rgba(0, 0, 0, 0.08) 2px
-  );
-  pointer-events: none;
-  z-index: 15;
-  border-radius: inherit;
+@keyframes dot-glow-pulse {
+  0%, 100% { opacity: 0; }
+  50%      { opacity: 1; }
 }
+
+.dot-glow-pulse {
+  animation-name: dot-glow-pulse;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+

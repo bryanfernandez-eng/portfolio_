@@ -6,6 +6,7 @@ import FilePane from '../components/ui/FilePane'
 import MobileFilePicker from '../components/ui/MobileFilePicker'
 import AlignmentGuides from '../components/ui/AlignmentGuides'
 import WindowChrome from '../components/ui/WindowChrome'
+import { COLORS } from '../constants/colors'
 
 const FILES = [
   ...EXPERIENCE.map(e => ({ ...e, folder: 'experience', filename: `${e.company.toLowerCase().replace(/\s/g, '-')}-${e.id}.md` })),
@@ -22,18 +23,8 @@ function Experience() {
   const activeFile = FILES.find(f => f.id === activeId)
 
   return (
-    <section ref={sectionRef} id="experience" className="crt-scanlines relative bg-[#212121] z-20 overflow-hidden border-t-purple-800 border-t-3">
-      <img
-        src={`${import.meta.env.BASE_URL}gradient-bg.png`}
-        alt=""
-        aria-hidden="true"
-        className="animated-gradient-bg absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-        style={{ zIndex: 0, animation: 'glow-pulse 10s ease-in-out infinite' }}
-      />
-
+    <section ref={sectionRef} id="experience" className="relative z-20 overflow-hidden" style={{ background: COLORS.surfaceDark }}>
       <AlignmentGuides sectionRef={sectionRef} editorRef={editorRef} />
-
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: 'clamp(96px, 16vw, 160px)', background: 'linear-gradient(to bottom, transparent, #212121)', zIndex: 4 }} />
 
       <div className="relative z-10 px-6 md:px-16 lg:px-24 py-[clamp(5rem,10vw,8rem)] max-w-6xl mx-auto">
         <div ref={editorRef} className="overflow-hidden flex flex-col" style={{ background: '#161616', minHeight: 'clamp(400px, 80vh, 600px)' }}>

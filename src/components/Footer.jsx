@@ -12,6 +12,7 @@ function Footer() {
   return (
     <footer
       className="relative overflow-hidden cursor-none"
+      style={{ background: COLORS.surfaceDark }}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

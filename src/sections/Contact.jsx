@@ -6,18 +6,17 @@ import Starburst from '../components/ui/Starburst'
 import PillLink from '../components/ui/PillLink'
 import ContactForm from '../components/ui/ContactForm'
 import MobileIcons from '../components/ui/MobileIcons'
+import GlowDots from '../components/backgrounds/GlowDots'
 
 function Contact() {
   return (
     <section
       id="contact"
       className="relative z-30 bg-[#e8eaed] flex flex-col"
-      style={{
-        borderTop: `4px solid ${COLORS.dark}`,
-        backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.18) 2px, transparent 2px)`,
-        backgroundSize: '28px 28px',
-      }}
+      style={{ borderTop: `4px solid ${COLORS.dark}` }}
     >
+      <GlowDots />
+
       <div className="absolute inset-0 pointer-events-none" style={{ background: `linear-gradient(to bottom, ${COLORS.lightGray} 0%, transparent 12%, transparent 88%, ${COLORS.lightGray} 100%)`, zIndex: 1 }} />
 
       <div className="relative z-10 flex flex-col lg:flex-row flex-1 px-4 md:px-16 lg:px-24 py-[clamp(5rem,8vw,7rem)] gap-[clamp(2.5rem,5vw,4rem)] max-w-7xl 2xl:max-w-[1600px] mx-auto w-full items-stretch overflow-visible">
@@ -49,7 +48,7 @@ function Contact() {
 
         {/* Right — form */}
         <div className="lg:w-[52%] w-full self-stretch flex flex-col mx-auto lg:mx-0" style={{ marginRight: '8px', marginBottom: '8px' }}>
-          <div className="p-5 md:p-7 flex-1 flex flex-col justify-between" style={{ background: COLORS.dark, border: `3px solid ${COLORS.dark}`, boxShadow: `6px 6px 0 ${COLORS.accentGreen}`, borderRadius: '4px' }}>
+          <div className="p-5 md:p-7 flex-1 flex flex-col justify-between" style={{ background: COLORS.dark, border: `3px solid ${COLORS.dark}`, borderRadius: '4px' }}>
             <div className="flex items-center justify-between mb-6">
               <div className="inline-flex items-center px-3 py-1" style={{ background: COLORS.accentYellow, border: `2px solid ${COLORS.dark}`, borderRadius: '2px' }}>
                 <p className="font-mono text-xs font-bold" style={{ color: COLORS.dark }}>GET IN TOUCH</p>

@@ -20,8 +20,8 @@ function AlignmentGuides({ sectionRef, editorRef }) {
         h:      sr.height,
         left:   er.left   - sr.left,
         right:  er.right  - sr.left,
-        top:    er.top    - sr.top - 3,
-        bottom: er.bottom - sr.top - 3,
+        top:    er.top    - sr.top,
+        bottom: er.bottom - sr.top,
       })
     }
 

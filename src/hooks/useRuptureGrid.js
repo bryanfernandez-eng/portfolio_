@@ -99,12 +99,12 @@ export function useRuptureGrid(canvasRef) {
       ctx.arc(pointer.x, pointer.y, RADIUS, 0, Math.PI * 2)
       ctx.clip()
       const glow = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, RADIUS)
-      glow.addColorStop(0, `${COLORS.accentGreen}1f`)
-      glow.addColorStop(1, `${COLORS.accentGreen}00`)
+      glow.addColorStop(0, `${COLORS.dark}1f`)
+      glow.addColorStop(1, `${COLORS.dark}00`)
       ctx.fillStyle = glow
       ctx.fillRect(pointer.x - RADIUS, pointer.y - RADIUS, RADIUS * 2, RADIUS * 2)
       ctx.lineWidth = 1.4
-      ctx.strokeStyle = `${COLORS.accentGreen}99`
+      ctx.strokeStyle = `${COLORS.dark}99`
       strokeMesh()
       ctx.restore()
       return maxMotion

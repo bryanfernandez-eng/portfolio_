@@ -22,12 +22,6 @@ function Projects() {
       <RuptureGrid />
       <BlueprintAxis />
 
-      <div className="absolute top-0 left-0 right-0 pointer-events-none" style={{ height: 'clamp(48px, 6vw, 80px)', zIndex: 3 }}>
-        <svg viewBox="0 0 1440 80" width="100%" height="70" preserveAspectRatio="none" aria-hidden="true">
-          <polygon points="0,0 1440,0 1440,80 0,44" fill={COLORS.dark} />
-        </svg>
-      </div>
-
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ background: `linear-gradient(to bottom, ${COLORS.light} 0%, transparent 18%, transparent 85%, ${COLORS.light} 100%)`, zIndex: 1 }}
