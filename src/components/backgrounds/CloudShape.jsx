@@ -1,10 +1,10 @@
 const CLOUD_ELLIPSES = [
-  { id: 'a', cx: 260, cy: 150, rx: 230, ry: 68, opacity: 0.030 },
-  { id: 'b', cx: 160, cy: 120, rx: 130, ry: 80, opacity: 0.028 },
-  { id: 'c', cx: 340, cy: 115, rx: 120, ry: 75, opacity: 0.028 },
-  { id: 'd', cx: 260, cy: 95, rx: 100, ry: 70, opacity: 0.023 },
-  { id: 'e', cx: 180, cy: 80, rx: 80, ry: 58, opacity: 0.021 },
-  { id: 'f', cx: 350, cy: 85, rx: 75, ry: 55, opacity: 0.021 },
+  { id: 'a', cx: 260, cy: 150, rx: 230, ry: 68, opacity: 0.018 },
+  { id: 'b', cx: 160, cy: 120, rx: 130, ry: 80, opacity: 0.017 },
+  { id: 'c', cx: 340, cy: 115, rx: 120, ry: 75, opacity: 0.017 },
+  { id: 'd', cx: 260, cy: 95, rx: 100, ry: 70, opacity: 0.014 },
+  { id: 'e', cx: 180, cy: 80, rx: 80, ry: 58, opacity: 0.012 },
+  { id: 'f', cx: 350, cy: 85, rx: 75, ry: 55, opacity: 0.012 },
 ]
 
 const CLOUD_BODY_MASK = 'radial-gradient(ellipse 46% 52% at 50% 54%, #000 24%, rgba(0,0,0,0.55) 52%, transparent 78%)'
