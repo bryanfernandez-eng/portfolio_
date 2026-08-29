@@ -1,3 +1,5 @@
 # Bryan Fernandez — Portfolio
 
-> Work in progress. Not done yet.
+hi here's the link: https://bryanfernandez.dev/ 
+
+currently working on improving it :)
