@@ -6,6 +6,9 @@ import { COLORS } from '../constants/colors'
 
 const CURSOR_SIZE = 120
 
+function handleLinkEnter(e) { e.currentTarget.style.color = COLORS.accentGreen }
+function handleLinkLeave(e) { e.currentTarget.style.color = COLORS.mutedText }
+
 function Footer() {
   const { pos, isInside, handleMouseMove, handleMouseEnter, handleMouseLeave } = useLocalMouse()
 
@@ -52,8 +55,10 @@ function Footer() {
           <a
             href="mailto:dev.bryanfernandez@gmail.com"
             aria-label="Email"
-            className="hover:text-[#39d353] transition-colors duration-200"
+            className="transition-colors duration-200"
             style={{ color: COLORS.mutedText }}
+            onMouseEnter={handleLinkEnter}
+            onMouseLeave={handleLinkLeave}
           >
             <EmailIcon size={20} />
           </a>
@@ -64,8 +69,10 @@ function Footer() {
               aria-label={label}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#39d353] transition-colors duration-200"
+              className="transition-colors duration-200"
               style={{ color: COLORS.mutedText }}
+              onMouseEnter={handleLinkEnter}
+              onMouseLeave={handleLinkLeave}
             >
               {SOCIAL_ICONS[id](20)}
             </a>

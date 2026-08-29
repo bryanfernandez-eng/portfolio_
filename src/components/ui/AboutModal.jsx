@@ -1,17 +1,10 @@
 import { useCallback, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { COLORS } from '../../constants/colors'
+import { FACTS } from '../../constants/about'
 import WindowChrome from './WindowChrome'
 
 const CLOSE_DURATION = 200
-
-const FACTS = [
-  { label: '// location',  value: 'Miami, FL' },
-  { label: '// origin',    value: 'Cuban-American' },
-  { label: '// edu',       value: 'FIU — Computer Science, Math' },
-  { label: '// currently', value: 'SWE Intern @ Assurant' },
-  { label: '// interests', value: 'AI / ML, full-stack, open source' },
-]
 
 function AboutModal({ onClose }) {
   const [isClosing, setIsClosing] = useState(false)
@@ -58,7 +51,7 @@ function AboutModal({ onClose }) {
           </div>
 
           <p className="font-mono text-xs md:text-sm leading-relaxed" style={{ color: COLORS.mutedText }}>
-            Born and raised in Miami, FL to Cuban parents. I genuinely love building software — especially anything touching AI and ML. When I'm not coding I'm watching movies, catching sport games, or learning about something new.
+            Born and raised in Miami, FL to Cuban parents. I genuinely love building software - especially anything touching AI and ML. When I'm not coding I'm watching movies, catching sport games, or learning about something new.
           </p>
 
           <div className="flex flex-col gap-2 rounded-lg p-2 md:p-4 bg-white/[0.02]" style={{ border: `1px solid ${COLORS.border}` }}>

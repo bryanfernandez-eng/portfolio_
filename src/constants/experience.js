@@ -65,7 +65,7 @@ export const EDUCATION = [
     role: 'B.S. Computer Science, Minor in Math',
     period: 'August 2024 – Expected December 2026',
     bullets: [
-      'GPA: 4.0 — Florida International University, Miami, FL.',
+      'GPA: 4.0 - Florida International University, Miami, FL.',
       'Coursework: Data Structures, Algorithms, Database Systems, AI, Machine Learning.',
       'Organizations: INIT, BreakThrough Tech, CodePath E3, Color Stack, SHPE.',
     ],

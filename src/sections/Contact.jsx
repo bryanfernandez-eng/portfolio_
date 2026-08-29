@@ -12,8 +12,8 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="relative z-30 bg-[#e8eaed] flex flex-col"
-      style={{ borderTop: `4px solid ${COLORS.dark}` }}
+      className="relative z-30 flex flex-col"
+      style={{ borderTop: `4px solid ${COLORS.dark}`, background: COLORS.lightGray }}
     >
       <GlowDots />
 
@@ -21,7 +21,7 @@ function Contact() {
 
       <div className="relative z-10 flex flex-col lg:flex-row flex-1 px-4 md:px-16 lg:px-24 py-[clamp(5rem,8vw,7rem)] gap-[clamp(2.5rem,5vw,4rem)] max-w-7xl 2xl:max-w-[1600px] mx-auto w-full items-stretch overflow-visible">
 
-        {/* Left — info */}
+        {/* Left - info */}
         <div className="lg:w-2/5 flex flex-col self-stretch gap-10">
           <div className="relative">
             <Starburst />
@@ -46,7 +46,7 @@ function Contact() {
           </div>
         </div>
 
-        {/* Right — form */}
+        {/* Right - form */}
         <div className="lg:w-[52%] w-full self-stretch flex flex-col mx-auto lg:mx-0" style={{ marginRight: '8px', marginBottom: '8px' }}>
           <div className="p-5 md:p-7 flex-1 flex flex-col justify-between" style={{ background: COLORS.dark, border: `3px solid ${COLORS.dark}`, borderRadius: '4px' }}>
             <div className="flex items-center justify-between mb-6">

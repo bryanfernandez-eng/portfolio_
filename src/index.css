@@ -13,6 +13,7 @@
   --text-3xl:  clamp(1.875rem, 1.65rem + 1.05vw, 2.25rem);
 }
 
+/* Pre-React paint, so these can't import COLORS - keep in sync with COLORS.dark / COLORS.primaryText */
 body {
   font-family: 'Cascadia Code', monospace;
   background-color: #212121;
@@ -66,6 +67,9 @@ body {
 
 /* Hide scrollbar on tab bar while keeping scroll */
 .tab-bar::-webkit-scrollbar { display: none; }
+
+/* ::placeholder can't be styled via inline React style, so this mirrors COLORS.mutedText */
+.contact-input::placeholder { color: #8b949e; }
 
 @keyframes pane-fade-in {
   from { opacity: 0; transform: translateY(6px); }

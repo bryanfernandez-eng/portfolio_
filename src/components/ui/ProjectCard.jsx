@@ -7,7 +7,7 @@ function ProjectCard({ project, onSelect }) {
       className="text-left overflow-hidden cursor-pointer flex flex-col w-full"
       style={{
         minHeight: 'clamp(320px, 45vw, 380px)',
-        background: '#fff',
+        background: COLORS.white,
         border: `1px solid ${COLORS.dark}`,
         borderRadius: '0',
       }}

@@ -9,6 +9,9 @@ import { ChevronLeftIcon, ChevronRightIcon } from '../components/ui/icons'
 import RuptureGrid from '../components/backgrounds/RuptureGrid'
 import { COLORS } from '../constants/colors'
 
+function handleArrowEnter(e) { e.currentTarget.style.color = COLORS.dark }
+function handleArrowLeave(e) { e.currentTarget.style.color = COLORS.white }
+
 function Projects() {
   const [selectedProject, setSelectedProject] = useState(null)
   const { scrollRef, activeIndex, cardsPerPage, totalPages, handleScroll, handlePrev, handleNext, scrollToPage } = useCarousel(PROJECTS.length)
@@ -39,16 +42,20 @@ function Projects() {
             <button
               onClick={handlePrev}
               aria-label="Scroll left"
-              className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center text-white hover:text-[#212121] border transition-colors duration-150"
-              style={{ background: COLORS.dark, borderColor: COLORS.dark, borderRadius: 0 }}
+              className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center border transition-colors duration-150"
+              style={{ background: COLORS.dark, borderColor: COLORS.dark, borderRadius: 0, color: COLORS.white }}
+              onMouseEnter={handleArrowEnter}
+              onMouseLeave={handleArrowLeave}
             >
               <ChevronLeftIcon />
             </button>
             <button
               onClick={handleNext}
               aria-label="Scroll right"
-              className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center text-white hover:text-[#212121] border transition-colors duration-150"
-              style={{ background: COLORS.dark, borderColor: COLORS.dark, borderRadius: 0 }}
+              className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center border transition-colors duration-150"
+              style={{ background: COLORS.dark, borderColor: COLORS.dark, borderRadius: 0, color: COLORS.white }}
+              onMouseEnter={handleArrowEnter}
+              onMouseLeave={handleArrowLeave}
             >
               <ChevronRightIcon />
             </button>
