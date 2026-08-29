@@ -27,7 +27,7 @@ function Experience() {
       <AlignmentGuides sectionRef={sectionRef} editorRef={editorRef} />
 
       <div className="relative z-10 px-6 md:px-16 lg:px-24 py-[clamp(5rem,10vw,8rem)] max-w-6xl mx-auto">
-        <div ref={editorRef} className="overflow-hidden flex flex-col" style={{ background: COLORS.surface, minHeight: 'clamp(400px, 80vh, 600px)' }}>
+        <div ref={editorRef} className="overflow-hidden flex flex-col" style={{ background: COLORS.surface, height: 'clamp(460px, 82vh, 680px)' }}>
 
           <WindowChrome title="~/portfolio/background" rightLabel="// experience & education" />
 

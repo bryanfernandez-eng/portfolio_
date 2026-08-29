@@ -8,9 +8,12 @@ const STIFFNESS = 0.14
 const DAMPING = 0.76
 const GRID_LINE = 'rgba(0,0,0,0.07)'
 const SETTLE_EPS = 0.05
+const BUILD_EASE = 0.08
+const BUILD_SETTLE_EPS = 0.001
 
 // Interactive blueprint grid: vertices near the pointer are shoved radially
 // outward and spring back, so the mesh ruptures open and reseals as you move.
+// The mesh also builds itself in top-to-bottom as the section scrolls into view.
 export function useRuptureGrid(canvasRef) {
   useEffect(() => {
     const canvas = canvasRef.current
@@ -25,6 +28,13 @@ export function useRuptureGrid(canvasRef) {
     let verts = []
     let raf = 0
     let isVisible = true
+    let buildProgress = isReduced ? 1 : 0
+    let buildTarget = buildProgress
+
+    const measureBuildTarget = () => {
+      const rect = parent.getBoundingClientRect()
+      buildTarget = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / window.innerHeight))
+    }
 
     const build = () => {
       const w = parent.clientWidth
@@ -70,6 +80,12 @@ export function useRuptureGrid(canvasRef) {
       const w = parent.clientWidth
       const h = parent.clientHeight
       ctx.clearRect(0, 0, w, h)
+
+      ctx.save()
+      ctx.beginPath()
+      ctx.rect(0, 0, w, h * buildProgress)
+      ctx.clip()
+
       let maxMotion = 0
       for (const v of verts) {
         let tx = v.ox
@@ -93,28 +109,33 @@ export function useRuptureGrid(canvasRef) {
       ctx.lineWidth = 1
       ctx.strokeStyle = GRID_LINE
       strokeMesh()
-      if (!pointer.isActive) return maxMotion
-      ctx.save()
-      ctx.beginPath()
-      ctx.arc(pointer.x, pointer.y, RADIUS, 0, Math.PI * 2)
-      ctx.clip()
-      const glow = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, RADIUS)
-      glow.addColorStop(0, `${COLORS.dark}1f`)
-      glow.addColorStop(1, `${COLORS.dark}00`)
-      ctx.fillStyle = glow
-      ctx.fillRect(pointer.x - RADIUS, pointer.y - RADIUS, RADIUS * 2, RADIUS * 2)
-      ctx.lineWidth = 1.4
-      ctx.strokeStyle = `${COLORS.dark}99`
-      strokeMesh()
+      if (pointer.isActive) {
+        ctx.save()
+        ctx.beginPath()
+        ctx.arc(pointer.x, pointer.y, RADIUS, 0, Math.PI * 2)
+        ctx.clip()
+        const glow = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, RADIUS)
+        glow.addColorStop(0, `${COLORS.dark}1f`)
+        glow.addColorStop(1, `${COLORS.dark}00`)
+        ctx.fillStyle = glow
+        ctx.fillRect(pointer.x - RADIUS, pointer.y - RADIUS, RADIUS * 2, RADIUS * 2)
+        ctx.lineWidth = 1.4
+        ctx.strokeStyle = `${COLORS.dark}99`
+        strokeMesh()
+        ctx.restore()
+      }
       ctx.restore()
       return maxMotion
     }
 
-    // Runs only while the pointer is engaged or the mesh is still springing
-    // back; parks itself once everything is at rest so idle frames cost nothing.
+    // Runs while the pointer is engaged/springing or the build-in reveal is
+    // still easing toward its target; parks once everything settles.
     const loop = () => {
+      buildProgress += (buildTarget - buildProgress) * BUILD_EASE
+      const buildSettled = Math.abs(buildTarget - buildProgress) < BUILD_SETTLE_EPS
+      if (buildSettled) buildProgress = buildTarget
       const motion = draw()
-      if (!pointer.isActive && motion < SETTLE_EPS) {
+      if (!pointer.isActive && motion < SETTLE_EPS && buildSettled) {
         raf = 0
         return
       }
@@ -122,7 +143,7 @@ export function useRuptureGrid(canvasRef) {
     }
 
     const kick = () => {
-      if (raf || isReduced || !isVisible) return
+      if (raf || !isVisible) return
       raf = requestAnimationFrame(loop)
     }
 
@@ -137,7 +158,12 @@ export function useRuptureGrid(canvasRef) {
       pointer.isActive = false
       kick()
     }
+    const handleScroll = () => {
+      measureBuildTarget()
+      kick()
+    }
 
+    if (!isReduced) measureBuildTarget()
     build()
     const observer = new ResizeObserver(build)
     observer.observe(parent)
@@ -157,6 +183,7 @@ export function useRuptureGrid(canvasRef) {
     if (!isReduced) {
       parent.addEventListener('pointermove', handleMove)
       parent.addEventListener('pointerleave', handleLeave)
+      window.addEventListener('scroll', handleScroll, { passive: true })
     }
     return () => {
       cancelAnimationFrame(raf)
@@ -164,6 +191,7 @@ export function useRuptureGrid(canvasRef) {
       visObserver.disconnect()
       parent.removeEventListener('pointermove', handleMove)
       parent.removeEventListener('pointerleave', handleLeave)
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [canvasRef])
 }

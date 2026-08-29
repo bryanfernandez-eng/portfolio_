@@ -54,15 +54,15 @@ function ProjectCard({ project, onSelect }) {
       </div>
 
       <div
-        className="px-4 py-2 shrink-0 flex items-center justify-between transition-colors duration-150 group/bar"
+        className="px-4 py-2 shrink-0 flex items-center justify-between transition-colors duration-150"
         style={{ borderTop: `1px solid ${COLORS.dark}` }}
-        onMouseEnter={e => { e.currentTarget.style.background = COLORS.dark }}
+        onMouseEnter={e => { e.currentTarget.style.background = COLORS.accentYellow }}
         onMouseLeave={e => { e.currentTarget.style.background = 'transparent' }}
       >
-        <span className="font-mono text-[10px] uppercase tracking-widest transition-colors duration-150 group-hover/bar:text-white" style={{ color: COLORS.dark }}>
+        <span className="font-mono text-[10px] uppercase tracking-widest transition-colors duration-150" style={{ color: COLORS.dark }}>
           View project
         </span>
-        <span className="font-mono text-xs transition-colors duration-150 group-hover/bar:text-white" style={{ color: COLORS.dark }}>→</span>
+        <span className="font-mono text-xs transition-colors duration-150" style={{ color: COLORS.dark }}>→</span>
       </div>
     </button>
   )
