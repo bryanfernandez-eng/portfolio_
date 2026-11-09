@@ -17,7 +17,9 @@
         "Django",
         "Django REST Framework"
       ],
-      "image": "/projects/gamified-habit-tracker.png",
+      "image": "/projects/gamified-habit-tracker.webp",
+      "imageWidth": 1200,
+      "imageHeight": 871,
       "github": "https://github.com/bryanfernandez-eng/gamified-habit-tracker",
       "live": null
     },
@@ -33,7 +35,9 @@
         "Django",
         "PostgreSQL"
       ],
-      "image": "/projects/cashcore.png",
+      "image": "/projects/cashcore.webp",
+      "imageWidth": 1200,
+      "imageHeight": 656,
       "github": "https://github.com/Ceaseless04/Cashcore",
       "live": null
     },
@@ -49,7 +53,9 @@
         "PostgreSQL",
         "AWS S3"
       ],
-      "image": "/projects/gather-u.png",
+      "image": "/projects/gather-u.webp",
+      "imageWidth": 1200,
+      "imageHeight": 679,
       "github": "https://github.com/hpitta26/club-event-hub",
       "live": null
     },
@@ -64,7 +70,9 @@
         "FastAPI",
         "Python"
       ],
-      "image": "/projects/translate-flow.png",
+      "image": "/projects/translate-flow.webp",
+      "imageWidth": 1200,
+      "imageHeight": 754,
       "github": "https://github.com/hpitta26/Shellhacks-2025",
       "live": null
     },
@@ -80,7 +88,9 @@
         "React",
         "PostgreSQL"
       ],
-      "image": "/projects/roadmap-ai.png",
+      "image": "/projects/roadmap-ai.webp",
+      "imageWidth": 1200,
+      "imageHeight": 679,
       "github": null,
       "live": null
     },
@@ -96,7 +106,9 @@
         "SQLAlchemy",
         "OpenAI"
       ],
-      "image": "/projects/moviq.png",
+      "image": "/projects/moviq.webp",
+      "imageWidth": 1200,
+      "imageHeight": 646,
       "github": null,
       "live": null
     },
@@ -111,7 +123,9 @@
         "PostgreSQL",
         "OpenAI"
       ],
-      "image": "/projects/career-pilot.png",
+      "image": "/projects/career-pilot.webp",
+      "imageWidth": 1200,
+      "imageHeight": 650,
       "github": "https://github.com/bryanfernandez-eng/CareerPilot",
       "live": null
     },
