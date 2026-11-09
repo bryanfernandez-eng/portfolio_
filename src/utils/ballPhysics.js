@@ -4,6 +4,8 @@ export const BR = 0.6
 export const LANE = 2.8
 const GRAVITY = 40
 const SHOT_TIME = 0.85
+const REST_SPEED = 3.5
+export const BOUNCE = { chase: 12, idle: 6, rest: 0 }
 
 const SOLIDS = [
   { k: 'plantl', x: -9.2, d: 8.8, r: 0.8, h: 3.6 }, { k: 'lamp', x: -6, d: 9.5, r: 0.35, h: 5.9 },
@@ -65,8 +67,13 @@ function collideSolids(ball, [tx, td], bump) {
   })
 }
 
-function applyBounds(ball, minD) {
-  if (ball.z < BR) { ball.z = BR; ball.vz = Math.max(-ball.vz * 0.8, 12); if (ball.fly <= 0) ball.flying = false }
+function applyBounds(ball, minD, minBounce) {
+  if (ball.z < BR) {
+    ball.z = BR
+    const bounced = -ball.vz * 0.8
+    ball.vz = minBounce === 0 && bounced < REST_SPEED ? 0 : Math.max(bounced, minBounce)
+    if (ball.fly <= 0) ball.flying = false
+  }
   if (Math.abs(ball.x) > HW - BR) { ball.x = Math.sign(ball.x) * (HW - BR); ball.vx *= -0.6 }
   if (ball.d < minD) { ball.d = minD; ball.vd *= -0.6 }
   if (ball.d > 10.8) { ball.d = 10.8; ball.vd *= -0.6 }
@@ -80,7 +87,7 @@ function collideShelf(ball, bump) {
   }
 }
 
-export function stepBall(ball, dt, [tx, goalD], minD, bump) {
+export function stepBall(ball, dt, [tx, goalD], minD, bump, minBounce = BOUNCE.chase) {
   const td = ball.x * tx < 0 && goalD > 3 ? Math.max(minD, LANE) : goalD
   if (ball.flying) ball.fly -= dt
   else {
@@ -91,7 +98,7 @@ export function stepBall(ball, dt, [tx, goalD], minD, bump) {
   ball.x += ball.vx * dt
   ball.d += ball.vd * dt
   ball.z += ball.vz * dt
-  applyBounds(ball, minD)
+  applyBounds(ball, minD, minBounce)
   collideRects(ball, bump)
   if (ball.flying) collideHoop(ball, bump)
   collideShelf(ball, bump)
@@ -99,10 +106,10 @@ export function stepBall(ball, dt, [tx, goalD], minD, bump) {
   ball.a += (ball.vx / BR) * 40 * dt
 }
 
-export function shootBall(ball) {
+export function shootBall(ball, { spread = 0.9, reach = 1 } = {}) {
   if (ball.flying) return
-  ball.vx = (RIM_X + (Math.random() - 0.5) * 0.9 - ball.x) / SHOT_TIME
-  ball.vd = (RIM_D + (Math.random() - 0.5) * 0.9 - ball.d) / SHOT_TIME
+  ball.vx = ((RIM_X + (Math.random() - 0.5) * spread - ball.x) / SHOT_TIME) * reach
+  ball.vd = ((RIM_D + (Math.random() - 0.5) * spread - ball.d) / SHOT_TIME) * reach
   ball.vz = (RIM_Z - ball.z) / SHOT_TIME + 0.5 * GRAVITY * SHOT_TIME
   ball.flying = true
   ball.fly = SHOT_TIME

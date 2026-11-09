@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { useBallPhysics } from '../hooks/useBallPhysics'
+import { useShotInput } from '../hooks/useShotInput'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 import { useRoomBuild } from '../hooks/useRoomBuild'
 import { useSceneLayout } from '../hooks/useSceneLayout'
@@ -13,10 +14,13 @@ function HeroScene({ sceneRef, heroRef, titleRef, isPlaying, isDimmed, isInstant
   const isReduced = useReducedMotion()
   const minDRef = useRef(LANE)
   const ballViewRef = useRef(null)
+  const engineRef = useRef(null)
+  const meterRef = useRef(null)
 
   useRoomBuild(sceneRef, ballViewRef, isReduced)
   useSceneLayout({ sceneRef, heroRef, titleRef, minDRef })
-  useBallPhysics({ sceneRef, ballViewRef, minDRef, isActive, isReduced })
+  useBallPhysics({ sceneRef, engineRef, ballViewRef, meterRef, minDRef, isActive, isReduced })
+  useShotInput({ sceneRef, engineRef, meterRef, isReduced })
   useSceneScrollFade(sceneRef, heroRef, isReduced)
 
   const className = classNames(isPlaying && 'play', isDimmed && 'dim', isInstant && 'instant', !isActive && 'paused')
@@ -30,6 +34,10 @@ function HeroScene({ sceneRef, heroRef, titleRef, isPlaying, isDimmed, isInstant
         role="img"
         aria-label={PROFILE.sceneLabel}
       />
+      <div className="shot-meter" ref={meterRef} aria-hidden="true">
+        <i className="meter-window" />
+        <i className="meter-fill" />
+      </div>
     </div>
   )
 }

@@ -1,40 +1,36 @@
 import { useEffect, useRef } from 'react'
 import { useAnimationFrame } from './useAnimationFrame'
 import { pointer } from '../utils/pointer'
-import { createBall, shootBall, stepBall } from '../utils/ballPhysics'
+import { BOUNCE, createBall, stepBall } from '../utils/ballPhysics'
+import { ballMode } from '../utils/ballMode'
 import { drawBall } from '../utils/ballView'
 import { createBumper } from '../utils/bump'
 import { floorTarget } from '../utils/floorTarget'
+import { updateMeter } from '../utils/shotMeter'
 
 const MAX_DT = 0.033
 const DEFAULT_DT = 0.016
 
-export function useBallPhysics({ sceneRef, ballViewRef, minDRef, isActive, isReduced }) {
-  const engineRef = useRef(null)
+export function useBallPhysics({ sceneRef, engineRef, ballViewRef, meterRef, minDRef, isActive, isReduced }) {
   const lastTimeRef = useRef(0)
 
   useEffect(() => {
     const scene = sceneRef.current
-    const ball = createBall()
-    engineRef.current = { ball, bump: createBumper(scene) }
-    const handlePointerDown = event => {
-      pointer.x = event.clientX
-      pointer.y = event.clientY
-    }
-    const handleClick = () => {
-      if (!isReduced) shootBall(ball)
-    }
+    const engine = { ball: createBall(), bump: createBumper(scene), hold: { isDown: false, startedAt: 0 }, isOver: false }
+    engineRef.current = engine
+    const handleEnter = () => { engine.isOver = true }
+    const handleLeave = () => { engine.isOver = false }
     const handleAnimationEnd = event => event.target.classList.remove('bump', 'hop')
-    scene.addEventListener('pointerdown', handlePointerDown)
-    scene.addEventListener('click', handleClick)
+    scene.addEventListener('pointerenter', handleEnter)
+    scene.addEventListener('pointerleave', handleLeave)
     scene.addEventListener('animationend', handleAnimationEnd)
     return () => {
       engineRef.current = null
-      scene.removeEventListener('pointerdown', handlePointerDown)
-      scene.removeEventListener('click', handleClick)
+      scene.removeEventListener('pointerenter', handleEnter)
+      scene.removeEventListener('pointerleave', handleLeave)
       scene.removeEventListener('animationend', handleAnimationEnd)
     }
-  }, [sceneRef, isReduced])
+  }, [sceneRef, engineRef])
 
   useEffect(() => {
     lastTimeRef.current = 0
@@ -46,9 +42,11 @@ export function useBallPhysics({ sceneRef, ballViewRef, minDRef, isActive, isRed
     if (!engine || !view) return
     const dt = Math.min(MAX_DT, (time - lastTimeRef.current) / 1000 || DEFAULT_DT)
     lastTimeRef.current = time
-    const target = floorTarget(sceneRef.current, pointer, minDRef.current)
-    stepBall(engine.ball, dt, target, minDRef.current, engine.bump)
+    const mode = ballMode(engine, performance.now() - pointer.movedAt)
+    const target = mode === 'chase' ? floorTarget(sceneRef.current, pointer, minDRef.current) : [engine.ball.x, engine.ball.d]
+    stepBall(engine.ball, dt, target, minDRef.current, engine.bump, BOUNCE[mode])
     drawBall(view, engine.ball)
+    updateMeter(engine, sceneRef.current, meterRef.current)
   }
 
   useAnimationFrame(handleFrame, isActive && !isReduced)
