@@ -1,0 +1,18 @@
+{
+  "openLabel": "Write me a note",
+  "title": "Write me a note",
+  "intro": "Open to internships, new grad roles, and interesting projects. Let's make something great together.",
+  "submitLabel": "Send",
+  "closeLabel": "Close",
+  "subjectPrefix": "Portfolio note from",
+  "fields": [
+    { "name": "name", "label": "Name", "type": "text", "autoComplete": "name" },
+    { "name": "email", "label": "Your email", "type": "email", "autoComplete": "email" },
+    { "name": "message", "label": "Message", "type": "textarea", "rows": 3 }
+  ],
+  "statuses": {
+    "sending": "Sending...",
+    "sent": "Message sent. Talk soon.",
+    "error": "Something went wrong. You can still email me directly."
+  }
+}

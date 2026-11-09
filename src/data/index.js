@@ -3,12 +3,14 @@ import sections from './sections.json'
 import projects from './projects.json'
 import experience from './experience.json'
 import social from './social.json'
+import contact from './contact.json'
 
 const factValue = label => profile.facts.find(fact => fact.label === label).value
 const pad = count => String(count).padStart(2, '0')
 
 export const PROFILE = profile
 export const SOCIAL_LINKS = social
+export const CONTACT = contact
 export const PROJECTS = projects.items
 export const EXPERIENCE = experience
 

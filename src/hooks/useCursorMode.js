@@ -7,10 +7,10 @@ export function useCursorMode() {
 
   useEffect(() => {
     const handleMove = event => {
-      setIsAway(Boolean(event.target.closest('#scene')))
+      setIsAway(Boolean(event.target.closest('#scene, dialog')))
       setIsLive(true)
     }
-    const handleOver = event => setIsBig(Boolean(event.target.closest('a')))
+    const handleOver = event => setIsBig(Boolean(event.target.closest('a, .note-button')))
     window.addEventListener('pointermove', handleMove)
     document.addEventListener('mouseover', handleOver)
     return () => {
