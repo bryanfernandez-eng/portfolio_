@@ -1,0 +1,48 @@
+.scene-wrap{position:absolute;top:0;left:0;right:0;height:62vh;overflow:hidden;z-index:3}
+#scene{transition:opacity 2.4s ease;display:block;width:100%;height:100%;touch-action:pan-y;-webkit-mask-image:linear-gradient(to bottom,#000 74%,transparent 100%);mask-image:linear-gradient(to bottom,#000 74%,transparent 100%)}
+#scene polygon{stroke:#000;stroke-width:1.2;stroke-linejoin:round}
+#scene .ln{fill:none;stroke:#000;stroke-width:2;stroke-linecap:round}
+#scene .solid{fill:#000;stroke:none}
+#scene .pop{opacity:0}
+.play .pop{animation:pop .65s var(--d,0s) cubic-bezier(.2,.9,.3,1.15) both}
+@keyframes pop{from{opacity:0;transform:translateY(-38px)}to{opacity:1;transform:none}}
+#scene .ty{fill:none;stroke:#000;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.play .ty{animation:type 4.4s var(--d,0s) steps(16,end) infinite}
+@keyframes type{0%{stroke-dashoffset:1}55%,100%{stroke-dashoffset:0}}
+#scene .blink{animation:blink 1s steps(2,start) infinite}
+@keyframes blink{50%{opacity:0}}
+#scene .steam{fill:none;stroke:#000;stroke-width:2;stroke-linecap:round;opacity:0}
+.play .steam{animation:steam 3.2s ease-in-out infinite}
+@keyframes steam{0%{transform:translateY(6px);opacity:0}40%{opacity:.9}100%{transform:translateY(-12px);opacity:0}}
+#scene.dim{opacity:.4}
+.hand,.fing,.thing,.tail,.breathe{transform-box:fill-box}
+.tail{transform-origin:50% 100%}
+.breathe{transform-origin:50% 100%}
+.play .tail{animation:wag 2.4s ease-in-out infinite}
+.play .breathe{animation:breathe 3.2s ease-in-out infinite}
+.play .breathe.hop{animation:hop .5s ease-out}
+@keyframes wag{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(10deg)}}
+@keyframes breathe{50%{transform:scaleY(1.05)}}
+@keyframes hop{40%{transform:translateY(-14px) scaleY(1.06)}100%{transform:none}}
+.thing{transform-origin:50% 100%}
+.thing.bump{animation:bump .7s ease-out}
+@keyframes bump{15%{transform:rotate(-2.4deg) translateX(-3px)}40%{transform:rotate(1.8deg) translateX(2px)}65%{transform:rotate(-0.9deg)}100%{transform:none}}
+#scene .ball{opacity:0}
+.play .ball{animation:ballin .6s 3.4s both}
+@keyframes ballin{to{opacity:1}}
+.play .hand.l{animation:tapl .52s steps(1,end) infinite}
+.play .hand.r{animation:tapr .44s steps(1,end) infinite}
+.play .fing{animation:fing .34s var(--f,0s) steps(1,end) infinite}
+@keyframes tapl{0%{transform:translate(0,0)}20%{transform:translate(1px,-1.5px)}40%{transform:translate(-1px,0)}60%{transform:translate(0,-2px)}80%{transform:translate(1px,1px)}}
+@keyframes tapr{0%{transform:translate(0,0)}25%{transform:translate(-1px,-2px)}50%{transform:translate(1px,0)}75%{transform:translate(0,-1.5px)}}
+@keyframes fing{0%{transform:translateY(0)}50%{transform:translateY(-2.6px)}}
+#scene.paused *{animation-play-state:paused}
+#scene.instant{transition:none}
+#scene.instant .pop{opacity:1;animation:none}
+#scene.instant .ty{animation-delay:0s}
+#scene.instant .ball{animation:none;opacity:1}
+@supports (animation-timeline: scroll()) {
+  .scene-wrap{animation:sceneout linear both;animation-timeline:scroll(root block);animation-range:0 70svh}
+  @keyframes sceneout{to{transform:translateY(14vh);opacity:.15}}
+}
+@media (prefers-reduced-motion:reduce){#scene .pop{opacity:1;animation:none}.play .pop,.play .ty,.play .steam,.play .hand,.play .fing,#scene .blink{animation:none}#scene .ty{stroke-dashoffset:0}#scene .ball{display:none}.scene-wrap{animation:none}#scene .tail,#scene .breathe{animation:none}}

@@ -6,11 +6,10 @@ Live site: https://bryanfernandez.dev/
 
 ```
 npm install
-cp .env.example .env
 npm run dev
 ```
 
-Fill in `.env` with the EmailJS keys used by the contact form. The dev server runs on http://localhost:5173/.
+The dev server runs on http://localhost:5173/.
 
 ## Commands
 
@@ -29,7 +28,7 @@ src/
   sections/     Page sections composed in App.jsx
   components/   Reusable components
   hooks/        Custom hooks
-  services/     External integrations (email)
+  utils/        Pure helpers (scene, physics, contour maps)
 ```
 
 All content lives in `src/data/`. To add a project, job, or link, edit the matching JSON file only.

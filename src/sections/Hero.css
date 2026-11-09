@@ -1,0 +1,10 @@
+.hero{position:relative;min-height:100vh;min-height:clamp(480px,105vw,100svh);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:3vw;background:#fff;isolation:isolate}
+.hero h1{position:relative;z-index:2;font-size:clamp(2.2rem,9.4vw,14rem);line-height:.86;color:#fff;mix-blend-mode:difference}
+.hero h1 span{display:block}
+.hero .sub{position:relative;z-index:2;display:flex;justify-content:space-between;gap:2rem;margin-top:2vw;color:#fff;mix-blend-mode:difference;text-transform:uppercase;font-size:12px;letter-spacing:.08em}
+.wipe{position:absolute;left:50%;top:40%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#fff;mix-blend-mode:difference;transform:scale(0);pointer-events:none;z-index:6}
+.hero.flipped{background:#000}
+.hero.flipped .wipe{display:none}
+.hero.flipped .blob{background:#fff}
+.hero.flipped #scene{filter:invert(1)}
+@media (max-width:800px){.hero .sub{flex-direction:column;gap:.3rem}}

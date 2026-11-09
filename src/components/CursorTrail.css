@@ -1,0 +1,6 @@
+.goo-defs{position:absolute;width:0;height:0}
+.blobs{position:absolute;inset:0;filter:url(#goo);pointer-events:none;opacity:0;transition:opacity .3s}
+.blobs.live{opacity:1}
+.blobs.away{opacity:0}
+.blob{position:absolute;left:0;top:0;border-radius:50%;background:#000}
+@media (prefers-reduced-motion:reduce){.blobs{display:none}}

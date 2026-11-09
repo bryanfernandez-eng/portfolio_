@@ -1,28 +1,30 @@
-import { PROFILE, EXPERIENCE, EDUCATION } from './data'
+import { PROFILE } from './data'
 import { useDocumentTitle } from './hooks/useDocumentTitle'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Landing from './sections/Landing'
+import { usePointerTracking } from './hooks/usePointerTracking'
+import CustomCursor from './components/CustomCursor'
+import SectionBridge from './components/SectionBridge'
+import Hero from './sections/Hero'
 import About from './sections/About'
-import Projects from './sections/Projects'
-import Timeline from './sections/Timeline'
+import Work from './sections/Work'
+import Experience from './sections/Experience'
 import Contact from './sections/Contact'
 
 function App() {
   useDocumentTitle(PROFILE.name)
+  usePointerTracking()
 
   return (
     <>
-      <Navbar />
+      <CustomCursor />
       <main>
-        <Landing />
+        <Hero />
         <About />
-        <Projects />
-        <Timeline id="experience" items={EXPERIENCE} />
-        <Timeline id="education" items={EDUCATION} />
+        <Work />
+        <SectionBridge />
+        <Experience />
+        <SectionBridge isMirrored />
         <Contact />
       </main>
-      <Footer />
     </>
   )
 }

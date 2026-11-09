@@ -1,172 +1,94 @@
 {
-  "stackLabel": "Stack",
-  "links": {
-    "github": "GitHub",
-    "live": "Live"
-  },
   "items": [
     {
-      "id": "proj-1",
-      "number": "01",
-      "name": "Gamified Habit Tracker",
-      "description": "An RPG-style habit tracker where completing daily quests levels up your character across five attributes, unlocks achievement badges, and climbs a global leaderboard - with GitHub-style check-in calendars to visualize streaks.",
-      "stack": [
-        "React",
-        "Vite",
-        "Tailwind",
-        "Django",
-        "Django REST Framework"
+      "id": "proj-7",
+      "name": "CareerPilot",
+      "summary": "A job search copilot that tracks your applications and drafts tailored resumes and cover letters.",
+      "shortStack": [
+        "React / FastAPI",
+        "Postgres"
       ],
-      "image": "/projects/gamified-habit-tracker.webp",
+      "image": "/projects/career-pilot.webp",
       "imageWidth": 1200,
-      "imageHeight": 871,
-      "github": "https://github.com/bryanfernandez-eng/gamified-habit-tracker",
-      "live": null
-    },
-    {
-      "id": "proj-2",
-      "number": "02",
-      "name": "Cashcore",
-      "description": "A fintech app that helps college students take control of their money - track budgets and spending, manage stock portfolios, and monitor loans and savings, with bank data connected through the Plaid API.",
-      "stack": [
-        "React Native",
-        "Expo",
-        "TypeScript",
-        "Django",
-        "PostgreSQL"
-      ],
-      "image": "/projects/cashcore.webp",
-      "imageWidth": 1200,
-      "imageHeight": 656,
-      "github": "https://github.com/Ceaseless04/Cashcore",
-      "live": null
-    },
-    {
-      "id": "proj-3",
-      "number": "03",
-      "name": "GatherU",
-      "description": "An event discovery platform for FIU students - browse and RSVP to club events, follow clubs, comment, and get recommendations ranked by your interests. Built with the INIT BUILD WebDev Advanced cohort.",
-      "stack": [
-        "React",
-        "Tailwind",
-        "Django",
-        "PostgreSQL",
-        "AWS S3"
-      ],
-      "image": "/projects/gather-u.webp",
-      "imageWidth": 1200,
-      "imageHeight": 679,
-      "github": "https://github.com/hpitta26/club-event-hub",
-      "live": null
-    },
-    {
-      "id": "proj-4",
-      "number": "04",
-      "name": "Translate Flow",
-      "description": "A multi-agent AI translation system that localizes entire websites in minutes. Agents work through a 4-stage pipeline - content detection, parallel translation, quality review, and refinement - to deliver context-aware translations across 15+ languages. Built at ShellHacks 2025.",
-      "stack": [
-        "Google Cloud ADK",
-        "Gemini 2.0",
-        "FastAPI",
-        "Python"
-      ],
-      "image": "/projects/translate-flow.webp",
-      "imageWidth": 1200,
-      "imageHeight": 754,
-      "github": "https://github.com/hpitta26/Shellhacks-2025",
-      "live": null
-    },
-    {
-      "id": "proj-5",
-      "number": "05",
-      "name": "Roadmap AI",
-      "description": "An AI assistant that turns project ideas into detailed, actionable roadmaps - step-by-step plans tailored to your goals, tech stack, and timeline, with smart task management and a project-aware AI chat for guidance and code reviews.",
-      "stack": [
-        "Google ADK",
-        "Gemini 2.0",
-        "FastAPI",
-        "React",
-        "PostgreSQL"
-      ],
-      "image": "/projects/roadmap-ai.webp",
-      "imageWidth": 1200,
-      "imageHeight": 679,
-      "github": null,
-      "live": null
+      "imageHeight": 650,
+      "github": "https://github.com/bryanfernandez-eng/CareerPilot"
     },
     {
       "id": "proj-6",
-      "number": "06",
       "name": "Moviq",
-      "description": "A movie discovery and tracking app built around personalized discovery - browse movies and TV shows, rate films, build and share playlists, and generate an AI-backed taste profile that learns what you actually like.",
-      "stack": [
-        "React",
-        "Vite",
-        "FastAPI",
-        "SQLAlchemy",
+      "summary": "Movie discovery built around a taste profile that learns what you actually like.",
+      "shortStack": [
+        "React / FastAPI",
         "OpenAI"
       ],
       "image": "/projects/moviq.webp",
       "imageWidth": 1200,
       "imageHeight": 646,
-      "github": null,
-      "live": null
+      "github": null
     },
     {
-      "id": "proj-7",
-      "number": "07",
-      "name": "CareerPilot",
-      "description": "An AI-powered job search copilot that streamlines the application process - track applications, generate tailored resumes and cover letters, and get AI-driven insights to land your next role faster.",
-      "stack": [
-        "React",
-        "FastAPI",
-        "PostgreSQL",
-        "OpenAI"
+      "id": "proj-5",
+      "name": "Roadmap AI",
+      "summary": "Turns a project idea into a detailed, step-by-step roadmap shaped by your goals and timeline.",
+      "shortStack": [
+        "Google ADK / Gemini",
+        "React"
       ],
-      "image": "/projects/career-pilot.webp",
+      "image": "/projects/roadmap-ai.webp",
       "imageWidth": 1200,
-      "imageHeight": 650,
-      "github": "https://github.com/bryanfernandez-eng/CareerPilot",
-      "live": null
+      "imageHeight": 679,
+      "github": null
     },
     {
-      "id": "proj-8",
-      "number": "08",
-      "name": "Coming Soon",
-      "description": "This project is on its way. Check back soon for updates.",
-      "stack": [
-        "Java",
-        "Spring Boot"
+      "id": "proj-4",
+      "name": "Translate Flow",
+      "summary": "A multi-agent pipeline that localizes a whole website in four stages. Built at ShellHacks 2025.",
+      "shortStack": [
+        "Cloud ADK / Gemini",
+        "FastAPI"
       ],
-      "image": null,
-      "github": null,
-      "live": null
+      "image": "/projects/translate-flow.webp",
+      "imageWidth": 1200,
+      "imageHeight": 754,
+      "github": "https://github.com/hpitta26/Shellhacks-2025"
     },
     {
-      "id": "proj-9",
-      "number": "09",
-      "name": "Coming Soon",
-      "description": "This project is on its way. Check back soon for updates.",
-      "stack": [
-        "React Native",
-        "Expo"
+      "id": "proj-3",
+      "name": "GatherU",
+      "summary": "Event discovery for FIU students. Follow clubs, RSVP, and get picks ranked by your interests.",
+      "shortStack": [
+        "React / Django",
+        "AWS S3"
       ],
-      "image": null,
-      "github": null,
-      "live": null
+      "image": "/projects/gather-u.webp",
+      "imageWidth": 1200,
+      "imageHeight": 679,
+      "github": "https://github.com/hpitta26/club-event-hub"
     },
     {
-      "id": "proj-10",
-      "number": "10",
-      "name": "Coming Soon",
-      "description": "This project is on its way. Check back soon for updates.",
-      "stack": [
-        "Rust",
-        "WebAssembly"
+      "id": "proj-2",
+      "name": "Cashcore",
+      "summary": "Budgets, spending, stocks and loans for college students, with bank data through Plaid.",
+      "shortStack": [
+        "React Native / Django",
+        "Plaid"
       ],
-      "image": null,
-      "github": null,
-      "live": null
+      "image": "/projects/cashcore.webp",
+      "imageWidth": 1200,
+      "imageHeight": 656,
+      "github": "https://github.com/Ceaseless04/Cashcore"
+    },
+    {
+      "id": "proj-1",
+      "name": "Habit Tracker",
+      "summary": "RPG-style habits. Daily quests level up your character across five attributes and unlock badges.",
+      "shortStack": [
+        "React / Django REST"
+      ],
+      "image": "/projects/gamified-habit-tracker.webp",
+      "imageWidth": 1200,
+      "imageHeight": 871,
+      "github": "https://github.com/bryanfernandez-eng/gamified-habit-tracker"
     }
   ]
 }

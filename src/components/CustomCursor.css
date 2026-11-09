@@ -1,0 +1,6 @@
+.cursor{position:fixed;left:0;top:0;width:110px;height:110px;margin:-55px 0 0 -55px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:100;opacity:0;transition:width .25s,height .25s,margin .25s,opacity .25s}
+.cursor.live{opacity:1}
+.cursor.big{width:230px;height:230px;margin:-115px 0 0 -115px}
+.cursor.away{opacity:0}
+html.in-scene{cursor:auto}
+@media (hover:none){.cursor{display:none}}

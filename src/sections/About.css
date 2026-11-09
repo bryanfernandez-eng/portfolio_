@@ -1,0 +1,6 @@
+.about{display:grid;grid-template-columns:2fr 5fr;gap:3vw;padding:14vh 3vw 10vh;border-top:1px solid #333}
+.about p{font-size:clamp(1rem,1.5vw,1.3rem);line-height:1.6;max-width:52ch;color:#ddd}
+.about dl{display:grid;grid-template-columns:auto 1fr;gap:.4rem 2rem;margin-top:2.4rem;max-width:52ch;border-top:1px solid #333;padding-top:1.2rem;font-size:13px}
+.about dl div{display:contents}
+.about dt{color:#888;text-transform:uppercase;letter-spacing:.08em;font-size:11px;padding-top:.1rem}
+@media (max-width:800px){.about{grid-template-columns:1fr}}

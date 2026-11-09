@@ -1,0 +1,4 @@
+.topo{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent)}
+.topo path{fill:none;stroke:#fff;stroke-linecap:round}
+.topo .minor{stroke-width:.8;opacity:.1}
+.topo .major{stroke-width:1.5;opacity:.24}

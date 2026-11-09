@@ -1,72 +1,92 @@
-{
-  "experience": [
-    {
-      "id": "exp-0",
-      "company": "Assurant",
-      "role": "Software Engineer Intern",
-      "period": "June 2026 – Present",
-      "bullets": [
-        "Onboarded Kyriba into an enterprise multi-vendor .NET payment gateway across 6 environments with a typed C# settings model resolved from Azure Key Vault via managed identity.",
-        "Reduced OAuth2 token round-trips by 95%+ with a client-credentials auth layer using distributed caching and refresh-before-expiry, backed by 9 unit tests.",
-        "Enabled automated ACH/wire disbursements by architecting idempotent bank-account tokenization with deterministic reference codes and 409-conflict recovery, backed by 20 unit tests."
-      ]
-    },
-    {
-      "id": "exp-1",
-      "company": "FEAM Aero",
-      "role": "Software Engineer (Co-op)",
-      "period": "August 2025 – Present",
-      "bullets": [
-        "Improved workflow efficiency by 30% for 1,500+ employees building billing modules in React/JavaScript.",
-        "Cut search latency from 20+ seconds to 3 seconds replacing a legacy .NET/C# platform with React + Flask.",
-        "Increased deployment frequency from bi-weekly to every 3 days with CI/CD pipelines in Azure DevOps.",
-        "Eliminated recurring SQL incidents by shipping a CRUD customer management tool in C#/.NET + React."
-      ]
-    },
-    {
-      "id": "exp-2",
-      "company": "FEAM Aero",
-      "role": "Software Engineer Intern",
-      "period": "May 2025 – August 2025",
-      "bullets": [
-        "Reduced mechanic work order processing from 2+ hours to under 5 minutes with a React + Flask + SQL system.",
-        "Cut load time from 5 seconds to under 1 second with real-time search and validation in React.",
-        "Automated PDF billing generation, cutting document processing from minutes to 20 seconds."
-      ]
-    },
-    {
-      "id": "exp-3",
-      "company": "INIT FIU",
-      "role": "Director of Technology",
-      "period": "January 2026 – Present",
-      "bullets": [
-        "Shipped a Notion-embedded content system for ShellHacks 2026 serving 1,400+ annual participants.",
-        "Built a per-user rate limiter in Go/Chi to cap S3 uploads and prevent spam-driven cost spikes.",
-        "Converted 20+ attendees into club members across 10+ recruiting events."
-      ]
-    }
-  ],
-  "education": [
-    {
-      "id": "edu-1",
-      "company": "FIU",
-      "role": "B.S. Computer Science, Minor in Math",
-      "period": "August 2024 – Expected December 2026",
-      "bullets": [
-        "GPA: 4.0 - Florida International University, Miami, FL.",
-        "Coursework: Data Structures, Algorithms, Database Systems, AI, Machine Learning.",
-        "Organizations: INIT, BreakThrough Tech, CodePath E3, Color Stack, SHPE."
-      ]
-    },
-    {
-      "id": "edu-2",
-      "company": "MDC",
-      "role": "A.S. Computer Science",
-      "period": "June 2022 – June 2024",
-      "bullets": [
-        "Miami Dade College, Miami, FL.",
-        "Completed foundational coursework before transferring to FIU."
-      ]
-    }
-  ]
-}
+[
+  {
+    "id": "gt",
+    "company": "Georgia Tech",
+    "role": "M.S. Computer Science",
+    "period": "Starts 2027",
+    "illustration": "gt",
+    "detail": [
+      { "text": "Next up is a " },
+      { "text": "Master of Science", "isHighlight": true },
+      { "text": " in Computer Science at Georgia Tech, starting in 2027." }
+    ]
+  },
+  {
+    "id": "assurant",
+    "company": "Assurant",
+    "role": "Software Engineer Intern",
+    "period": "Jun 2026 - now",
+    "illustration": "assurant",
+    "detail": [
+      { "text": "The .NET payment gateway kept going back for fresh OAuth2 tokens. I added a cached client-credentials layer and those round-trips dropped by " },
+      { "text": "95%+", "isHighlight": true },
+      { "text": "." }
+    ]
+  },
+  {
+    "id": "feam-coop",
+    "company": "FEAM Aero",
+    "role": "Software Engineer (Co-op)",
+    "period": "Aug 2025 - now",
+    "illustration": "coop",
+    "detail": [
+      { "text": "Search used to take " },
+      { "text": "20+ seconds", "isHighlight": true },
+      { "text": ". Once I replaced the legacy .NET/C# platform with React and Flask it took " },
+      { "text": "3", "isHighlight": true },
+      { "text": ", and we went from shipping every other week to every 3 days. Workflow efficiency is up " },
+      { "text": "30%", "isHighlight": true },
+      { "text": " for 1,500+ employees." }
+    ]
+  },
+  {
+    "id": "feam-intern",
+    "company": "FEAM Aero",
+    "role": "Software Engineer Intern",
+    "period": "May - Aug 2025",
+    "illustration": "intern",
+    "detail": [
+      { "text": "Mechanic work orders used to eat " },
+      { "text": "2+ hours", "isHighlight": true },
+      { "text": " each. I got them down to " },
+      { "text": "under 5 minutes", "isHighlight": true },
+      { "text": ", a 95%+ cut, and brought the app's load time from 5 seconds to under 1." }
+    ]
+  },
+  {
+    "id": "init",
+    "company": "INIT FIU",
+    "role": "Director of Technology",
+    "period": "Jan 2026 - now",
+    "illustration": "init",
+    "detail": [
+      { "text": "Built the Notion-embedded content system behind ShellHacks 2026 for " },
+      { "text": "1,400+", "isHighlight": true },
+      { "text": " participants, and turned 20+ attendees into INIT members." }
+    ]
+  },
+  {
+    "id": "fiu",
+    "company": "FIU",
+    "role": "B.S. Computer Science",
+    "period": "2024 - Dec 2026",
+    "illustration": "fiu",
+    "detail": [
+      { "text": "A " },
+      { "text": "4.0 GPA", "isHighlight": true },
+      { "text": " with a Math minor, mostly living in Data Structures, Algorithms, Databases, AI and ML." }
+    ]
+  },
+  {
+    "id": "mdc",
+    "company": "MDC",
+    "role": "A.S. Computer Science, Miami Dade College",
+    "period": "2022 - 2024",
+    "illustration": "mdc",
+    "detail": [
+      { "text": "Where it started: an " },
+      { "text": "associate degree", "isHighlight": true },
+      { "text": " in Computer Science, before transferring to FIU." }
+    ]
+  }
+]
