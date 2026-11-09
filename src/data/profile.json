@@ -1,0 +1,16 @@
+{
+  "name": "Bryan Fernandez",
+  "email": "dev.bryanfernandez@gmail.com",
+  "currentRole": "SWE Intern @ Assurant",
+  "highlights": [
+    "FIU Computer Science",
+    "Director of Tech @ init"
+  ],
+  "bio": "Born and raised in Miami, FL to Cuban parents. I genuinely love building software - especially anything touching AI and ML. When I'm not coding I'm watching movies, catching sport games, or learning about something new.",
+  "facts": [
+    { "label": "location", "value": "Miami, FL" },
+    { "label": "origin", "value": "Cuban-American" },
+    { "label": "edu", "value": "FIU - Computer Science, Math" },
+    { "label": "interests", "value": "AI / ML, full-stack, open source" }
+  ]
+}

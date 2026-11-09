@@ -1,23 +1,29 @@
+import { PROFILE, EXPERIENCE, EDUCATION } from './data'
+import { useDocumentTitle } from './hooks/useDocumentTitle'
 import Navbar from './components/Navbar'
-import Landing from './sections/Landing'
-import Projects from './sections/Projects'
-import Experience from './sections/Experience'
-import Contact from './sections/Contact'
 import Footer from './components/Footer'
-import GrainOverlay from './components/ui/GrainOverlay'
-import { COLORS } from './constants/colors'
+import Landing from './sections/Landing'
+import About from './sections/About'
+import Projects from './sections/Projects'
+import Timeline from './sections/Timeline'
+import Contact from './sections/Contact'
 
 function App() {
+  useDocumentTitle(PROFILE.name)
+
   return (
-    <div style={{ background: COLORS.dark }}>
-      <GrainOverlay />
+    <>
       <Navbar />
-      <Landing />
-      <Projects />
-      <Experience />
-      <Contact />
+      <main>
+        <Landing />
+        <About />
+        <Projects />
+        <Timeline id="experience" items={EXPERIENCE} />
+        <Timeline id="education" items={EDUCATION} />
+        <Contact />
+      </main>
       <Footer />
-    </div>
+    </>
   )
 }
 

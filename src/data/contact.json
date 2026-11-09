@@ -1,0 +1,14 @@
+{
+  "intro": "Open to internships, new grad roles, and interesting projects. Let's make something great together.",
+  "submitLabel": "Send",
+  "fields": [
+    { "name": "name", "label": "Name", "type": "text" },
+    { "name": "subject", "label": "Subject", "type": "text" },
+    { "name": "message", "label": "Message", "type": "textarea", "rows": 6 }
+  ],
+  "statuses": {
+    "sending": "Sending...",
+    "sent": "Message sent.",
+    "error": "Something went wrong."
+  }
+}
