@@ -1,4 +1,4 @@
-import { GRID_DAYS } from '../utils/contribGrid'
+import { GRID_DAYS } from '../utils/room/contribGrid'
 
 const API = 'https://github-contributions-api.jogruber.de/v4'
 const CACHE_KEY = 'github-contributions'

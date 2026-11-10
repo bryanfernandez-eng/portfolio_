@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { CLOCK_ORIGIN } from '../utils/roomClock'
+import { CLOCK_ORIGIN } from '../utils/room/roomClock'
 
 const TICK_MS = 15000
 

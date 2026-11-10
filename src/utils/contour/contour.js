@@ -1,4 +1,4 @@
-import { pointer } from './pointer'
+import { pointer } from '../pointer'
 import { valueNoise } from './valueNoise'
 import { CELL, traceLevel } from './marchingSquares'
 

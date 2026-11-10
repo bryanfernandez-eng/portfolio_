@@ -54,7 +54,12 @@ src/
   components/   Reusable components
   hooks/        Custom hooks
   services/     External calls (EmailJS, GitHub contributions, weather)
-  utils/        Pure helpers (scene, physics, contour maps)
+  utils/        Pure helpers, grouped by topic
+    room/          Room scene: perspective, builders, sky, clock, weather
+    ball/          Ball physics, handling, shot meter, skateboard
+    illustrations/ Experience illustrations and the isometric kit
+    contour/       Topographic background math
+    page/          Section bridges, experience rail, text splitting
 public/         Static files: project images, resume and its preview, 404 page, CNAME
 ```
 

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useReducedMotion } from './useReducedMotion'
 import { useScrollFrame } from './useScrollFrame'
-import { buildBridgePath, bridgeProgress } from '../utils/bridgePath'
+import { buildBridgePath, bridgeProgress } from '../utils/page/bridgePath'
 
 const ROLL_RATIO = 3.2
 

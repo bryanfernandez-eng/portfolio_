@@ -1,4 +1,4 @@
-import { FOCAL, Y0, RIM_X, RIM_D, project } from './perspective'
+import { FOCAL, Y0, RIM_X, RIM_D, project } from '../room/perspective'
 import { BR } from './ballPhysics'
 
 export const TAP_MS = 220

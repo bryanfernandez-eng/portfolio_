@@ -1,4 +1,4 @@
-import { FOCAL, Y0, VX, VY, EYE } from './perspective'
+import { FOCAL, Y0, VX, VY, EYE } from '../room/perspective'
 
 export function floorTarget(scene, point, minD) {
   const matrix = scene.getScreenCTM()

@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import { createSceneKit } from '../utils/sceneKit'
-import { buildRoom } from '../utils/roomBuild'
-import { buildWorkstation } from '../utils/roomDesk'
-import { createBallView } from '../utils/ballView'
+import { createSceneKit } from '../utils/room/sceneKit'
+import { buildRoom } from '../utils/room/roomBuild'
+import { buildWorkstation } from '../utils/room/roomDesk'
+import { createBallView } from '../utils/ball/ballView'
 
 export function useRoomBuild(sceneRef, ballViewRef, isReduced, skyPhase) {
   useEffect(() => {

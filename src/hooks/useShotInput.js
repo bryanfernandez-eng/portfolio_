@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { pointer } from '../utils/pointer'
-import { shootBall } from '../utils/ballPhysics'
-import { TAP_MS, meterFill, meterWindow, meterShot, flashMeter, resetMeter } from '../utils/shotMeter'
+import { shootBall } from '../utils/ball/ballPhysics'
+import { TAP_MS, meterFill, meterWindow, meterShot, flashMeter, resetMeter } from '../utils/ball/shotMeter'
 
 export function useShotInput({ sceneRef, engineRef, meterRef, isReduced }) {
   useEffect(() => {

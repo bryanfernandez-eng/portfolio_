@@ -1,4 +1,4 @@
-import { FOCAL, Y0, project as P } from './perspective'
+import { FOCAL, Y0, project as P } from '../room/perspective'
 import { BR } from './ballPhysics'
 
 const MIN_GRAB_PX = 26

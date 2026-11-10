@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { splitWords } from '../utils/words'
+import { splitWords } from '../utils/page/words'
 
 function Words({ text }) {
   return splitWords(text).map(({ text: part, isSpace }, i) => {

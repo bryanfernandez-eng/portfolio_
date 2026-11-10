@@ -1,4 +1,4 @@
-import { project as P } from './perspective'
+import { project as P } from '../room/perspective'
 
 export function drawSkate(element, skate) {
   if (!element) return

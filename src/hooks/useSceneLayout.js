@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { computeSceneLayout } from '../utils/sceneLayout'
+import { computeSceneLayout } from '../utils/room/sceneLayout'
 import { onFontsReady } from '../utils/fonts'
 
 const HEIGHT_JITTER = 150

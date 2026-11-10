@@ -1,4 +1,4 @@
-import { conditionFromCode } from '../utils/weather'
+import { conditionFromCode } from '../utils/room/weather'
 
 const API = 'https://api.open-meteo.com/v1/forecast'
 const CACHE_KEY = 'sky-condition'

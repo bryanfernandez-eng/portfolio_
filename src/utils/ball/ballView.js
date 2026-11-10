@@ -1,4 +1,4 @@
-import { FOCAL, Y0, project as P } from './perspective'
+import { FOCAL, Y0, project as P } from '../room/perspective'
 import { BR } from './ballPhysics'
 
 const SEAMS = ['M0 -1V1', 'M-1 0H1', 'M-0.72 -0.7Q-0.25 0 -0.72 0.7', 'M0.72 -0.7Q0.25 0 0.72 0.7']

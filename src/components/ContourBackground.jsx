@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useContour } from '../hooks/useContour'
-import { CONTOUR_LEVELS } from '../utils/contour'
+import { CONTOUR_LEVELS } from '../utils/contour/contour'
 import './ContourBackground.css'
 
 function ContourBackground({ seed }) {

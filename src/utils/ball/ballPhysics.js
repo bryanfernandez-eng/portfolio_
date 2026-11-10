@@ -1,4 +1,4 @@
-import { HW, RIM_X, RIM_D, RIM_Z } from './perspective'
+import { HW, RIM_X, RIM_D, RIM_Z } from '../room/perspective'
 
 export const BR = 0.6
 export const LANE = 2.8

@@ -1,14 +1,14 @@
 import { useEffect, useRef } from 'react'
 import { useAnimationFrame } from './useAnimationFrame'
 import { pointer } from '../utils/pointer'
-import { BOUNCE, createBall, createSolids, stepBall } from '../utils/ballPhysics'
-import { GRIP, aimPoint, createMotion, updateHandle } from '../utils/ballHandle'
-import { drawBall } from '../utils/ballView'
-import { createBumper } from '../utils/bump'
-import { floorTarget } from '../utils/floorTarget'
-import { createGaze, updateGaze } from '../utils/gaze'
-import { drawSkate } from '../utils/skateView'
-import { updateMeter } from '../utils/shotMeter'
+import { BOUNCE, createBall, createSolids, stepBall } from '../utils/ball/ballPhysics'
+import { GRIP, aimPoint, createMotion, updateHandle } from '../utils/ball/ballHandle'
+import { drawBall } from '../utils/ball/ballView'
+import { createBumper } from '../utils/room/bump'
+import { floorTarget } from '../utils/ball/floorTarget'
+import { createGaze, updateGaze } from '../utils/room/gaze'
+import { drawSkate } from '../utils/ball/skateView'
+import { updateMeter } from '../utils/ball/shotMeter'
 
 const MAX_DT = 0.033
 const DEFAULT_DT = 0.016

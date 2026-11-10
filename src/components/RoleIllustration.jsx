@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState } from 'react'
 import { useIdle } from '../hooks/useIdle'
 import { useInView } from '../hooks/useInView'
 import { useReducedMotion } from '../hooks/useReducedMotion'
-import { getIllustration } from '../utils/roleIllustrations'
+import { getIllustration } from '../utils/illustrations/roleIllustrations'
 import { classNames } from '../utils/classNames'
 import './RoleIllustration.css'
 

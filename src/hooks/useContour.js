@@ -4,7 +4,7 @@ import { useIdle } from './useIdle'
 import { useInView } from './useInView'
 import { useReducedMotion } from './useReducedMotion'
 import { useScrollFrame } from './useScrollFrame'
-import { createContour } from '../utils/contour'
+import { createContour } from '../utils/contour/contour'
 
 const FRAME_INTERVAL_MS = 55
 

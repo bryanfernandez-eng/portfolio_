@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useReducedMotion } from './useReducedMotion'
 import { useScrollFrame } from './useScrollFrame'
-import { updateExperience } from '../utils/experienceRail'
+import { updateExperience } from '../utils/page/experienceRail'
 import { onFontsReady } from '../utils/fonts'
 
 export function useExperienceRail(listRef) {
