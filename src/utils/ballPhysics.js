@@ -35,7 +35,7 @@ function collideHoop(ball, bump) {
   const rim = Math.hypot(ball.x - RIM_X, ball.d - RIM_D)
   if (!ball.rimDone && ball.vz < 0 && ball.z < RIM_Z + 0.2) {
     ball.rimDone = true
-    if (rim < 0.6) { ball.vx *= 0.1; ball.vd *= 0.1; bump('hoop') }
+    if (rim < 0.6) { ball.vx *= 0.1; ball.vd *= 0.1; bump('swish') }
     else if (rim < 1.1) { ball.vz = Math.abs(ball.vz) * 0.5; ball.vx *= -0.4; bump('hoop') }
   }
   if (ball.x > HW - 0.5 && ball.z > 5.3 && ball.z < 7.7 && ball.d > 3.9 && ball.d < 6.5) {

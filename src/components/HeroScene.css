@@ -30,6 +30,9 @@
 @keyframes wag{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(10deg)}}
 @keyframes breathe{50%{transform:scaleY(1.05)}}
 @keyframes hop{40%{transform:translateY(-14px) scaleY(1.06)}100%{transform:none}}
+.net{transform-box:fill-box;transform-origin:50% 0}
+.net.bump{animation:swish .8s ease-out}
+@keyframes swish{20%{transform:scaleY(1.24) skewX(-4deg)}45%{transform:scaleY(.9) skewX(3deg)}70%{transform:scaleY(1.06) skewX(-1.5deg)}100%{transform:none}}
 .thing{transform-origin:50% 100%}
 .thing.bump{animation:bump .7s ease-out}
 @keyframes bump{15%{transform:rotate(-2.4deg) translateX(-3px)}40%{transform:rotate(1.8deg) translateX(2px)}65%{transform:rotate(-0.9deg)}100%{transform:none}}

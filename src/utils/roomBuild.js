@@ -109,7 +109,8 @@ function buildHoop({ mk, open, close, poly, seg, group }) {
   const rimTop = ring(0.7, RIM_Z)
   const rimLow = ring(0.4, RIM_Z - 0.9)
   const net = group()
-  rimTop.forEach((p, i) => seg(p, rimLow[(i + 1) % rimLow.length], { stroke: '#000', 'stroke-width': 1, opacity: 0.55 }, net))
+  const strands = mk('g', { class: 'net', 'data-k': 'swish' }, net)
+  rimTop.forEach((p, i) => seg(p, rimLow[(i + 1) % rimLow.length], { stroke: '#000', 'stroke-width': 1, opacity: 0.55 }, strands))
   mk('polygon', { points: pts(rimTop), fill: 'none', stroke: '#000', 'stroke-width': 3, 'stroke-linejoin': 'round' }, net)
   close()
 }
