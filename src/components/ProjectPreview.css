@@ -2,4 +2,5 @@
 .project-preview.on{opacity:1;transform:translateY(-50%) scale(1)}
 .project-preview img{display:block;width:100%}
 .project-preview span{position:absolute;left:-2px;bottom:-2px;background:#fff;color:#000;font:700 12px 'Red Hat Mono',monospace;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px}
+.project-preview.portrait{width:min(34vw,calc(84vh / 1.415))}
 @media (max-width:800px){.project-preview{display:none}}

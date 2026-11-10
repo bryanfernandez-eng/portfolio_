@@ -55,8 +55,9 @@ function buildDeskItems({ mk, box, seg }) {
 
 function buildResume({ open, close, box, poly }) {
   open('resume')
-  box(3.2, 3.9, 7.5, 8.1, 3.3, 3.9, T.paper)
-  poly([P(3.0, 7.5, 3.3), P(4.1, 7.5, 3.3), P(4.1, 7.5, 4.4), P(3.0, 7.5, 4.4)], 'transparent', { class: 'hit' })
+  box(-3.9, -3.1, 7.3, 8.1, 3.3, 3.42, T.paper)
+  box(-3.85, -3.05, 7.4, 8.2, 3.42, 3.52, T.paper)
+  poly([P(-4.05, 7.5, 3.3), P(-2.95, 7.5, 3.3), P(-2.95, 7.5, 4.4), P(-4.05, 7.5, 4.4)], 'transparent', { class: 'hit' })
   close()
 }
 

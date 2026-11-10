@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import ProjectPreview from './ProjectPreview'
 import { useBallPhysics } from '../hooks/useBallPhysics'
 import { useGithubScreen } from '../hooks/useGithubScreen'
 import { useLampToggle } from '../hooks/useLampToggle'
@@ -13,7 +14,7 @@ import { useSceneScrollFade } from '../hooks/useSceneScrollFade'
 import { LANE } from '../utils/ballPhysics'
 import { classNames } from '../utils/classNames'
 import { getSkyPhase } from '../utils/skyPhase'
-import { PROFILE } from '../data'
+import { PROFILE, RESUME_PREVIEW } from '../data'
 import './HeroScene.css'
 
 function HeroScene({ sceneRef, heroRef, titleRef, isPlaying, isDimmed, isInstant, isActive }) {
@@ -26,7 +27,7 @@ function HeroScene({ sceneRef, heroRef, titleRef, isPlaying, isDimmed, isInstant
 
   useRoomBuild(sceneRef, ballViewRef, isReduced, skyPhase)
   useGithubScreen(sceneRef, isReduced)
-  useResumeDownload(sceneRef)
+  const peek = useResumeDownload(sceneRef)
   useWeatherSky(sceneRef)
   useWallClock(sceneRef)
   const { isLampOff, hasToggledLamp } = useLampToggle(sceneRef)
@@ -40,20 +41,23 @@ function HeroScene({ sceneRef, heroRef, titleRef, isPlaying, isDimmed, isInstant
     `tod-${skyPhase}`, isLampOff && 'lamp-off', hasToggledLamp && 'lamp-used',
   )
   return (
-    <div className="scene-wrap">
-      <svg
-        id="scene"
-        className={className}
-        ref={sceneRef}
-        viewBox="-213 -100 946 545"
-        role="img"
-        aria-label={PROFILE.sceneLabel}
-      />
-      <div className="shot-meter" ref={meterRef} aria-hidden="true">
-        <i className="meter-window" />
-        <i className="meter-fill" />
+    <>
+      <div className="scene-wrap">
+        <svg
+          id="scene"
+          className={className}
+          ref={sceneRef}
+          viewBox="-213 -100 946 545"
+          role="img"
+          aria-label={PROFILE.sceneLabel}
+        />
+        <div className="shot-meter" ref={meterRef} aria-hidden="true">
+          <i className="meter-window" />
+          <i className="meter-fill" />
+        </div>
       </div>
-    </div>
+      <ProjectPreview project={peek.hasShown ? RESUME_PREVIEW : undefined} isOn={peek.isOn} isPortrait />
+    </>
   )
 }
 
