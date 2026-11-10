@@ -7,6 +7,7 @@ import contact from './contact.json'
 import stats from './stats.json'
 
 const factValue = label => profile.facts.find(fact => fact.label === label).value
+const degrees = (value, positive, negative) => `${Math.abs(value).toFixed(2)}\u00b0 ${value >= 0 ? positive : negative}`
 const pad = count => String(count).padStart(2, '0')
 
 export const PROFILE = profile
@@ -14,6 +15,7 @@ export const SOCIAL_LINKS = social
 export const CONTACT = contact
 export const GITHUB_USER = stats.githubUser
 export const HOME_COORDS = stats.home
+export const COORDINATES = `${degrees(stats.home.latitude, 'N', 'S')} ${degrees(stats.home.longitude, 'E', 'W')}`
 export const RESUME = { ...stats.resume, href: social.find(link => link.id === 'resume').href }
 export const RESUME_PREVIEW = { image: stats.resume.preview, name: stats.resume.previewLabel }
 export const PROJECTS = projects.items

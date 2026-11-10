@@ -1,15 +1,20 @@
 import ContourBackground from '../components/ContourBackground'
-import { PROFILE, ABOUT_FACTS, SECTION_LABELS } from '../data'
+import { PROFILE, ABOUT_FACTS, SECTION_LABELS, COORDINATES } from '../data'
 import './About.css'
 
 function About() {
   return (
     <section className="about topo-host" id="about">
       <ContourBackground seed={0} />
-      <h2 className="section-label">{SECTION_LABELS.about}</h2>
+      <div className="sheet">
+        <h2 className="section-label">{SECTION_LABELS.about}</h2>
+        <p className="coords">{COORDINATES}</p>
+      </div>
       <div>
-        <p>{PROFILE.bio}</p>
-        <dl>
+        <p className="bio">
+          {PROFILE.bio.map(({ text, isHighlight }) => (isHighlight ? <mark key={text}>{text}</mark> : text))}
+        </p>
+        <dl className="route">
           {ABOUT_FACTS.map(({ label, value }) => (
             <div key={label}>
               <dt>{label}</dt>

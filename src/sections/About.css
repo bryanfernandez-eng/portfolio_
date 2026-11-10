@@ -1,6 +1,24 @@
 .about{display:grid;grid-template-columns:2fr 5fr;gap:3vw;padding:14vh 3vw 10vh;border-top:1px solid #333}
-.about p{font-size:clamp(1rem,1.5vw,1.3rem);line-height:1.6;max-width:52ch;color:#ddd}
-.about dl{display:grid;grid-template-columns:auto 1fr;gap:.4rem 2rem;margin-top:2.4rem;max-width:52ch;border-top:1px solid #333;padding-top:1.2rem;font-size:13px}
-.about dl div{display:contents}
-.about dt{color:#888;text-transform:uppercase;letter-spacing:.08em;font-size:11px;padding-top:.1rem}
-@media (max-width:800px){.about{grid-template-columns:1fr}}
+.about .coords{margin-top:.8rem;font-size:12px;letter-spacing:.04em;color:#9a9a9a}
+.about .bio{font:300 clamp(1.3rem,2.3vw,2.1rem)/1.38 'Anybody',sans-serif;font-stretch:100%;max-width:30em;color:#e6e6e6}
+.about .bio mark{background:none;color:#fff;font-weight:800;font-stretch:130%}
+.about .bio,.route dt,.route dd{text-shadow:0 0 6px #000,0 0 14px #000,0 0 28px #000}
+.route{position:relative;display:grid;grid-template-columns:1.15fr .85fr 1.2fr 1fr;gap:0 2rem;max-width:64rem;margin-top:3.6rem;padding-bottom:3rem}
+.route::before{content:'';position:absolute;top:0;left:0;right:0;border-top:1px dashed #777}
+.route div{position:relative;padding-left:1.1rem;margin-top:var(--drop)}
+.route div:nth-child(1){--drop:1.6rem}
+.route div:nth-child(2){--drop:3.8rem}
+.route div:nth-child(3){--drop:2.4rem}
+.route div:nth-child(4){--drop:4.6rem}
+.route div::before{content:'';position:absolute;top:.2rem;left:0;width:9px;height:9px;background:#000;border:1.5px solid #fff;transform:rotate(45deg)}
+.route div::after{content:'';position:absolute;left:4px;top:calc(var(--drop) * -1);height:calc(var(--drop) + .2rem);border-left:1px solid #666}
+.route dt{color:#a8a8a8;font-size:13px;margin-bottom:.25rem}
+.route dd{font-size:15px;line-height:1.4;color:#fff}
+@media (max-width:800px){
+  .about{grid-template-columns:1fr}
+  .route{grid-template-columns:1fr;gap:1.4rem;padding:0 0 0 1.2rem}
+  .route::before{top:0;bottom:0;right:auto;border-top:0;border-left:1px dashed #777}
+  .route div{margin-top:0;padding-left:1rem}
+  .route div::before{left:-1.2rem;top:.3rem}
+  .route div::after{display:none}
+}
