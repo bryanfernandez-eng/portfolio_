@@ -38,10 +38,21 @@ function buildMonitors(kit) {
   buildPassedBadge(kit)
 }
 
-function buildDeskItems({ mk, box, seg }) {
+function buildCafecito({ box }) {
+  box(3.1, 4.0, 7.35, 8.25, 3.3, 3.36, T.paper)
+  box(3.35, 3.85, 7.6, 8.1, 3.36, 3.8, T.paper)
+  box(3.42, 3.78, 7.67, 8.03, 3.8, 3.83, T.dark)
+  box(3.95, 4.05, 7.8, 7.9, 3.46, 3.72, T.paper)
+  box(3.85, 4.05, 7.8, 7.9, 3.66, 3.72, T.paper)
+  box(3.85, 4.05, 7.8, 7.9, 3.46, 3.52, T.paper)
+}
+
+function buildDeskItems(kit) {
+  const { mk, box, seg } = kit
   box(3.5, 4.3, 8.7, 9.5, 3.3, 3.4, T.dark)
   box(3.8, 4.0, 9, 9.2, 3.4, 5.3, T.dark)
   box(3.2, 4.4, 8.6, 9.6, 5.3, 5.8, T.dark)
+  buildCafecito(kit)
   ;[0.18, 0.45].forEach((dx, i) => {
     const a = P(3.2 + dx, 7.8, 3.95)
     const b = P(3.2 + dx, 7.8, 4.8)
