@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>404 - Floor not found</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Red+Hat+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *{box-sizing:border-box;margin:0}
+    body{min-height:100svh;display:grid;place-items:center;background:#000;color:#fff;font:400 15px/1.5 'Red Hat Mono',ui-monospace,monospace}
+    main{width:min(92vw,820px);padding:2rem 0}
+    h1{font:900 clamp(2.6rem,10vw,5.6rem)/.92 'Anybody',sans-serif;font-stretch:150%;text-transform:uppercase;margin-bottom:.8rem}
+    .lead{color:#bdbdbd;max-width:34em;min-height:3em;margin-bottom:2rem}
+    .lift{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:2.2rem;align-items:start}
+    .shaft{display:grid;gap:.7rem}
+    .readout{display:flex;align-items:center;justify-content:space-between;border:2px solid #fff;padding:.5rem 1rem;font:700 1.5rem/1 'Red Hat Mono',monospace;letter-spacing:.12em}
+    .readout .arrow{font-size:1rem;opacity:.7}
+    .doors{position:relative;height:clamp(220px,38vh,320px);border:2px solid #fff;overflow:hidden;background:#0d0d0d}
+    .inside{position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:.4rem}
+    .inside strong{font:900 clamp(2.4rem,9vw,4.4rem)/1 'Anybody',sans-serif;font-stretch:150%}
+    .inside span{color:#8a8a8a;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
+    .door{position:absolute;top:0;bottom:0;width:50%;background:#1a1a1a;border:2px solid #fff;transition:transform .8s cubic-bezier(.6,0,.3,1)}
+    .door.left{left:0;transform:translateX(-100%)}
+    .door.right{right:0;transform:translateX(100%)}
+    .doors.shut .door{transform:none}
+    .panel{display:grid;gap:.6rem;border:2px solid #fff;padding:1rem;background:#0d0d0d}
+    .panel h2{font:600 .72rem/1 'Red Hat Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#8a8a8a;margin-bottom:.2rem}
+    button{display:flex;align-items:center;gap:.9rem;width:100%;padding:.55rem .8rem;background:#000;border:2px solid #fff;border-radius:999px;color:#fff;font:600 .85rem/1 'Red Hat Mono',monospace;letter-spacing:.08em;text-transform:uppercase;text-align:left;cursor:pointer;transition:background .2s,color .2s}
+    button b{display:grid;place-items:center;width:1.9rem;height:1.9rem;border:2px solid currentColor;border-radius:50%;font-size:.8rem}
+    button:hover,button:focus-visible{background:#fff;color:#000;outline:none}
+    button.lit{background:#fff;color:#000}
+    button.fake{border-style:dashed;animation:flicker 1.6s steps(2,start) infinite}
+    @keyframes flicker{50%{opacity:.35}}
+    button:disabled{cursor:default}
+    .shake{animation:shake .4s linear 2}
+    @keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+    @media (max-width:640px){.lift{grid-template-columns:1fr}}
+    @media (prefers-reduced-motion:reduce){.door{transition:none}button.fake,.shake{animation:none}}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Floor 404</h1>
+    <p class="lead" id="lead">This floor does not exist. The elevator is as confused as you are.</p>
+    <div class="lift">
+      <div class="shaft">
+        <div class="readout" aria-live="polite"><span id="floor">404</span><span class="arrow" id="arrow">&#9650;&#9660;</span></div>
+        <div class="doors shut" id="doors">
+          <div class="inside"><strong>404</strong><span>Not in service</span></div>
+          <div class="door left"></div>
+          <div class="door right"></div>
+        </div>
+      </div>
+      <nav class="panel" aria-label="Pick a floor">
+        <h2>Pick a floor</h2>
+        <button type="button" class="fake" data-fake><b>?</b>404</button>
+        <button type="button" data-go="/#contact" data-label="4"><b>4</b>Contact</button>
+        <button type="button" data-go="/#experience" data-label="3"><b>3</b>Experience</button>
+        <button type="button" data-go="/#work" data-label="2"><b>2</b>Projects</button>
+        <button type="button" data-go="/#about" data-label="1"><b>1</b>About</button>
+        <button type="button" data-go="/" data-label="L"><b>L</b>Lobby</button>
+      </nav>
+    </div>
+  </main>
+  <script>
+    var doors = document.getElementById('doors')
+    var floor = document.getElementById('floor')
+    var lead = document.getElementById('lead')
+    var buttons = document.querySelectorAll('button')
+    var isMoving = false
+    var presses = 0
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
+    var scolds = [
+      'That button is decorative. Please pick a real floor.',
+      'Still not a floor. The elevator is judging you.',
+      'Fine. Emergency stop. Going down to the lobby.'
+    ]
+
+    function setLead(text) { lead.textContent = text }
+
+    function ride(label, url, message) {
+      if (isMoving) return
+      isMoving = true
+      buttons.forEach(function (b) { b.disabled = true })
+      setLead(message)
+      doors.classList.add('shut')
+      setTimeout(function () { floor.textContent = '...' }, reduce ? 0 : 500)
+      setTimeout(function () { floor.textContent = label }, reduce ? 0 : 1100)
+      setTimeout(function () { location.href = url }, reduce ? 200 : 1700)
+    }
+
+    document.querySelectorAll('[data-go]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        button.classList.add('lit')
+        ride(button.dataset.label, button.dataset.go, 'Going up. Please do not make eye contact.')
+      })
+    })
+
+    document.querySelector('[data-fake]').addEventListener('click', function () {
+      if (isMoving) return
+      doors.classList.remove('shake')
+      void doors.offsetWidth
+      doors.classList.add('shake')
+      setLead(scolds[Math.min(presses, scolds.length - 1)])
+      presses += 1
+      if (presses >= scolds.length) ride('L', '/', scolds[scolds.length - 1])
+    })
+
+    setTimeout(function () { if (!isMoving) doors.classList.remove('shut') }, 100)
+  </script>
+</body>
+</html>
