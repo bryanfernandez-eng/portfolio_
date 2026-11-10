@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useAnimationFrame } from './useAnimationFrame'
 import { pointer } from '../utils/pointer'
 import { BOUNCE, createBall, createSolids, stepBall } from '../utils/ballPhysics'
-import { ballMode } from '../utils/ballMode'
+import { aimPoint, updateHandle } from '../utils/ballHandle'
 import { drawBall } from '../utils/ballView'
 import { createBumper } from '../utils/bump'
 import { floorTarget } from '../utils/floorTarget'
@@ -24,6 +24,7 @@ export function useBallPhysics({ sceneRef, engineRef, ballViewRef, meterRef, min
       bump: createBumper(scene),
       hold: { isDown: false, startedAt: 0 },
       isOver: false,
+      isHandling: false,
       solids,
       skate: solids.find(solid => solid.k === 'skate'),
       skateElement: scene.querySelector('[data-k="skate"]'),
@@ -54,8 +55,9 @@ export function useBallPhysics({ sceneRef, engineRef, ballViewRef, meterRef, min
     if (!engine || !view) return
     const dt = Math.min(MAX_DT, (time - lastTimeRef.current) / 1000 || DEFAULT_DT)
     lastTimeRef.current = time
-    const mode = ballMode(engine, performance.now() - pointer.movedAt)
-    const target = mode === 'chase' ? floorTarget(sceneRef.current, pointer, minDRef.current) : [engine.ball.x, engine.ball.d]
+    updateHandle(engine, sceneRef.current, pointer)
+    const mode = engine.isHandling ? 'chase' : 'rest'
+    const target = engine.isHandling ? floorTarget(sceneRef.current, aimPoint(sceneRef.current, engine.ball, pointer), minDRef.current) : [engine.ball.x, engine.ball.d]
     stepBall(engine.ball, dt, target, minDRef.current, engine.bump, BOUNCE[mode], engine.solids)
     drawBall(view, engine.ball)
     drawSkate(engine.skateElement, engine.skate)

@@ -14,7 +14,6 @@ export function useShotInput({ sceneRef, engineRef, meterRef, isReduced }) {
       if (!engine || (event.pointerType === 'mouse' && event.button !== 0)) return
       pointer.x = event.clientX
       pointer.y = event.clientY
-      pointer.movedAt = performance.now()
       resetMeter(meter)
       engine.hold.isDown = true
       engine.hold.startedAt = performance.now()

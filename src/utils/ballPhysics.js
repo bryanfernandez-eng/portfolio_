@@ -5,7 +5,7 @@ export const LANE = 2.8
 const GRAVITY = 40
 const SHOT_TIME = 0.85
 const REST_SPEED = 3.5
-export const BOUNCE = { chase: 12, idle: 6, rest: 0 }
+export const BOUNCE = { chase: 12, rest: 0 }
 
 export const createSolids = () => [
   { k: 'plantl', x: -9.2, d: 8.8, r: 0.8, h: 3.6 }, { k: 'lamp', x: -6, d: 9.5, r: 0.35, h: 5.9 },
