@@ -1,5 +1,6 @@
 import { project as P } from './perspective'
 import { pts } from './sceneKit'
+import { buildWeather } from './roomWeather'
 
 const WD = 10.98
 const FRAME = [[-10.4, 6.6], [-7.2, 6.6], [-7.2, 3.4], [-10.4, 3.4]]
@@ -60,6 +61,7 @@ export function buildWindow(kit, phase) {
   const sky = mk('g', { class: 'sky', 'clip-path': 'url(#win-clip)' }, group())
   mk('polygon', { points: pts(frame), fill: SKY[phase] }, sky)
   buildSkyBody(kit, phase, sky)
+  buildWeather(kit, sky)
   poly(onWall(SKYLINE), phase === 'day' ? '#d8d8d8' : '#cfcfcf', {}, sky)
   if (phase !== 'day') LIGHTS.forEach(([x, z]) => poly(onWall([[x, z], [x + 0.1, z], [x + 0.1, z + 0.12], [x, z + 0.12]]), '#000', {}, sky))
   const start = P(-10.45, WD, 5.9)

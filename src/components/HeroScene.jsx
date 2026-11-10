@@ -3,6 +3,8 @@ import { useBallPhysics } from '../hooks/useBallPhysics'
 import { useGithubScreen } from '../hooks/useGithubScreen'
 import { useLampToggle } from '../hooks/useLampToggle'
 import { useShotInput } from '../hooks/useShotInput'
+import { useWallClock } from '../hooks/useWallClock'
+import { useWeatherSky } from '../hooks/useWeatherSky'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 import { useRoomBuild } from '../hooks/useRoomBuild'
 import { useSceneLayout } from '../hooks/useSceneLayout'
@@ -23,6 +25,8 @@ function HeroScene({ sceneRef, heroRef, titleRef, isPlaying, isDimmed, isInstant
 
   useRoomBuild(sceneRef, ballViewRef, isReduced, skyPhase)
   useGithubScreen(sceneRef, isReduced)
+  useWeatherSky(sceneRef)
+  useWallClock(sceneRef)
   const { isLampOff, hasToggledLamp } = useLampToggle(sceneRef)
   useSceneLayout({ sceneRef, heroRef, titleRef, minDRef })
   useBallPhysics({ sceneRef, engineRef, ballViewRef, meterRef, minDRef, isActive, isReduced })

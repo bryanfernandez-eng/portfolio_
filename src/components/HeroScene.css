@@ -15,6 +15,12 @@
 #scene .gh-cell{transition:fill .7s ease calc(var(--c) * 14ms)}
 #scene .gh-cell.l0{fill:#e6e6e6}#scene .gh-cell.l1{fill:#9be9a8}#scene .gh-cell.l2{fill:#40c463}#scene .gh-cell.l3{fill:#30a14e}#scene .gh-cell.l4{fill:#216e39}
 .hero.flipped #scene .gh-cell.l0{fill:#e9e4dd}.hero.flipped #scene .gh-cell.l1{fill:#e485c2}.hero.flipped #scene .gh-cell.l2{fill:#d15fbc}.hero.flipped #scene .gh-cell.l3{fill:#c046af}.hero.flipped #scene .gh-cell.l4{fill:#a90f85}
+#scene .wx{display:none}
+#scene[data-wx=cloudy] .wx-cloud,#scene[data-wx=rain] .wx-cloud,#scene[data-wx=rain] .wx-rain{display:inline}
+#scene .cloud{animation:drift 38s ease-in-out infinite alternate;animation-delay:calc(var(--i) * -14s)}
+@keyframes drift{from{transform:translateX(-8px)}to{transform:translateX(52px)}}
+#scene .drop{fill:none;stroke:#000;stroke-width:1;opacity:.55;animation:rain .8s linear infinite;animation-delay:calc(var(--i) * -.17s)}
+@keyframes rain{from{transform:translateY(-10px)}to{transform:translateY(80px)}}
 #scene .ty{fill:none;stroke:#000;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
 .play .ty{animation:type 4.4s var(--d,0s) steps(16,end) infinite}
 @keyframes type{0%{stroke-dashoffset:1}55%,100%{stroke-dashoffset:0}}
@@ -74,4 +80,4 @@
   .scene-wrap{animation:sceneout linear both;animation-timeline:scroll(root block);animation-range:0 70svh}
   @keyframes sceneout{to{transform:translateY(14vh);opacity:.15}}
 }
-@media (prefers-reduced-motion:reduce){.flyby,.dev-cheer.cheer,.passed.bump{animation:none}#scene .pop{opacity:1;animation:none}.play .pop,.play .ty,.play .steam,.play .hand,.play .fing,#scene .blink{animation:none}#scene .ty{stroke-dashoffset:0}#scene .ball{display:none}.scene-wrap{animation:none}#scene .tail,#scene .breathe{animation:none}}
+@media (prefers-reduced-motion:reduce){#scene .wx-rain{display:none!important}#scene .cloud{animation:none}.flyby,.dev-cheer.cheer,.passed.bump{animation:none}#scene .pop{opacity:1;animation:none}.play .pop,.play .ty,.play .steam,.play .hand,.play .fing,#scene .blink{animation:none}#scene .ty{stroke-dashoffset:0}#scene .ball{display:none}.scene-wrap{animation:none}#scene .tail,#scene .breathe{animation:none}}

@@ -2,6 +2,7 @@ import { project as P, HW, RIM_X, RIM_D, RIM_Z } from './perspective'
 import { pts } from './sceneKit'
 import { TONES as T } from './roomTones'
 import { buildWindow } from './roomWindow'
+import { buildClock } from './roomClock'
 
 function buildShell({ box, poly }) {
   box(-HW, HW, -18, 11, -0.4, 0, T.floor)
@@ -113,6 +114,7 @@ function buildFloorItems({ open, close, box }) {
 export function buildRoom(kit, skyPhase) {
   buildShell(kit)
   buildWindow(kit, skyPhase)
+  buildClock(kit)
   buildShelf(kit)
   buildPlantsAndLamp(kit)
   buildCouch(kit)
