@@ -49,7 +49,8 @@ function buildPlantsAndLamp({ open, close, box, poly }) {
 }
 
 function buildCat({ mk, group, box, poly }) {
-  const body = mk('g', { class: 'breathe' }, group())
+  const lean = mk('g', { class: 'cat-lean' }, group())
+  const body = mk('g', { class: 'breathe' }, lean)
   box(-10.25, -9.5, 4.1, 5.5, 1.45, 2.15, T.skin, body)
   const head = mk('g', { class: 'cat-head' }, body)
   box(-10.15, -9.6, 3.75, 4.4, 1.75, 2.4, T.skin, head)
@@ -58,7 +59,7 @@ function buildCat({ mk, group, box, poly }) {
   const eyes = mk('g', { class: 'cat-eyes' }, head)
   poly([P(-10.0, 3.74, 2.18), P(-9.92, 3.74, 2.18), P(-9.92, 3.74, 2.08), P(-10.0, 3.74, 2.08)], '#000', {}, eyes)
   poly([P(-9.83, 3.74, 2.18), P(-9.75, 3.74, 2.18), P(-9.75, 3.74, 2.08), P(-9.83, 3.74, 2.08)], '#000', {}, eyes)
-  const tail = mk('g', { class: 'tail' }, group())
+  const tail = mk('g', { class: 'tail' }, lean)
   box(-9.95, -9.8, 5.3, 5.5, 1.5, 2.7, T.skin, tail)
 }
 
