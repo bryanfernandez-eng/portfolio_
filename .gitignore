@@ -26,3 +26,6 @@ dist-ssr
 *.sw?
 
 !.env.example
+
+# Design prototypes kept locally for future reference
+prototypes/
