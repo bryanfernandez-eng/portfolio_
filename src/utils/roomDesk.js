@@ -48,16 +48,17 @@ function buildCafecito({ box }) {
 }
 
 function buildDeskItems(kit) {
-  const { mk, box, seg } = kit
+  const { mk, box, seg, group } = kit
   box(3.5, 4.3, 8.7, 9.5, 3.3, 3.4, T.dark)
   box(3.8, 4.0, 9, 9.2, 3.4, 5.3, T.dark)
   box(3.2, 4.4, 8.6, 9.6, 5.3, 5.8, T.dark)
   buildCafecito(kit)
+  const steam = group()
   ;[0.18, 0.45].forEach((dx, i) => {
     const a = P(3.2 + dx, 7.8, 3.95)
     const b = P(3.2 + dx, 7.8, 4.8)
     const curve = `M${a[0].toFixed(1)} ${a[1].toFixed(1)}C${(a[0] - 6).toFixed(1)} ${(a[1] - 7).toFixed(1)} ${(a[0] + 6).toFixed(1)} ${(a[1] - 14).toFixed(1)} ${b[0].toFixed(1)} ${b[1].toFixed(1)}`
-    mk('path', { d: curve, class: 'steam', style: `animation-delay:${i * 1.1}s` })
+    mk('path', { d: curve, class: 'steam', style: `animation-delay:${i * 1.1}s` }, steam)
   })
   const keyboard = box(-2.0, 2.0, 7.3, 8.3, 3.3, 3.42, T.dark)
   ;[7.6, 7.95].forEach(d => seg(P(-1.9, d, 3.42), P(1.9, d, 3.42), { stroke: '#000', 'stroke-width': 1.2, 'stroke-dasharray': '3 2.5', opacity: 0.6 }, keyboard))
