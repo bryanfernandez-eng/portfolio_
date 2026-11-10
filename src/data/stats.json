@@ -2,9 +2,8 @@
   "githubUser": "bryanfernandez-eng",
   "home": { "latitude": 25.77, "longitude": -80.19 },
   "resume": {
-    "fileName": "Bryan-Fernandez-Resume.pdf",
-    "label": "Download my resume",
+    "label": "Open my resume",
     "preview": "/resume-preview.webp",
-    "previewLabel": "Resume - click to download"
+    "previewLabel": "Resume - click to open"
   }
 }

@@ -18,7 +18,7 @@ function Contact() {
           <wbr />@{EMAIL_DOMAIN}
         </a>
         <div className="links">
-          {SOCIAL_LINKS.map(({ id, label, href }) => <a key={id} href={href}>{label}</a>)}
+          {SOCIAL_LINKS.map(({ id, label, href }) => <a key={id} href={href} target="_blank" rel="noopener noreferrer">{label}</a>)}
           <button className="note-button" type="button" onClick={open}>{CONTACT.openLabel}</button>
         </div>
       </section>

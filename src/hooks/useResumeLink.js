@@ -3,14 +3,11 @@ import { RESUME } from '../data'
 
 const SVG_NS = 'http://www.w3.org/2000/svg'
 
-function downloadResume() {
-  const link = document.createElement('a')
-  link.href = RESUME.href
-  link.download = RESUME.fileName
-  link.click()
+function openResume() {
+  window.open(RESUME.href, '_blank', 'noopener')
 }
 
-export function useResumeDownload(sceneRef) {
+export function useResumeLink(sceneRef) {
   const [peek, setPeek] = useState({ isOn: false, hasShown: false })
 
   useEffect(() => {
@@ -27,15 +24,15 @@ export function useResumeDownload(sceneRef) {
     const handlePointerDown = event => {
       if (!event.target.closest('[data-k="resume"]')) return
       event.stopPropagation()
-      downloadResume()
     }
     const handleKeyDown = event => {
       if (event.key !== 'Enter' && event.key !== ' ') return
       event.preventDefault()
-      downloadResume()
+      openResume()
     }
     scene.addEventListener('pointerdown', handlePointerDown, true)
     paper.addEventListener('keydown', handleKeyDown)
+    paper.addEventListener('click', openResume)
     paper.addEventListener('pointerenter', handleShow)
     paper.addEventListener('pointerleave', handleHide)
     paper.addEventListener('focus', handleShow)
@@ -43,6 +40,7 @@ export function useResumeDownload(sceneRef) {
     return () => {
       scene.removeEventListener('pointerdown', handlePointerDown, true)
       paper.removeEventListener('keydown', handleKeyDown)
+      paper.removeEventListener('click', openResume)
       paper.removeEventListener('pointerenter', handleShow)
       paper.removeEventListener('pointerleave', handleHide)
       paper.removeEventListener('focus', handleShow)
