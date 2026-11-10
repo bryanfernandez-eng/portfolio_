@@ -60,17 +60,6 @@ public/         Static files: project images, resume and its preview, 404 page, 
 
 All content lives in `src/data/`. To add a project, job, or link, edit the matching JSON file only.
 
-## External services
-
-The browser calls these directly, with no keys and results cached locally:
-
-- GitHub contribution graph through `github-contributions-api.jogruber.de`, for the monitor heatmap
-- Open-Meteo, for the weather in the window
-
-If either is unreachable, the room simply shows its default state.
-
 ## Deployment
 
 The site is published to GitHub Pages from the `gh-pages` branch with `npm run deploy`, and the custom domain is set by `public/CNAME`. Work happens on `dev` and is merged into `main` before deploying.
-
-Local design prototypes live in `prototypes/`, which is git-ignored.
