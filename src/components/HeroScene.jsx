@@ -6,6 +6,7 @@ import { useShotInput } from '../hooks/useShotInput'
 import { useWallClock } from '../hooks/useWallClock'
 import { useWeatherSky } from '../hooks/useWeatherSky'
 import { useReducedMotion } from '../hooks/useReducedMotion'
+import { useResumeDownload } from '../hooks/useResumeDownload'
 import { useRoomBuild } from '../hooks/useRoomBuild'
 import { useSceneLayout } from '../hooks/useSceneLayout'
 import { useSceneScrollFade } from '../hooks/useSceneScrollFade'
@@ -25,6 +26,7 @@ function HeroScene({ sceneRef, heroRef, titleRef, isPlaying, isDimmed, isInstant
 
   useRoomBuild(sceneRef, ballViewRef, isReduced, skyPhase)
   useGithubScreen(sceneRef, isReduced)
+  useResumeDownload(sceneRef)
   useWeatherSky(sceneRef)
   useWallClock(sceneRef)
   const { isLampOff, hasToggledLamp } = useLampToggle(sceneRef)

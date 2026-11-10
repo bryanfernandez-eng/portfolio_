@@ -1,4 +1,5 @@
 {
   "githubUser": "bryanfernandez-eng",
-  "home": { "latitude": 25.77, "longitude": -80.19 }
+  "home": { "latitude": 25.77, "longitude": -80.19 },
+  "resume": { "fileName": "Bryan-Fernandez-Resume.pdf", "label": "Download my resume" }
 }

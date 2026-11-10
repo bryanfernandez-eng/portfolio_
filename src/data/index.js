@@ -14,6 +14,7 @@ export const SOCIAL_LINKS = social
 export const CONTACT = contact
 export const GITHUB_USER = stats.githubUser
 export const HOME_COORDS = stats.home
+export const RESUME = { ...stats.resume, href: social.find(link => link.id === 'resume').href }
 export const PROJECTS = projects.items
 export const EXPERIENCE = experience
 

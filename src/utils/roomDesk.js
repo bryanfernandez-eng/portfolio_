@@ -42,7 +42,6 @@ function buildDeskItems({ mk, box, seg }) {
   box(3.5, 4.3, 8.7, 9.5, 3.3, 3.4, T.dark)
   box(3.8, 4.0, 9, 9.2, 3.4, 5.3, T.dark)
   box(3.2, 4.4, 8.6, 9.6, 5.3, 5.8, T.dark)
-  box(3.2, 3.9, 7.5, 8.1, 3.3, 3.9, T.paper)
   ;[0.18, 0.45].forEach((dx, i) => {
     const a = P(3.2 + dx, 7.8, 3.95)
     const b = P(3.2 + dx, 7.8, 4.8)
@@ -52,6 +51,13 @@ function buildDeskItems({ mk, box, seg }) {
   const keyboard = box(-2.0, 2.0, 7.3, 8.3, 3.3, 3.42, T.dark)
   ;[7.6, 7.95].forEach(d => seg(P(-1.9, d, 3.42), P(1.9, d, 3.42), { stroke: '#000', 'stroke-width': 1.2, 'stroke-dasharray': '3 2.5', opacity: 0.6 }, keyboard))
   box(2.3, 2.7, 7.4, 7.9, 3.3, 3.4, T.dark)
+}
+
+function buildResume({ open, close, box, poly }) {
+  open('resume')
+  box(3.2, 3.9, 7.5, 8.1, 3.3, 3.9, T.paper)
+  poly([P(3.0, 7.5, 3.3), P(4.1, 7.5, 3.3), P(4.1, 7.5, 4.4), P(3.0, 7.5, 4.4)], 'transparent', { class: 'hit' })
+  close()
 }
 
 function buildDesk(kit) {
@@ -108,5 +114,6 @@ function buildDeveloper(kit) {
 
 export function buildWorkstation(kit) {
   buildDesk(kit)
+  buildResume(kit)
   buildDeveloper(kit)
 }
