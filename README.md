@@ -9,6 +9,7 @@ A personal portfolio built with React 19 and Vite. The landing page is an intera
 - Interactive hero room: hover the basketball to dribble it, move too fast and you lose it. Click, or click and hold for the shot meter, to shoot from anywhere
 - The room reacts: the cat and developer watch the ball, made shots flash "BUILD PASSED", and the lamp toggles the room light
 - Live details in the room: GitHub contribution heatmap on the side monitor, real Miami weather in the window, a wall clock showing the visitor's local time, and a sky that follows their time of day
+- Light switch on the room's wall: flips the whole site between dark and light with the same inverting wipe as the intro, and remembers the choice
 - Resume paper on the desk: hover for a preview, click to open the resume in a new tab
 - Projects with hover previews, an experience section with animated illustrations, and contour-map backgrounds
 - Contact panel that slides up with a paper plane and sends through EmailJS

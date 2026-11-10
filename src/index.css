@@ -1,9 +1,12 @@
+:root{--bg:#000;--fg:#fff;--fg-soft:#e6e6e6;--fg-mid:#d8d8d8;--muted:#888;--soft:#a8a8a8;--dim:#5c5c5c;--dim-2:#6f6f6f;--line:#333;--line-2:#444;--rail:#262626;--route:#777;--leader:#666;--panel:#0b0b0b;--panel-2:#141414;--panel-3:#222;--bridge-line:#bbb;--glow:rgba(255,255,255,.45);--glow-soft:rgba(255,255,255,.16);--glow-hard:rgba(255,255,255,.5);--backdrop:rgba(0,0,0,.62);--shadow:rgba(0,0,0,.85);color-scheme:dark}
+html[data-theme=light]{--bg:#fff;--fg:#000;--fg-soft:#191919;--fg-mid:#272727;--muted:#6b6b6b;--soft:#575757;--dim:#a3a3a3;--dim-2:#909090;--line:#ccc;--line-2:#bbb;--rail:#d9d9d9;--route:#888;--leader:#999;--panel:#f4f4f4;--panel-2:#ebebeb;--panel-3:#ddd;--bridge-line:#444;--glow:rgba(0,0,0,.3);--glow-soft:rgba(0,0,0,.1);--glow-hard:rgba(0,0,0,.35);--backdrop:rgba(255,255,255,.62);--shadow:rgba(0,0,0,.28);color-scheme:light}
 *{box-sizing:border-box;margin:0;padding:0}
 html{cursor:none}
-body{background:#000;color:#fff;font:14px/1.6 'Red Hat Mono',ui-monospace,Menlo,monospace;overflow-x:hidden}
+body{background:var(--bg);color:var(--fg);font:14px/1.6 'Red Hat Mono',ui-monospace,Menlo,monospace;overflow-x:hidden}
 a{color:inherit;text-decoration:none;cursor:none}
 .wide{font-family:'Anybody',Impact,sans-serif;font-stretch:150%;font-weight:900;text-transform:uppercase;letter-spacing:-.02em}
-.section-label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:400;color:#888}
+.section-label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:400;color:var(--muted)}
 .section-label.padded{padding:0 3vw 1.5vw}
 .topo-host{position:relative;overflow:hidden;isolation:isolate}
 @media (hover:none){html,a{cursor:auto}}
+.theme-wipe{position:fixed;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:200}

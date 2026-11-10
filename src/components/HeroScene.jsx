@@ -11,13 +11,14 @@ import { useResumeLink } from '../hooks/useResumeLink'
 import { useRoomBuild } from '../hooks/useRoomBuild'
 import { useSceneLayout } from '../hooks/useSceneLayout'
 import { useSceneScrollFade } from '../hooks/useSceneScrollFade'
+import { useThemeSwitch } from '../hooks/useThemeSwitch'
 import { LANE } from '../utils/ball/ballPhysics'
 import { classNames } from '../utils/classNames'
 import { getSkyPhase } from '../utils/room/skyPhase'
 import { PROFILE, RESUME_PREVIEW } from '../data'
 import './HeroScene.css'
 
-function HeroScene({ sceneRef, heroRef, titleRef, isPlaying, isDimmed, isInstant, isActive }) {
+function HeroScene({ sceneRef, heroRef, titleRef, isPlaying, isDimmed, isInstant, isActive, isReady }) {
   const isReduced = useReducedMotion()
   const [skyPhase] = useState(getSkyPhase)
   const minDRef = useRef(LANE)
@@ -28,6 +29,7 @@ function HeroScene({ sceneRef, heroRef, titleRef, isPlaying, isDimmed, isInstant
   useRoomBuild(sceneRef, ballViewRef, isReduced, skyPhase)
   useGithubScreen(sceneRef, isReduced)
   const peek = useResumeLink(sceneRef)
+  useThemeSwitch(sceneRef, isReady, isReduced)
   useWeatherSky(sceneRef)
   useWallClock(sceneRef)
   const { isLampOff, hasToggledLamp } = useLampToggle(sceneRef)

@@ -4,6 +4,7 @@ import HeroScene from '../components/HeroScene'
 import { useHeroIntro } from '../hooks/useHeroIntro'
 import { useIdle } from '../hooks/useIdle'
 import { useInView } from '../hooks/useInView'
+import { useTheme } from '../hooks/useTheme'
 import { classNames } from '../utils/classNames'
 import { PROFILE, HERO_LINES } from '../data'
 import './Hero.css'
@@ -18,17 +19,19 @@ function Hero() {
   const isHeroVisible = useInView(heroRef, { isInitiallyInView: true })
   const isIdle = useIdle()
   const isAnimating = isHeroVisible && !isIdle
-  const { isPlaying, isDimmed, isFlipped, isInstant } = useHeroIntro({ heroRef, sceneRef, wipeRef })
+  const isDark = useTheme() === 'dark'
+  const { isPlaying, isDimmed, isFlipped, isInstant, isReady } = useHeroIntro({ heroRef, sceneRef, wipeRef })
 
   return (
-    <header className={classNames('hero', isFlipped && 'flipped')} id="hero" ref={heroRef}>
+    <header className={classNames('hero', isFlipped && isDark && 'flipped')} id="hero" ref={heroRef}>
       <CursorTrail isActive={isAnimating} />
       <HeroScene
         sceneRef={sceneRef}
         heroRef={heroRef}
         titleRef={titleRef}
         isPlaying={isPlaying}
-        isDimmed={isDimmed}
+        isDimmed={isDimmed && isDark}
+        isReady={isReady}
         isInstant={isInstant}
         isActive={isAnimating}
       />

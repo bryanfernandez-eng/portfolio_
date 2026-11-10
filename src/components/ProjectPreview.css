@@ -1,6 +1,6 @@
-.project-preview{position:fixed;right:4vw;top:50%;width:min(48vw,720px);transform:translateY(-50%) scale(.95);opacity:0;transition:opacity .3s,transform .45s cubic-bezier(.2,.8,.2,1);pointer-events:none;z-index:50;border:2px solid #fff;background:#000;box-shadow:0 40px 90px rgba(0,0,0,.85)}
+.project-preview{position:fixed;right:4vw;top:50%;width:min(48vw,720px);transform:translateY(-50%) scale(.95);opacity:0;transition:opacity .3s,transform .45s cubic-bezier(.2,.8,.2,1);pointer-events:none;z-index:50;border:2px solid var(--fg);background:var(--bg);box-shadow:0 40px 90px var(--shadow)}
 .project-preview.on{opacity:1;transform:translateY(-50%) scale(1)}
 .project-preview img{display:block;width:100%}
-.project-preview span{position:absolute;left:-2px;bottom:-2px;background:#fff;color:#000;font:700 12px 'Red Hat Mono',monospace;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px}
+.project-preview span{position:absolute;left:-2px;bottom:-2px;background:var(--fg);color:var(--bg);font:700 12px 'Red Hat Mono',monospace;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px}
 .project-preview.portrait{width:min(34vw,calc(84vh / 1.415))}
 @media (max-width:800px){.project-preview{display:none}}

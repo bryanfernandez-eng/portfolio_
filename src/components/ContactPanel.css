@@ -1,6 +1,6 @@
-.note{position:fixed;inset:auto 0 1rem 0;margin:0 auto;width:min(600px,calc(100vw - 2rem));max-width:none;padding:0;overflow:visible;border:1px solid #333;background:#0b0b0b;color:#fff;transform:translateY(calc(100% + 2rem));opacity:0;transition:transform .26s cubic-bezier(.2,.8,.2,1),opacity .26s}
+.note{position:fixed;inset:auto 0 1rem 0;margin:0 auto;width:min(600px,calc(100vw - 2rem));max-width:none;padding:0;overflow:visible;border:1px solid var(--line);background:var(--panel);color:var(--fg);transform:translateY(calc(100% + 2rem));opacity:0;transition:transform .26s cubic-bezier(.2,.8,.2,1),opacity .26s}
 .note.is-shown{transform:none;opacity:1}
-.note::backdrop{background:rgba(0,0,0,.62);opacity:0;transition:opacity .26s}
+.note::backdrop{background:var(--backdrop);opacity:0;transition:opacity .26s}
 .note.is-shown::backdrop{opacity:1}
 .note,.note *{cursor:auto}
 .note button{cursor:pointer}
@@ -8,21 +8,21 @@
 .note-card{position:relative;padding:1.2rem 1.4rem 1.2rem}
 .note-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
 .note-head h2{font-size:clamp(1.3rem,3.4vw,2rem);line-height:1}
-.note-close{background:none;border:0;color:#fff;font-size:1.8rem;line-height:1}
-.note-intro{margin:.6rem 0 1rem;max-width:46ch;font-size:13px;color:#8c8c8c}
+.note-close{background:none;border:0;color:var(--fg);font-size:1.8rem;line-height:1}
+.note-intro{margin:.6rem 0 1rem;max-width:46ch;font-size:13px;color:var(--muted)}
 .note-body{position:relative}
 .note-form{display:grid;gap:1rem;transition:opacity .35s}
 .note-form.is-sent{opacity:0;visibility:hidden}
 .note-field{display:grid;gap:.3rem}
-.note-field span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888}
-.note-field input,.note-field textarea{width:100%;padding:.5rem 0;border:0;border-bottom:1px solid #444;background:transparent;color:#fff;font:inherit;resize:none;outline:none;transition:border-color .2s}
-.note-field input:focus,.note-field textarea:focus{border-bottom-color:#fff}
-.note-send{justify-self:start;padding:.65rem 1.4rem;border:1px solid #fff;background:transparent;color:#fff;font:inherit;font-size:12px;letter-spacing:.16em;text-transform:uppercase;transition:background .15s,color .15s}
-.note-send:hover:not(:disabled){background:#fff;color:#000}
+.note-field span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.note-field input,.note-field textarea{width:100%;padding:.5rem 0;border:0;border-bottom:1px solid var(--line-2);background:transparent;color:var(--fg);font:inherit;resize:none;outline:none;transition:border-color .2s}
+.note-field input:focus,.note-field textarea:focus{border-bottom-color:var(--fg)}
+.note-send{justify-self:start;padding:.65rem 1.4rem;border:1px solid var(--fg);background:transparent;color:var(--fg);font:inherit;font-size:12px;letter-spacing:.16em;text-transform:uppercase;transition:background .15s,color .15s}
+.note-send:hover:not(:disabled){background:var(--fg);color:var(--bg)}
 .note-send:disabled{opacity:.35}
-.note-status{min-height:1.2em;font-size:12px;color:#aaa}
+.note-status{min-height:1.2em;font-size:12px;color:var(--soft)}
 .note-done{position:absolute;inset:0;display:grid;place-items:center;font-size:14px;text-align:center;animation:note-in .5s .5s both}
-.plane{position:absolute;left:46%;top:50%;width:42px;height:42px;fill:#141414;stroke:#fff;stroke-width:2;stroke-linejoin:round;offset-path:path('M0 0C140 -110 330 -40 560 -440');offset-rotate:auto 24deg;animation:note-fly 1.5s cubic-bezier(.45,0,.75,.55) both}
+.plane{position:absolute;left:46%;top:50%;width:42px;height:42px;fill:var(--panel-2);stroke:var(--fg);stroke-width:2;stroke-linejoin:round;offset-path:path('M0 0C140 -110 330 -40 560 -440');offset-rotate:auto 24deg;animation:note-fly 1.5s cubic-bezier(.45,0,.75,.55) both}
 @keyframes note-fly{from{offset-distance:0%;opacity:1}85%{opacity:1}to{offset-distance:100%;opacity:0}}
 @keyframes note-in{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.note,.note::backdrop,.note-form{transition:none}.plane{display:none}.note-done{animation:none}}

@@ -1,5 +1,7 @@
 .il{position:absolute;right:3vw;bottom:1.8rem;width:auto;height:clamp(120px,10.5vw,160px);max-width:40vw;pointer-events:none;overflow:visible;--il-line:#8d8d8d;--il-t:#2a2a2a;--il-l:#1c1c1c;--il-r:#131313;--il-a:#4e4e4e;--il-b:#363636;--il-c:#222}
 .xp-row:hover .il{--il-line:#d0d0d0}
+html[data-theme=light] .il{--il-line:#727272;--il-t:#d5d5d5;--il-l:#e3e3e3;--il-r:#ececec;--il-a:#b1b1b1;--il-b:#c9c9c9;--il-c:#ddd}
+html[data-theme=light] .xp-row:hover .il{--il-line:#2f2f2f}
 .il .f.t{fill:var(--il-t)}.il .f.l{fill:var(--il-l)}.il .f.r{fill:var(--il-r)}
 .il .st,.il .f{stroke:var(--il-line);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.1s cubic-bezier(.4,0,.2,1) calc(var(--i) * 45ms),stroke .25s}
 .il .st{fill:none}

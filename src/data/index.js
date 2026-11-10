@@ -16,6 +16,7 @@ export const CONTACT = contact
 export const GITHUB_USER = stats.githubUser
 export const HOME_COORDS = stats.home
 export const COORDINATES = `${degrees(stats.home.latitude, 'N', 'S')} ${degrees(stats.home.longitude, 'E', 'W')}`
+export const THEME_SWITCH_LABEL = stats.themeSwitch.label
 export const RESUME = { ...stats.resume, href: social.find(link => link.id === 'resume').href }
 export const RESUME_PREVIEW = { image: stats.resume.preview, name: stats.resume.previewLabel }
 export const PROJECTS = projects.items

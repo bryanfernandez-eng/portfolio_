@@ -1,6 +1,6 @@
-.contact{padding:14vh 3vw 6vh;border-top:1px solid #333}
+.contact{padding:14vh 3vw 6vh;border-top:1px solid var(--line)}
 .mail{display:block;font-size:3.2vw;line-height:1;white-space:nowrap}
 .links{display:flex;gap:2.4rem;margin-top:3vw;text-transform:uppercase;font-size:12px;letter-spacing:.08em}
-.note-button{padding:0 0 2px;border:0;border-bottom:1px solid #fff;background:none;color:#fff;font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:none}
+.note-button{padding:0 0 2px;border:0;border-bottom:1px solid var(--fg);background:none;color:var(--fg);font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:none}
 .site-footer{padding:2rem 3vw 3rem;font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between}
 @media (max-width:700px){.mail{white-space:normal;font-size:5vw}}

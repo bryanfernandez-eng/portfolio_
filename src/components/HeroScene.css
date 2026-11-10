@@ -36,11 +36,13 @@
 #scene.lamp-off{--off:.5}
 #scene.lamp-used{transition:opacity .45s ease}
 #scene.lamp-off .ty,#scene.lamp-off .sky{filter:drop-shadow(0 0 5px #000)}
-.thing[data-k="lamp"],.thing[data-k="resume"]{cursor:pointer;outline:none}
+.thing[data-k="lamp"],.thing[data-k="resume"],.thing[data-k="switch"]{cursor:pointer;outline:none}
+#scene .lever{transition:transform .35s cubic-bezier(.3,1.4,.5,1);transform:translateY(5px)}
+html[data-theme=light] #scene .lever{transform:translateY(-5px)}
 .thing[data-k="resume"]{transition:transform .2s ease}
 .thing[data-k="resume"]:hover,.thing[data-k="resume"]:focus-visible{transform:translateY(-3px)}
 #scene .hit{stroke:none}
-.thing[data-k="lamp"]:focus-visible polygon,.thing[data-k="resume"]:focus-visible polygon{stroke-width:2.6}
+.thing[data-k="switch"]:focus-visible polygon,.thing[data-k="lamp"]:focus-visible polygon,.thing[data-k="resume"]:focus-visible polygon{stroke-width:2.6}
 .flyby{animation:flyby 26s linear infinite}
 @keyframes flyby{0%{transform:translateX(0);opacity:0}6%{opacity:1}94%{opacity:1}100%{transform:translateX(104px);opacity:0}}
 .dev-cheer{transform-box:fill-box;transform-origin:50% 100%}

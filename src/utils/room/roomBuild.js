@@ -3,6 +3,7 @@ import { pts } from './sceneKit'
 import { TONES as T } from './roomTones'
 import { buildWindow } from './roomWindow'
 import { buildClock } from './roomClock'
+import { buildSwitch } from './roomSwitch'
 
 function buildShell({ box, poly }) {
   box(-HW, HW, -18, 11, -0.4, 0, T.floor)
@@ -115,6 +116,7 @@ export function buildRoom(kit, skyPhase) {
   buildShell(kit)
   buildWindow(kit, skyPhase)
   buildClock(kit)
+  buildSwitch(kit)
   buildShelf(kit)
   buildPlantsAndLamp(kit)
   buildCouch(kit)

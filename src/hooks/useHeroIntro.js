@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useReducedMotion } from './useReducedMotion'
 import { onFontsReady } from '../utils/fonts'
+import { getTheme } from '../utils/theme'
 
 const STORAGE_KEY = 'lensIntro'
 const DIM_DELAY_MS = 3300
@@ -35,7 +36,7 @@ function rememberIntro() {
 
 export function useHeroIntro({ heroRef, sceneRef, wipeRef }) {
   const isReduced = useReducedMotion()
-  const [shouldPlay] = useState(() => !isReduced && !hasSeenIntro())
+  const [shouldPlay] = useState(() => !isReduced && !hasSeenIntro() && getTheme() === 'dark')
   const [phase, setPhase] = useState(shouldPlay ? 'idle' : 'instant')
 
   useEffect(() => {
@@ -69,5 +70,6 @@ export function useHeroIntro({ heroRef, sceneRef, wipeRef }) {
     isDimmed: phase === 'dimmed' || phase === 'flipped' || phase === 'instant',
     isFlipped: phase === 'flipped' || phase === 'instant',
     isInstant: phase === 'instant',
+    isReady: phase === 'flipped' || phase === 'instant',
   }
 }

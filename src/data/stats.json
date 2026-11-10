@@ -1,6 +1,7 @@
 {
   "githubUser": "bryanfernandez-eng",
   "home": { "latitude": 25.77, "longitude": -80.19 },
+  "themeSwitch": { "label": "Turn the room lights on or off" },
   "resume": {
     "label": "Open my resume",
     "preview": "/resume-preview.webp",
