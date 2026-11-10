@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { GITHUB_USER } from '../data'
 import { fetchRecentLevels } from '../services/github'
-import { CELL_FILLS } from '../utils/contribGrid'
 
 export function useGithubScreen(sceneRef, isReduced) {
   useEffect(() => {
@@ -10,7 +9,7 @@ export function useGithubScreen(sceneRef, isReduced) {
       if (isCancelled || !levels) return
       const cells = sceneRef.current.querySelectorAll('.gh-cell')
       const offset = cells.length - levels.length
-      levels.forEach((level, i) => cells[i + offset]?.setAttribute('fill', CELL_FILLS[level]))
+      levels.forEach((level, i) => cells[i + offset]?.setAttribute('class', `gh-cell l${level}`))
     })
     return () => {
       isCancelled = true

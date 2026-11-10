@@ -1,6 +1,6 @@
 import { project as P } from './perspective'
 import { TONES as T } from './roomTones'
-import { CELL_FILLS, GRID_COLS, GRID_ROWS } from './contribGrid'
+import { GRID_COLS, GRID_ROWS } from './contribGrid'
 
 function buildPassedBadge({ mk, group }) {
   const [cx, cy] = P(0, 9.5, 6.55)
@@ -17,7 +17,7 @@ function buildContribGrid({ poly }) {
       const x = -4.52 + col * cw
       const z = 5.92 - row * ch
       const pad = 0.025
-      poly([P(x + pad, 9.64, z - pad), P(x + cw - pad, 9.64, z - pad), P(x + cw - pad, 9.64, z - ch + pad), P(x + pad, 9.64, z - ch + pad)], CELL_FILLS[0], { class: 'gh-cell', style: `--c:${col * GRID_ROWS + row}` })
+      poly([P(x + pad, 9.64, z - pad), P(x + cw - pad, 9.64, z - pad), P(x + cw - pad, 9.64, z - ch + pad), P(x + pad, 9.64, z - ch + pad)], 'none', { class: 'gh-cell l0', style: `--c:${col * GRID_ROWS + row}` })
     }
   }
 }
