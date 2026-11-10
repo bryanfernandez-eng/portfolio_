@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { useIdle } from '../hooks/useIdle'
 import { useInView } from '../hooks/useInView'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 import { getIllustration } from '../utils/roleIllustrations'
@@ -9,10 +10,12 @@ function RoleIllustration({ id }) {
   const svgRef = useRef(null)
   const isReduced = useReducedMotion()
   const isInView = useInView(svgRef, { threshold: 0.35, isOnce: true })
+  const isOnScreen = useInView(svgRef)
+  const isIdle = useIdle()
 
   return (
     <svg
-      className={classNames('il', (isInView || isReduced) && 'drawn')}
+      className={classNames('il', (isInView || isReduced) && 'drawn', (!isOnScreen || isIdle) && 'paused')}
       ref={svgRef}
       viewBox="-130 -95 260 180"
       aria-hidden="true"

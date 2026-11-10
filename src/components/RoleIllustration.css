@@ -14,6 +14,7 @@
 .il .flow{fill:none;stroke:var(--il-line);stroke-width:1.2;stroke-linecap:round;stroke-dasharray:5 7;animation:flow 1s linear infinite}
 .il .bob{animation:bob 2.2s ease-in-out infinite;animation-delay:var(--d,0s)}
 .il .sway{transform-box:fill-box;transform-origin:50% 0;animation:sway 2.6s ease-in-out infinite}
+.il.paused .flow,.il.paused .bob,.il.paused .sway{animation-play-state:paused}
 @keyframes flow{to{stroke-dashoffset:-12}}
 @keyframes bob{50%{transform:translateY(-2.5px)}}
 @keyframes sway{50%{transform:rotate(9deg)}}
