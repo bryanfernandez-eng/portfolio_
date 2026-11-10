@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { useBallPhysics } from '../hooks/useBallPhysics'
+import { useGithubScreen } from '../hooks/useGithubScreen'
 import { useLampToggle } from '../hooks/useLampToggle'
 import { useShotInput } from '../hooks/useShotInput'
 import { useReducedMotion } from '../hooks/useReducedMotion'
@@ -21,6 +22,7 @@ function HeroScene({ sceneRef, heroRef, titleRef, isPlaying, isDimmed, isInstant
   const meterRef = useRef(null)
 
   useRoomBuild(sceneRef, ballViewRef, isReduced, skyPhase)
+  useGithubScreen(sceneRef, isReduced)
   const { isLampOff, hasToggledLamp } = useLampToggle(sceneRef)
   useSceneLayout({ sceneRef, heroRef, titleRef, minDRef })
   useBallPhysics({ sceneRef, engineRef, ballViewRef, meterRef, minDRef, isActive, isReduced })

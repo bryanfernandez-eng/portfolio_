@@ -1,11 +1,25 @@
 import { project as P } from './perspective'
 import { TONES as T } from './roomTones'
+import { CELL_FILLS, GRID_COLS, GRID_ROWS } from './contribGrid'
 
 function buildPassedBadge({ mk, group }) {
   const [cx, cy] = P(0, 9.5, 6.55)
   const badge = mk('g', { class: 'passed', 'data-k': 'swish' }, group())
   mk('rect', { x: (cx - 52).toFixed(1), y: (cy - 9).toFixed(1), width: 104, height: 18, fill: '#000' }, badge)
   mk('text', { x: cx.toFixed(1), y: (cy + 4).toFixed(1), 'text-anchor': 'middle' }, badge).textContent = 'BUILD PASSED'
+}
+
+function buildContribGrid({ poly }) {
+  const cw = 1.44 / GRID_COLS
+  const ch = 1.54 / GRID_ROWS
+  for (let col = 0; col < GRID_COLS; col++) {
+    for (let row = 0; row < GRID_ROWS; row++) {
+      const x = -4.52 + col * cw
+      const z = 5.92 - row * ch
+      const pad = 0.025
+      poly([P(x + pad, 9.64, z - pad), P(x + cw - pad, 9.64, z - pad), P(x + cw - pad, 9.64, z - ch + pad), P(x + pad, 9.64, z - ch + pad)], CELL_FILLS[0], { class: 'gh-cell', style: `--c:${col * GRID_ROWS + row}` })
+    }
+  }
 }
 
 function buildMonitors(kit) {
@@ -19,7 +33,7 @@ function buildMonitors(kit) {
   poly([P(-4.58, 9.65, 5.98), P(-3.02, 9.65, 5.98), P(-3.02, 9.65, 4.32), P(-4.58, 9.65, 4.32)], '#ffffff')
   const code = (xa, xb, z, delay, d) => seg(P(xa, d, z), P(xb, d, z), { class: 'ty', pathLength: 1, style: `--d:${delay}s` })
   ;[[-2.0, -0.1, 6.65], [-1.7, 1.4, 6.3], [-1.7, 0.2, 5.95], [-1.4, 1.7, 5.6], [-1.4, -0.2, 5.25]].forEach((c, i) => code(c[0], c[1], c[2], 2.0 + i * 0.35, 9.54))
-  ;[[-4.4, -3.4, 5.6], [-4.2, -3.2, 5.25], [-4.2, -3.5, 4.9], [-4.4, -3.3, 4.55]].forEach((c, i) => code(c[0], c[1], c[2], 2.2 + i * 0.4, 9.64))
+  buildContribGrid(kit)
   poly([P(1.3, 9.54, 5.5), P(1.55, 9.54, 5.5), P(1.55, 9.54, 5.2), P(1.3, 9.54, 5.2)], '#000', { class: 'solid blink' })
   buildPassedBadge(kit)
 }
