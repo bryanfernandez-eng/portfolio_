@@ -7,11 +7,14 @@ const SHOT_TIME = 0.85
 const REST_SPEED = 3.5
 export const BOUNCE = { chase: 12, idle: 6, rest: 0 }
 
-const SOLIDS = [
+export const createSolids = () => [
   { k: 'plantl', x: -9.2, d: 8.8, r: 0.8, h: 3.6 }, { k: 'lamp', x: -6, d: 9.5, r: 0.35, h: 5.9 },
   { k: 'plantr', x: 6.1, d: 8.6, r: 0.8, h: 3.6 }, { k: 'chair', x: 0, d: 5.1, r: 1.4, h: 3.4 },
-  { k: 'bag', x: -6.8, d: 1.5, r: 0.8, h: 1.5 }, { k: 'skate', x: 5.6, d: 2.0, r: 1.0, h: 0.5 },
+  { k: 'bag', x: -6.8, d: 1.5, r: 0.8, h: 1.5 },
+  { k: 'skate', x: 5.6, d: 2.0, ox: 5.6, od: 2.0, r: 1.0, h: 0.5, vx: 0, vd: 0, rolls: true },
 ]
+const ROLL_DRAG = 2.2
+const ROLL_BOUNDS = { minX: -8, maxX: HW - 1.2, minD: 0.7, maxD: 6 }
 const RECTS = [
   { k: 'desk', x0: -4.7, x1: 4.7, d0: 6.5, d1: 10.4, h: 3.3 }, { k: 'couch', x0: -11.4, x1: -9.0, d0: 1.2, d1: 6.4, h: 2.0 },
 ]
@@ -45,8 +48,22 @@ function collideHoop(ball, bump) {
   }
 }
 
-function collideSolids(ball, [tx, td], bump) {
-  SOLIDS.forEach(s => {
+function moveSolids(solids, dt, minD) {
+  solids.forEach(s => {
+    if (!s.rolls) return
+    s.x += s.vx * dt
+    s.d += s.vd * dt
+    const drag = Math.exp(-ROLL_DRAG * dt)
+    s.vx *= drag
+    s.vd *= drag
+    const { minX, maxX, maxD } = ROLL_BOUNDS
+    if (s.x < minX || s.x > maxX) { s.x = Math.min(maxX, Math.max(minX, s.x)); s.vx *= -0.4 }
+    if (s.d < Math.max(minD, ROLL_BOUNDS.minD) || s.d > maxD) { s.d = Math.min(maxD, Math.max(Math.max(minD, ROLL_BOUNDS.minD), s.d)); s.vd *= -0.4 }
+  })
+}
+
+function collideSolids(ball, [tx, td], bump, solids) {
+  solids.forEach(s => {
     if (ball.flying || ball.z - BR > s.h) return
     const dx = ball.x - s.x
     const dd = ball.d - s.d
@@ -58,12 +75,17 @@ function collideSolids(ball, [tx, td], bump) {
     const vn = ball.vx * nx + ball.vd * nd
     ball.x = s.x + nx * min
     ball.d = s.d + nd * min
+    if (s.rolls) {
+      const push = Math.max(-vn, 0.8) * 0.9
+      s.vx -= nx * push
+      s.vd -= nd * push
+    }
     if (vn < 0) { ball.vx -= 1.6 * vn * nx; ball.vd -= 1.6 * vn * nd }
     const side = (tx - ball.x) * -nd + (td - ball.d) * nx
     const go = Math.abs(side) > 0.5 ? Math.sign(side) : (nx > 0 ? 1 : -1)
     ball.vx += -nd * go * 0.6
     ball.vd += nx * go * 0.6
-    bump(s.k)
+    if (!s.rolls) bump(s.k)
   })
 }
 
@@ -87,8 +109,9 @@ function collideShelf(ball, bump) {
   }
 }
 
-export function stepBall(ball, dt, [tx, goalD], minD, bump, minBounce = BOUNCE.chase) {
+export function stepBall(ball, dt, [tx, goalD], minD, bump, minBounce, solids) {
   const td = ball.x * tx < 0 && goalD > 3 ? Math.max(minD, LANE) : goalD
+  moveSolids(solids, dt, minD)
   if (ball.flying) ball.fly -= dt
   else {
     ball.vx += ((tx - ball.x) * 13 - ball.vx * 6) * dt
@@ -102,7 +125,7 @@ export function stepBall(ball, dt, [tx, goalD], minD, bump, minBounce = BOUNCE.c
   collideRects(ball, bump)
   if (ball.flying) collideHoop(ball, bump)
   collideShelf(ball, bump)
-  collideSolids(ball, [tx, td], bump)
+  collideSolids(ball, [tx, td], bump, solids)
   ball.a += (ball.vx / BR) * 40 * dt
 }
 

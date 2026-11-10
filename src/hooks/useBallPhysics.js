@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react'
 import { useAnimationFrame } from './useAnimationFrame'
 import { pointer } from '../utils/pointer'
-import { BOUNCE, createBall, stepBall } from '../utils/ballPhysics'
+import { BOUNCE, createBall, createSolids, stepBall } from '../utils/ballPhysics'
 import { ballMode } from '../utils/ballMode'
 import { drawBall } from '../utils/ballView'
 import { createBumper } from '../utils/bump'
 import { floorTarget } from '../utils/floorTarget'
+import { createGaze, updateGaze } from '../utils/gaze'
+import { drawSkate } from '../utils/skateView'
 import { updateMeter } from '../utils/shotMeter'
 
 const MAX_DT = 0.033
@@ -16,11 +18,21 @@ export function useBallPhysics({ sceneRef, engineRef, ballViewRef, meterRef, min
 
   useEffect(() => {
     const scene = sceneRef.current
-    const engine = { ball: createBall(), bump: createBumper(scene), hold: { isDown: false, startedAt: 0 }, isOver: false }
+    const solids = createSolids()
+    const engine = {
+      ball: createBall(),
+      bump: createBumper(scene),
+      hold: { isDown: false, startedAt: 0 },
+      isOver: false,
+      solids,
+      skate: solids.find(solid => solid.k === 'skate'),
+      skateElement: scene.querySelector('[data-k="skate"]'),
+      gaze: createGaze(scene),
+    }
     engineRef.current = engine
     const handleEnter = () => { engine.isOver = true }
     const handleLeave = () => { engine.isOver = false }
-    const handleAnimationEnd = event => event.target.classList.remove('bump', 'hop')
+    const handleAnimationEnd = event => event.target.classList.remove('bump', 'hop', 'cheer')
     scene.addEventListener('pointerenter', handleEnter)
     scene.addEventListener('pointerleave', handleLeave)
     scene.addEventListener('animationend', handleAnimationEnd)
@@ -44,8 +56,10 @@ export function useBallPhysics({ sceneRef, engineRef, ballViewRef, meterRef, min
     lastTimeRef.current = time
     const mode = ballMode(engine, performance.now() - pointer.movedAt)
     const target = mode === 'chase' ? floorTarget(sceneRef.current, pointer, minDRef.current) : [engine.ball.x, engine.ball.d]
-    stepBall(engine.ball, dt, target, minDRef.current, engine.bump, BOUNCE[mode])
+    stepBall(engine.ball, dt, target, minDRef.current, engine.bump, BOUNCE[mode], engine.solids)
     drawBall(view, engine.ball)
+    drawSkate(engine.skateElement, engine.skate)
+    updateGaze(engine.gaze, engine.ball)
     updateMeter(engine, sceneRef.current, meterRef.current)
   }
 

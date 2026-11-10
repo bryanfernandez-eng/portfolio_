@@ -1,7 +1,15 @@
 import { project as P } from './perspective'
 import { TONES as T } from './roomTones'
 
-function buildMonitors({ box, poly, seg }) {
+function buildPassedBadge({ mk, group }) {
+  const [cx, cy] = P(0, 9.5, 6.55)
+  const badge = mk('g', { class: 'passed', 'data-k': 'swish' }, group())
+  mk('rect', { x: (cx - 52).toFixed(1), y: (cy - 9).toFixed(1), width: 104, height: 18, fill: '#000' }, badge)
+  mk('text', { x: cx.toFixed(1), y: (cy + 4).toFixed(1), 'text-anchor': 'middle' }, badge).textContent = 'BUILD PASSED'
+}
+
+function buildMonitors(kit) {
+  const { box, poly, seg } = kit
   box(-0.2, 0.2, 9.65, 9.9, 3.3, 4.6, T.dark)
   box(-2.5, 2.5, 9.6, 9.9, 4.5, 7.1, T.bezel)
   const main = poly([P(-2.35, 9.55, 6.95), P(2.35, 9.55, 6.95), P(2.35, 9.55, 4.65), P(-2.35, 9.55, 4.65)], '#ffffff')
@@ -13,6 +21,7 @@ function buildMonitors({ box, poly, seg }) {
   ;[[-2.0, -0.1, 6.65], [-1.7, 1.4, 6.3], [-1.7, 0.2, 5.95], [-1.4, 1.7, 5.6], [-1.4, -0.2, 5.25]].forEach((c, i) => code(c[0], c[1], c[2], 2.0 + i * 0.35, 9.54))
   ;[[-4.4, -3.4, 5.6], [-4.2, -3.2, 5.25], [-4.2, -3.5, 4.9], [-4.4, -3.3, 4.55]].forEach((c, i) => code(c[0], c[1], c[2], 2.2 + i * 0.4, 9.64))
   poly([P(1.3, 9.54, 5.5), P(1.55, 9.54, 5.5), P(1.55, 9.54, 5.2), P(1.3, 9.54, 5.2)], '#000', { class: 'solid blink' })
+  buildPassedBadge(kit)
 }
 
 function buildDeskItems({ mk, box, seg }) {
@@ -57,7 +66,7 @@ function buildHands({ mk, group, box }) {
 }
 
 function buildDeveloper(kit) {
-  const { open, close, box } = kit
+  const { mk, group, open, close, box } = kit
   open('chair')
   box(-0.15, 0.15, 3.9, 6.3, 0.1, 0.3, T.dark)
   box(-1.4, 1.4, 4.9, 5.2, 0.1, 0.3, T.dark)
@@ -74,12 +83,13 @@ function buildDeveloper(kit) {
   open('chair')
   box(-1.4, 1.4, 4.2, 4.5, 2.0, 3.4, T.dark)
   close()
-  box(-0.3, 0.3, 4.9, 5.3, 4.75, 5.15, T.skin)
-  box(-0.75, 0.75, 4.75, 5.55, 5.1, 6.3, T.skin)
-  box(-0.82, 0.82, 4.65, 5.5, 5.2, 6.4, T.hair)
-  box(-1.05, -0.8, 4.8, 5.4, 5.4, 5.95, T.dark)
-  box(0.8, 1.05, 4.8, 5.4, 5.4, 5.95, T.dark)
-  box(-0.82, 0.82, 4.9, 5.2, 6.37, 6.5, T.dark)
+  const head = mk('g', { class: 'dev-head' }, mk('g', { class: 'dev-cheer' }, group()))
+  box(-0.3, 0.3, 4.9, 5.3, 4.75, 5.15, T.skin, head)
+  box(-0.75, 0.75, 4.75, 5.55, 5.1, 6.3, T.skin, head)
+  box(-0.82, 0.82, 4.65, 5.5, 5.2, 6.4, T.hair, head)
+  box(-1.05, -0.8, 4.8, 5.4, 5.4, 5.95, T.dark, head)
+  box(0.8, 1.05, 4.8, 5.4, 5.4, 5.95, T.dark, head)
+  box(-0.82, 0.82, 4.9, 5.2, 6.37, 6.5, T.dark, head)
 }
 
 export function buildWorkstation(kit) {

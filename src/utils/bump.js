@@ -14,5 +14,6 @@ export function createBumper(scene) {
     last[key] = now
     scene.querySelectorAll(`[data-k="${key}"]`).forEach(el => restart(el, 'bump'))
     if (key === 'couch') scene.querySelectorAll('.breathe').forEach(el => restart(el, 'hop'))
+    if (key === 'swish') scene.querySelectorAll('.dev-cheer').forEach(el => restart(el, 'cheer'))
   }
 }

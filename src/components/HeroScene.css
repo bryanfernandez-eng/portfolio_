@@ -20,7 +20,24 @@
 #scene .steam{fill:none;stroke:#000;stroke-width:2;stroke-linecap:round;opacity:0}
 .play .steam{animation:steam 3.2s ease-in-out infinite}
 @keyframes steam{0%{transform:translateY(6px);opacity:0}40%{opacity:.9}100%{transform:translateY(-12px);opacity:0}}
-#scene.dim{opacity:.4}
+#scene.dim{opacity:calc(var(--lit, .4) * var(--off, 1))}
+#scene.tod-day{--lit:.55}
+#scene.tod-dusk{--lit:.47}
+#scene.tod-night{--lit:.4}
+#scene.lamp-off{--off:.5}
+#scene.lamp-used{transition:opacity .45s ease}
+#scene.lamp-off .ty,#scene.lamp-off .sky{filter:drop-shadow(0 0 5px #000)}
+.thing[data-k="lamp"]{cursor:pointer;outline:none}
+.thing[data-k="lamp"]:focus-visible polygon{stroke-width:2.6}
+.flyby{animation:flyby 26s linear infinite}
+@keyframes flyby{0%{transform:translateX(0);opacity:0}6%{opacity:1}94%{opacity:1}100%{transform:translateX(104px);opacity:0}}
+.dev-cheer{transform-box:fill-box;transform-origin:50% 100%}
+.dev-cheer.cheer{animation:cheer .8s ease-out}
+@keyframes cheer{15%{transform:translateY(-7px) rotate(-5deg)}35%{transform:translateY(1px)}55%{transform:translateY(-5px) rotate(4deg)}100%{transform:none}}
+.passed{opacity:0}
+.passed.bump{animation:passed 1.5s ease-out both}
+@keyframes passed{0%{opacity:0}12%{opacity:1}75%{opacity:1}100%{opacity:0}}
+.passed text{font:700 11px 'Red Hat Mono',ui-monospace,monospace;letter-spacing:.06em;fill:#fff}
 .hand,.fing,.thing,.tail,.breathe{transform-box:fill-box}
 .tail{transform-origin:50% 100%}
 .breathe{transform-origin:50% 100%}
@@ -54,4 +71,4 @@
   .scene-wrap{animation:sceneout linear both;animation-timeline:scroll(root block);animation-range:0 70svh}
   @keyframes sceneout{to{transform:translateY(14vh);opacity:.15}}
 }
-@media (prefers-reduced-motion:reduce){#scene .pop{opacity:1;animation:none}.play .pop,.play .ty,.play .steam,.play .hand,.play .fing,#scene .blink{animation:none}#scene .ty{stroke-dashoffset:0}#scene .ball{display:none}.scene-wrap{animation:none}#scene .tail,#scene .breathe{animation:none}}
+@media (prefers-reduced-motion:reduce){.flyby,.dev-cheer.cheer,.passed.bump{animation:none}#scene .pop{opacity:1;animation:none}.play .pop,.play .ty,.play .steam,.play .hand,.play .fing,#scene .blink{animation:none}#scene .ty{stroke-dashoffset:0}#scene .ball{display:none}.scene-wrap{animation:none}#scene .tail,#scene .breathe{animation:none}}
