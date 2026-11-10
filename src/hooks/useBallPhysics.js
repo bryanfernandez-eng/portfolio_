@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useAnimationFrame } from './useAnimationFrame'
 import { pointer } from '../utils/pointer'
 import { BOUNCE, createBall, createSolids, stepBall } from '../utils/ballPhysics'
-import { aimPoint, updateHandle } from '../utils/ballHandle'
+import { GRIP, aimPoint, createMotion, updateHandle } from '../utils/ballHandle'
 import { drawBall } from '../utils/ballView'
 import { createBumper } from '../utils/bump'
 import { floorTarget } from '../utils/floorTarget'
@@ -25,6 +25,7 @@ export function useBallPhysics({ sceneRef, engineRef, ballViewRef, meterRef, min
       hold: { isDown: false, startedAt: 0 },
       isOver: false,
       isHandling: false,
+      motion: createMotion(pointer),
       solids,
       skate: solids.find(solid => solid.k === 'skate'),
       skateElement: scene.querySelector('[data-k="skate"]'),
@@ -57,6 +58,7 @@ export function useBallPhysics({ sceneRef, engineRef, ballViewRef, meterRef, min
     lastTimeRef.current = time
     updateHandle(engine, sceneRef.current, pointer)
     const mode = engine.isHandling ? 'chase' : 'rest'
+    engine.ball.grip = engine.isHandling ? GRIP : 1
     const target = engine.isHandling ? floorTarget(sceneRef.current, aimPoint(sceneRef.current, engine.ball, pointer), minDRef.current) : [engine.ball.x, engine.ball.d]
     stepBall(engine.ball, dt, target, minDRef.current, engine.bump, BOUNCE[mode], engine.solids)
     drawBall(view, engine.ball)

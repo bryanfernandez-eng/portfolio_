@@ -19,7 +19,7 @@ const RECTS = [
   { k: 'desk', x0: -4.7, x1: 4.7, d0: 6.5, d1: 10.4, h: 3.3 }, { k: 'couch', x0: -11.4, x1: -9.0, d0: 1.2, d1: 6.4, h: 2.0 },
 ]
 
-export const createBall = () => ({ x: 0, d: 3.4, z: 3, vx: 0, vd: 0, vz: 0, a: 0, flying: false, fly: 0, rimDone: false })
+export const createBall = () => ({ x: 0, d: 3.4, z: 3, vx: 0, vd: 0, vz: 0, a: 0, grip: 1, flying: false, fly: 0, rimDone: false })
 
 function collideRects(ball, bump) {
   RECTS.forEach(r => {
@@ -114,8 +114,10 @@ export function stepBall(ball, dt, [tx, goalD], minD, bump, minBounce, solids) {
   moveSolids(solids, dt, minD)
   if (ball.flying) ball.fly -= dt
   else {
-    ball.vx += ((tx - ball.x) * 13 - ball.vx * 6) * dt
-    ball.vd += ((td - ball.d) * 13 - ball.vd * 6) * dt
+    const stiffness = 13 * ball.grip
+    const damping = 6 * Math.sqrt(ball.grip)
+    ball.vx += ((tx - ball.x) * stiffness - ball.vx * damping) * dt
+    ball.vd += ((td - ball.d) * stiffness - ball.vd * damping) * dt
   }
   ball.vz -= GRAVITY * dt
   ball.x += ball.vx * dt
