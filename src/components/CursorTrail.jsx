@@ -8,7 +8,7 @@ import './CursorTrail.css'
 
 const BLOBS = Array.from({ length: 8 }, (_, i) => ({ index: i, size: 44 - i * 4 }))
 
-function CursorTrail() {
+function CursorTrail({ isActive }) {
   const trailRef = useRef(null)
   const positions = useRef(BLOBS.map(() => ({ x: pointer.x, y: pointer.y })))
   const isReduced = useReducedMotion()
@@ -30,7 +30,7 @@ function CursorTrail() {
     })
   }
 
-  useAnimationFrame(handleFrame, !isReduced)
+  useAnimationFrame(handleFrame, !isReduced && isActive)
 
   return (
     <>

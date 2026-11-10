@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import CursorTrail from '../components/CursorTrail'
 import HeroScene from '../components/HeroScene'
 import { useHeroIntro } from '../hooks/useHeroIntro'
+import { useIdle } from '../hooks/useIdle'
 import { useInView } from '../hooks/useInView'
 import { classNames } from '../utils/classNames'
 import { PROFILE, HERO_LINES } from '../data'
@@ -15,11 +16,13 @@ function Hero() {
   const sceneRef = useRef(null)
   const wipeRef = useRef(null)
   const isHeroVisible = useInView(heroRef, { isInitiallyInView: true })
+  const isIdle = useIdle()
+  const isAnimating = isHeroVisible && !isIdle
   const { isPlaying, isDimmed, isFlipped, isInstant } = useHeroIntro({ heroRef, sceneRef, wipeRef })
 
   return (
     <header className={classNames('hero', isFlipped && 'flipped')} id="hero" ref={heroRef}>
-      <CursorTrail />
+      <CursorTrail isActive={isAnimating} />
       <HeroScene
         sceneRef={sceneRef}
         heroRef={heroRef}
@@ -27,7 +30,7 @@ function Hero() {
         isPlaying={isPlaying}
         isDimmed={isDimmed}
         isInstant={isInstant}
-        isActive={isHeroVisible}
+        isActive={isAnimating}
       />
       <h1 className="wide" ref={titleRef}>
         {NAME_PARTS.map(part => <span key={part}>{part}</span>)}

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useAnimationFrame } from './useAnimationFrame'
+import { useIdle } from './useIdle'
 import { useInView } from './useInView'
 import { useReducedMotion } from './useReducedMotion'
 import { useScrollFrame } from './useScrollFrame'
@@ -10,6 +11,7 @@ const FRAME_INTERVAL_MS = 55
 export function useContour(svgRef, seed) {
   const isReduced = useReducedMotion()
   const isInView = useInView(svgRef)
+  const isIdle = useIdle()
   const contourRef = useRef(null)
   const lastDrawRef = useRef(0)
 
@@ -34,6 +36,6 @@ export function useContour(svgRef, seed) {
     contourRef.current?.draw(time / 1000)
   }
 
-  useAnimationFrame(handleFrame, isInView && !isReduced)
+  useAnimationFrame(handleFrame, isInView && !isReduced && !isIdle)
   useScrollFrame(() => contourRef.current?.draw(0), { isListening: isReduced })
 }
