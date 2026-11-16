@@ -22,11 +22,10 @@ export function useThemeSwitch(sceneRef, isReady, isReduced) {
     const flip = () => {
       if (!isReady || isBusy.current) return
       isBusy.current = true
-      const swap = () => {
-        setTheme(getTheme() === 'dark' ? 'light' : 'dark')
+      const swap = () => setTheme(getTheme() === 'dark' ? 'light' : 'dark')
+      playThemeWipe(target, swap, isReduced).finally(() => {
         isBusy.current = false
-      }
-      playThemeWipe(target, swap, isReduced)
+      })
     }
     const handlePointerDown = event => {
       if (event.target.closest('[data-k="switch"]')) event.stopPropagation()

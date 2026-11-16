@@ -4,7 +4,10 @@ const listeners = new Set()
 export const getTheme = () => (document.documentElement.dataset.theme === 'light' ? 'light' : 'dark')
 
 export function setTheme(theme) {
-  document.documentElement.dataset.theme = theme
+  const root = document.documentElement
+  root.classList.add('theme-swap')
+  requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove('theme-swap')))
+  root.dataset.theme = theme
   try {
     localStorage.setItem(STORAGE_KEY, theme)
   } catch {

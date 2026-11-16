@@ -10,3 +10,5 @@ a{color:inherit;text-decoration:none;cursor:none}
 .topo-host{position:relative;overflow:hidden;isolation:isolate}
 @media (hover:none){html,a{cursor:auto}}
 .theme-wipe{position:fixed;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:200}
+html.theme-swap *,html.theme-swap *::before,html.theme-swap *::after{transition:none!important}
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}

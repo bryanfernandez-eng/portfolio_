@@ -23,7 +23,7 @@ function Hero() {
   const { isPlaying, isDimmed, isFlipped, isInstant, isReady } = useHeroIntro({ heroRef, sceneRef, wipeRef })
 
   return (
-    <header className={classNames('hero', isFlipped && isDark && 'flipped')} id="hero" ref={heroRef}>
+    <header className={classNames('hero', isFlipped && 'intro-done', isFlipped && isDark && 'flipped')} id="hero" ref={heroRef}>
       <CursorTrail isActive={isAnimating} />
       <HeroScene
         sceneRef={sceneRef}
