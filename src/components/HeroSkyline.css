@@ -1,0 +1,17 @@
+.skyline{position:absolute;left:0;width:100%;height:auto;top:var(--horizon,70%);transform:translateY(-54.545%);z-index:1;pointer-events:none;opacity:0;transition:opacity 1.6s ease 1s;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 34%);mask-image:linear-gradient(to bottom,transparent,#000 34%)}
+.hero.intro-done .skyline{opacity:1}
+.hero.flipped .skyline{filter:invert(1)}
+.skyline path{vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.skyline .back,.skyline .front{fill:#fff;stroke:#000;stroke-width:1.2}
+.skyline .back{stroke-opacity:.15}
+.skyline .front{stroke-opacity:.42}
+.skyline .detail{fill:none;stroke:#000;stroke-opacity:.16;stroke-width:1}
+.skyline .sun{fill:none;stroke:#000;stroke-opacity:.3;stroke-width:1.2}
+.skyline .cut{fill:#fff}
+.skyline .bridge{fill:none;stroke:#000;stroke-opacity:.34;stroke-width:1.2}
+.skyline .horizon{stroke:#000;stroke-opacity:.38;stroke-width:1.2}
+.skyline .reflection{opacity:.5}
+.skyline .rip{animation:ripple 5s ease-in-out infinite alternate}
+.skyline.paused .rip{animation-play-state:paused}
+@keyframes ripple{from{transform:translateX(-14px)}to{transform:translateX(14px)}}
+@media (prefers-reduced-motion:reduce){.skyline .rip{animation:none}.skyline{transition:none}}

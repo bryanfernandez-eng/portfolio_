@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import CursorTrail from '../components/CursorTrail'
 import HeroScene from '../components/HeroScene'
+import HeroSkyline from '../components/HeroSkyline'
 import { useHeroIntro } from '../hooks/useHeroIntro'
 import { useIdle } from '../hooks/useIdle'
 import { useInView } from '../hooks/useInView'
@@ -35,6 +36,7 @@ function Hero() {
         isInstant={isInstant}
         isActive={isAnimating}
       />
+      <HeroSkyline heroRef={heroRef} titleRef={titleRef} isActive={isAnimating} />
       <h1 className="wide" ref={titleRef}>
         {NAME_PARTS.map(part => <span key={part}>{part}</span>)}
       </h1>

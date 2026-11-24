@@ -8,3 +8,5 @@
 .hero.flipped .blob{background:#fff}
 .hero.flipped #scene{filter:invert(1)}
 @media (max-width:800px){.hero .sub{flex-direction:column;gap:.3rem}}
+.hero.intro-done h1,.hero.intro-done .sub{mix-blend-mode:normal;color:#000}
+.hero.flipped h1,.hero.flipped .sub{color:#fff}
