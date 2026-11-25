@@ -1,6 +1,20 @@
 {
   "items": [
     {
+      "id": "proj-8",
+      "name": "Hoopwise",
+      "summary": "Ranks and explains every NBA player and team, with award races, win odds and a daily stat game.",
+      "shortStack": [
+        "React / FastAPI",
+        "Postgres / Gemini"
+      ],
+      "image": "/projects/hoopwise.webp",
+      "imageWidth": 1200,
+      "imageHeight": 650,
+      "github": null,
+      "live": "https://hoopwise.onrender.com"
+    },
+    {
       "id": "proj-7",
       "name": "CareerPilot",
       "summary": "A job search copilot that tracks your applications and drafts tailored resumes and cover letters.",

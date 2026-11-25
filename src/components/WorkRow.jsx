@@ -1,14 +1,14 @@
 import { classNames } from '../utils/classNames'
 
 function WorkRow({ project, isActive, onShow, onHide }) {
-  const { id, name, summary, shortStack, image, imageWidth, imageHeight, github } = project
+  const { id, name, summary, shortStack, image, imageWidth, imageHeight, github, live } = project
   const handleShow = () => onShow(id)
 
   return (
     <li className={classNames('work-row', isActive && 'on')}>
       <a
         className="work-title wide"
-        href={github || '#'}
+        href={live || github || '#'}
         onMouseEnter={handleShow}
         onMouseLeave={onHide}
         onFocus={handleShow}
