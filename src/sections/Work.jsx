@@ -1,31 +1,21 @@
-import { useState } from 'react'
-import ProjectPreview from '../components/ProjectPreview'
-import WorkRow from '../components/WorkRow'
-import { classNames } from '../utils/classNames'
+import ProjectFrame from '../components/ProjectFrame'
 import { PROJECTS, WORK_HEADING } from '../data'
 import './Work.css'
 
 function Work() {
-  const [preview, setPreview] = useState({ id: null, isOn: false })
-  const handleShow = id => setPreview({ id, isOn: true })
-  const handleHide = () => setPreview(current => ({ ...current, isOn: false }))
-  const previewed = PROJECTS.find(project => project.id === preview.id)
-
   return (
-    <section id="work">
-      <h2 className="section-label padded">{WORK_HEADING}</h2>
-      <ul className={classNames('work', preview.isOn && 'peek')}>
-        {PROJECTS.map(project => (
-          <WorkRow
-            key={project.id}
-            project={project}
-            isActive={preview.isOn && preview.id === project.id}
-            onShow={handleShow}
-            onHide={handleHide}
-          />
-        ))}
+    <section className="work" id="work">
+      <div className="work-head">
+        <h2 className="section-label">{WORK_HEADING}</h2>
+        <p className="work-legend">
+          <span className="frame-status live">live site</span>
+          <span className="frame-status code">code</span>
+          <span className="frame-status none">no public link</span>
+        </p>
+      </div>
+      <ul className="sheet">
+        {PROJECTS.map(project => <ProjectFrame key={project.id} project={project} />)}
       </ul>
-      <ProjectPreview project={previewed} isOn={preview.isOn} />
     </section>
   )
 }
