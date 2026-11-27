@@ -23,7 +23,6 @@ export const PROJECTS = projects.items
 export const EXPERIENCE = experience
 
 export const SECTION_LABELS = Object.fromEntries(sections.map(({ id, label }) => [id, label]))
-export const ABOUT_FACTS = profile.facts
 export const LOCATION = factValue('location')
 export const HERO_LINES = [profile.title, LOCATION, profile.graduation, factValue('now')]
 export const WORK_HEADING = `${SECTION_LABELS.work} / ${pad(projects.items.length)}`
