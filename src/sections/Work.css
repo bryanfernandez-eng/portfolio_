@@ -13,7 +13,7 @@
 .frame:first-child .frame-shot{flex:1 1 auto;min-height:0}
 .frame:first-child .frame-shot img{height:100%;min-height:18rem;aspect-ratio:auto;object-position:left top}
 .frame-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.2rem 1rem}
-.frame-name{font:900 clamp(1.05rem,1.5vw,1.4rem)/1.05 'Anybody',Impact,sans-serif;font-stretch:130%;text-transform:uppercase}
+.frame-name{font-family:'Anybody',Impact,sans-serif;font-weight:900;font-size:clamp(1.05rem,1.5vw,1.4rem);line-height:1.05;font-stretch:130%;text-transform:uppercase}
 .frame:first-child .frame-name{font-size:clamp(2rem,3.4vw,3.2rem);font-stretch:150%}
 .frame-name a{display:inline-block;padding:.35rem 0;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.25em}
 .frame-name a:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
