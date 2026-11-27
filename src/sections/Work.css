@@ -29,7 +29,7 @@
   .work{padding:0 20px 3rem}
   .sheet{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8rem 1rem}
   .frame,.frame:nth-child(n+6){grid-column:span 1}
-  .frame:first-child{grid-column:1/-1;grid-row:auto;padding-bottom:1.6rem;border-bottom:1px solid var(--line)}
+  .frame:first-child{grid-column:1/-1;grid-row:auto;padding-bottom:1.6rem}
   .frame:first-child .frame-shot img{min-height:0;aspect-ratio:1200/650}
   .frame-shot::before,.frame-shot::after{width:8px;height:8px}
   .frame-shot::before{left:-5px;top:-5px}

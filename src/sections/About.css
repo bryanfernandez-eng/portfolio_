@@ -1,4 +1,4 @@
-.about{display:grid;grid-template-columns:2fr 5fr;grid-template-areas:"label sentence" "notes aside";gap:4.5rem 3vw;padding:14vh 3vw 12vh;border-top:1px solid var(--line)}
+.about{display:grid;grid-template-columns:2fr 5fr;grid-template-areas:"label sentence" "notes aside";gap:4.5rem 3vw;padding:14vh 3vw 12vh}
 .about-sentence,.about-aside,.about-notes{position:relative}
 .about-sentence::before,.about-aside::before,.about-notes::before{content:'';position:absolute;inset:-3rem -4rem;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,var(--bg) 62%,transparent)}
 .about .section-label{grid-area:label}
