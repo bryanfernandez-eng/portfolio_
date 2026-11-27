@@ -1,5 +1,5 @@
-.xp-list{list-style:none;border-top:1px solid var(--line)}
-.xp-row{--nt:calc(1.5rem + clamp(.75rem,1.6vw,1.5rem));--st:0px;--sh:100%;--fill:0;position:relative;min-height:clamp(220px,20vw,300px);display:grid;grid-template-columns:1.2fr 1.6fr 1fr;gap:.3rem 1.4rem;align-items:baseline;padding:1.5rem 3vw 1.5rem calc(3vw + 40px);border-bottom:1px solid var(--line)}
+.xp-list{list-style:none}
+.xp-row{--nt:calc(1.5rem + clamp(.75rem,1.6vw,1.5rem));--st:0px;--sh:100%;--fill:0;position:relative;min-height:clamp(220px,20vw,300px);display:grid;grid-template-columns:1.2fr 1.6fr 1fr;gap:.3rem 1.4rem;align-items:baseline;align-content:start;padding:1.5rem 3vw 1.5rem calc(3vw + 40px)}
 .xp-row:first-child{--st:var(--nt);--sh:calc(100% - var(--nt))}
 .xp-row:last-child{--sh:var(--nt)}
 .xp-row::before,.xp-row::after{content:'';position:absolute;left:calc(3vw + 7px);top:var(--st);width:2px;pointer-events:none}
@@ -18,5 +18,5 @@
 .xp-detail mark .wd.on{color:var(--fg)}
 .xp-row.lit mark{background-size:100% 2px}
 @media (prefers-reduced-motion:reduce){.node,.xp-name{transition:none}}
-@media (max-width:700px){.xp-row{min-height:0}}
-@media (max-width:800px){.xp-row{grid-template-columns:1fr}}
+@media (max-width:800px){.xp-row{min-height:0}}
+@media (max-width:800px){.xp-row{grid-template-columns:1fr auto}.xp-name,.xp-role,.xp-when{grid-column:1}.xp-row .il{position:static;grid-column:2;grid-row:1/4;align-self:start;height:clamp(72px,14vw,100px);max-width:30vw}}

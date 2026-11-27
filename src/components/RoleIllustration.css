@@ -34,4 +34,3 @@ html[data-theme=light] .xp-row:hover .il{--il-line:#2f2f2f}
 @keyframes finsway{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
 @keyframes flap{from{transform:rotate(-9deg)}to{transform:rotate(7deg)}}
 @media (prefers-reduced-motion:reduce){.il .lbl{opacity:1;transition:none}.il .st,.il .f{stroke-dashoffset:0;fill-opacity:1;transition:none}.il .rib{opacity:1;animation:none}.il .flow,.il .bob,.il .sway,.il .wing,.il .lid,.il .ear,.il .fin{animation:none}}
-@media (max-width:700px){.il{position:static;display:block;width:auto;height:120px;max-width:70%;margin:1rem 0 0 auto}}
