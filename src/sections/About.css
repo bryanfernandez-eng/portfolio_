@@ -1,5 +1,6 @@
 .about{display:grid;grid-template-columns:2fr 5fr;grid-template-areas:"label sentence" "notes aside";gap:4.5rem 3vw;padding:14vh 3vw 12vh;border-top:1px solid var(--line)}
-.about .topo{-webkit-mask-image:linear-gradient(170deg,transparent 0 55%,#000 85%);mask-image:linear-gradient(170deg,transparent 0 55%,#000 85%)}
+.about-sentence,.about-aside,.about-notes{position:relative}
+.about-sentence::before,.about-aside::before,.about-notes::before{content:'';position:absolute;inset:-3rem -4rem;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,var(--bg) 62%,transparent)}
 .about .section-label{grid-area:label}
 .about-sentence{grid-area:sentence;max-width:18em;font:900 clamp(1.6rem,4.4vw,4.3rem)/.98 'Anybody',Impact,sans-serif;font-stretch:122%;text-transform:uppercase;letter-spacing:-.02em;color:var(--fg)}
 .about-sentence sup{margin-left:.15em;font:600 max(.3em,11px)/1 'Red Hat Mono',ui-monospace,monospace;vertical-align:top}
